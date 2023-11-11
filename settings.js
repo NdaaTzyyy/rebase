@@ -13,13 +13,13 @@ global.beta = 'BRexrqpD'
 global.zenz = 'zenzkey_41b4fe7a5d'
 /* ~~~~~~~~~ SETTINGS OWNER ~~~~~~~~~ */
 global.numberowner = '6285640575421' // Owner Utama
-global.owner = ['6285640575421','6285640575421'] // Owner Lainnya
+global.owner = ['6285640575421','6282370999935', '6282370999943'] // Owner Lainnya
 global.namaowner = 'Ndaa' // Nama Owner
 global.premium = ['6285640575421','6285640575421'] // Premium User
 /* ~~~~~~~~~ SETTINGS BOT ~~~~~~~~~ */
 global.namabot = 'NdaaBotz-Md' // NickBot
 global.fake = 'Created By Ndaa' // Fake Menu
-global.typemenu = 'v4' 
+global.typemenu = 'v2' 
 // 'v1' > 'v2' > 'v3' > 'v4' > 'v5' > 'v6'
 // 'v1' Image ORI!
 // 'v2' Image Kece!
