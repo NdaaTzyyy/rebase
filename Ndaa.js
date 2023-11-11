@@ -21,7 +21,7 @@ const ms = toMs = require('ms')
 const axios = require('axios')
 const fetch = require('node-fetch')
 const { Primbon } = require('scrape-primbon')
-const { remini } = require('./lib/remini')
+const { remini } = require('./lib/remini.js')
 const primbon = new Primbon()
 const {
     exec,
@@ -38,14 +38,14 @@ const {
     UploadFileUgu,
     webp2mp4File,
     floNime
-} = require('./lib/uploader')
+} = require('./lib/uploader.js')
 const {
     toAudio,
     toPTT,
     toVideo,
     ffmpeg,
     addExifAvatar
-} = require('./lib/converter')
+} = require('./lib/converter.js')
 const { 
     getRegisteredRandomId, 
     addRegisteredUser, 
@@ -60,7 +60,7 @@ const {
     sendResponList, 
     updateResponList, 
     getDataResponList 
-} = require('./lib/addlist')
+} = require('./lib/addlist.js')
 const {
     smsg,
     getGroupAdmins,
@@ -89,14 +89,14 @@ const {
     getRandom,
     pickRandom,
     reSize
-} = require('./lib/myfunc')
-const { buttonkal } = require('./database/buttonkal')
+} = require('./lib/myfunc.js')
+const { buttonkal } = require('./database/buttonkal.js')
 const { cttl } = require('./database/cttl.js')
-const { xeontext1 } = require('./database/xeontext1')
-const { textbug2 } = require('./database/textbug2')
-const { textbug3 } = require('./database/textbug3')
-const { textbug4 } = require('./database/textbug4')
-const { textbug5 } = require('./database/textbug5')
+const { xeontext1 } = require('./database/xeontext1.js')
+const { textbug2 } = require('./database/textbug2.js')
+const { textbug3 } = require('./database/textbug3.js')
+const { textbug4 } = require('./database/textbug4.js')
+const { textbug5 } = require('./database/textbug5.js')
 const { addInventoriDarah,  cekDuluJoinAdaApaKagaDiJson,  addDarah,  kurangDarah, getDarah }= require('./src/darah.js')
 const { cekInventoryAdaAtauGak,  addInventori, addBesi, addEmas, addEmerald,addUmpan,addPotion,kurangBesi, kurangEmas, kurangEmerald, kurangUmpan,kurangPotion,getBesi, getEmas, getEmerald, getUmpan, getPotion } = require('./src/alat_tukar.js')
 const {  addInventoriMonay,  cekDuluJoinAdaApaKagaMonaynyaDiJson,  addMonay,  kurangMonay, getMonay } = require('./src/monay.js')
@@ -112,7 +112,7 @@ const {
     expiredCheck,
     checkPremiumUser,
     getAllPremiumUser,
-} = require('./lib/premiun')
+} = require('./lib/premiun.js')
 /* ~~~~~~~~~ DATA GAME ~~~~~~~~~ */
 let tebaklagu = []
 let kuismath = []
@@ -132,7 +132,7 @@ let akinator = []
 /* ~~~~~~~~~ DATA ~~~~~~~~~ */
 let _buruan = JSON.parse(fs.readFileSync('./src/hasil_buruan.json'))
 let _darahOrg = JSON.parse(fs.readFileSync('./src/darah.json'))
-let afk = require("./lib/afk")
+let afk = require("./lib/afk.js")
 let db_respon_list = JSON.parse(fs.readFileSync('./database/list.json'))
 let premium = JSON.parse(fs.readFileSync('./src/data/premium.json'))
 let _owner = JSON.parse(fs.readFileSync('./src/data/owner.json'))
@@ -141,10 +141,10 @@ let _afk = JSON.parse(fs.readFileSync('./src/data/user/afk-user.json'))
 let hit = JSON.parse(fs.readFileSync('./src/total-hit-user.json'))
 let autosimi = JSON.parse(fs.readFileSync('./src/data/simi.json'))
 /* ~~~~~~~~~ DATA MEDIA ~~~~~~~~~ */
-const Vnhyuuxyz = JSON.parse(fs.readFileSync('./src/media/vn.json'))
-const Stickerhyuuxyz = JSON.parse(fs.readFileSync('./src/media/sticker.json'))
-const Imagehyuuxyz = JSON.parse(fs.readFileSync('./src/media/image.json'))
-const Videohyuuxyz = JSON.parse(fs.readFileSync('./src/media/video.json'))
+const Vnndaa = JSON.parse(fs.readFileSync('./src/media/vn.json'))
+const Stickerndaa = JSON.parse(fs.readFileSync('./src/media/sticker.json'))
+const Imagendaa = JSON.parse(fs.readFileSync('./src/media/image.json'))
+const Videondaa = JSON.parse(fs.readFileSync('./src/media/video.json'))
 /* ~~~~~~~~~ WAKTU SETEMPAT ~~~~~~~~~ */
 moment.tz.setDefault("Asia/Jakarta").locale("id")
 
@@ -173,9 +173,9 @@ if (waktu < "03:00:00") {
     var ucapanWaktu = 'Selamat Tengah Malam 🌃'
 }
 /* ~~~~~~~~~ STARTING & MODULE ALL ~~~~~~~~~ */
-module.exports = hyuuxyz = async (hyuuxyz, m, msg, chatUpdate, store) => {
+module.exports = ndaa = async (ndaa, m, msg, chatUpdate, store) => {
     try {
-        /* ~~~~~~~~~ BASE hyuuxyzDEV ~~~~~~~~~ */
+        /* ~~~~~~~~~ BASE ndaaDEV ~~~~~~~~~ */
         const {
             type,
             quotedMsg,
@@ -191,7 +191,7 @@ module.exports = hyuuxyz = async (hyuuxyz, m, msg, chatUpdate, store) => {
         const args = body.trim().split(/ +/).slice(1)
         const full_args = body.replace(command, '').slice(1).trim()
         const pushname = m.pushName || "No Name"
-        const botNumber = await hyuuxyz.decodeJid(hyuuxyz.user.id)
+        const botNumber = await ndaa.decodeJid(ndaa.user.id)
         const itsMe = m.sender == botNumber ? true : false
         const sender = m.sender
         const text = q = args.join(" ")
@@ -225,7 +225,7 @@ module.exports = hyuuxyz = async (hyuuxyz, m, msg, chatUpdate, store) => {
         const isAdrian = ('6285876054652@s.whatsapp.net').includes(m.sender)
         /* ~~~~~~~~~ GROUP SYSTEM ~~~~~~~~~ */
         const isGroup = m.key.remoteJid.endsWith('@g.us')
-        const groupMetadata = m.isGroup ? await hyuuxyz.groupMetadata(m.chat).catch(e => {}) : ''
+        const groupMetadata = m.isGroup ? await ndaa.groupMetadata(m.chat).catch(e => {}) : ''
         const groupName = m.isGroup ? groupMetadata.subject : ''
         const participants = m.isGroup ? await groupMetadata.participants : ''
         const groupAdmins = m.isGroup ? await getGroupAdmins(participants) : ''
@@ -236,21 +236,21 @@ module.exports = hyuuxyz = async (hyuuxyz, m, msg, chatUpdate, store) => {
         /* ~~~~~~~~~ STATUS USERS ~~~~~~~~~ */
         const isCreator = [numberowner, ..._owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isPremium = isCreator || isCreator || checkPremiumUser(m.sender, premium);
-        expiredCheck(hyuuxyz, m, premium);
+        expiredCheck(ndaa, m, premium);
         //=================================================
 async function loading () {
-var aurelmahyuuxyz = [
+var aurelmandaa = [
 "_Loading To Menu Botz_",
 "_Base Script : Adrian_",
 "_Provider Api : Caliph - LolHuman_",
-"_Fix All Fitur : Hyuu_",
+"_Fix All Fitur : Ndaa_",
 "_Buy Script Chat Owner_",
 ]
-let { key } = await hyuuxyz.sendMessage(m.chat, {text: 'ʟᴏᴀᴅɪɴɢ...'})//Pengalih isu
+let { key } = await ndaa.sendMessage(m.chat, {text: 'ʟᴏᴀᴅɪɴɢ...'})//Pengalih isu
 
-for (let i = 0; i < aurelmahyuuxyz.length; i++) {
+for (let i = 0; i < aurelmandaa.length; i++) {
 /*await delay(10)*/
-await hyuuxyz.sendMessage(m.chat, {text: aurelmahyuuxyz[i], edit: key });//PESAN LEPAS
+await ndaa.sendMessage(m.chat, {text: aurelmandaa[i], edit: key });//PESAN LEPAS
 }
 }
 /* ~~~~~~~~~ CREATED PW RANDOM ~~~~~~~~~ */
@@ -298,35 +298,35 @@ function generateRandomPassword() {
                 },
                 text: teks
             };
-            return hyuuxyz.sendMessage(m.chat, po, {
+            return ndaa.sendMessage(m.chat, po, {
                 quoted: ftroli
             });
         };
         /* ~~~~~~~~~ ALL SYSTEM BOT ~~~~~~~~~ */
-        if (!hyuuxyz.public) {
+        if (!ndaa.public) {
             if (!isCreator && !m.key.fromMe) return
         }
         if (autoread) {
-            hyuuxyz.readMessages([m.key])
+            ndaa.readMessages([m.key])
         }
         if (autobio) {
         let _uptime = process.uptime() * 1000
-		let uptime = clockString(_uptime)
-		await hyuuxyz.updateProfileStatus(`I am ${namabot} | Aktif Selama ${uptime} ⏳ | Mode : ${hyuuxyz.public ? 'Public-Mode' : 'Self-Mode'}`).catch(_ => _)
+        let uptime = clockString(_uptime)
+        await ndaa.updateProfileStatus(`I am ${namabot} | Aktif Selama ${uptime} ⏳ | Mode : ${ndaa.public ? 'Public-Mode' : 'Self-Mode'}`).catch(_ => _)
         }
         if (from === 'status@broadcast') {
-            hyuuxyz.chatRead(from)
+            ndaa.chatRead(from)
         }
         if (isCommand) {
             let titida = ['composing', 'recording']
             yte = titida[Math.floor(titida.length * Math.random())]
-            hyuuxyz.sendPresenceUpdate(yte, from)
+            ndaa.sendPresenceUpdate(yte, from)
         }
         if (m.sender.startsWith('212') && global.autoblok212 === true) {
-            return hyuuxyz.updateBlockStatus(m.sender, 'block')
+            return ndaa.updateBlockStatus(m.sender, 'block')
         }
         if (!m.sender.startsWith('62') && global.onlyindo === true) {
-            return hyuuxyz.updateBlockStatus(m.sender, 'block')
+            return ndaa.updateBlockStatus(m.sender, 'block')
         }
         
         /* ~~~~~~~~~ CONSOLE ~~~~~~~~~ */
@@ -362,10 +362,10 @@ const isInventoriBuruan = cekDuluHasilBuruanNya(m.sender)
 const isInventoryLimit = cekDuluJoinAdaApaKagaLimitnyaDiJson(m.sender)
 const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
         /* ~~~~~~~~~ RESPON DATA MEDIA ~~~~~~~~~ */
-        for (let Mwuhehe of Vnhyuuxyz) {
+        for (let Mwuhehe of Vnndaa) {
             if (budy === Mwuhehe) {
                 let audiobuffy = fs.readFileSync(`./media/audio/${Mwuhehe}.mp3`)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     audio: audiobuffy,
                     mimetype: 'audio/mp4',
                     ptt: true
@@ -374,30 +374,30 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 })
             }
         }
-        for (let Mwuhehe of Stickerhyuuxyz) {
+        for (let Mwuhehe of Stickerndaa) {
             if (budy === Mwuhehe) {
                 let stickerbuffy = fs.readFileSync(`./media/sticker/${Mwuhehe}.webp`)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     sticker: stickerbuffy
                 }, {
                     quoted: ftroli
                 })
             }
         }
-        for (let Mwuhehe of Imagehyuuxyz) {
+        for (let Mwuhehe of Imagendaa) {
             if (budy === Mwuhehe) {
                 let imagebuffy = fs.readFileSync(`./media/image/${Mwuhehe}.jpg`)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     image: imagebuffy
                 }, {
                     quoted: ftroli
                 })
             }
         }
-        for (let Mwuhehe of Videohyuuxyz) {
+        for (let Mwuhehe of Videondaa) {
             if (budy === Mwuhehe) {
                 let videobuffy = fs.readFileSync(`./media/video/${Mwuhehe}.mp4`)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     video: videobuffy
                 }, {
                     quoted: ftroli
@@ -410,10 +410,10 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
         return arr[Math.floor(Math.random() * arr.length)]
         }
         const getCase = (cases) => {
-            return "case  "+`'${cases}'`+fs.readFileSync("./Hyuu.js").toString().split('case \''+cases+'\'')[1].split("break")[0]+"break"
+            return "case  "+`'${cases}'`+fs.readFileSync("./Ndaa.js").toString().split('case \''+cases+'\'')[1].split("break")[0]+"break"
         }
         const totalFitur = () =>{
-            var mytext = fs.readFileSync("./Hyuu.js").toString()
+            var mytext = fs.readFileSync("./Ndaa.js").toString()
             var numUpper = (mytext.match(/case '/g) || []).length;
             return numUpper
         }
@@ -434,7 +434,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
         );
         const result = {
         status: 200,
-        author: `HyuuYT5`,
+        author: `NdaaYT5`,
         result: obfuscationResult.getObfuscatedCode()
         }
         resolve(result)
@@ -476,8 +476,8 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 var ini_name = get_result.name
                 var description = get_result.description
                 ini_txt = `${ini_name} - ${description}\n\n`
-                ini_txt += "*Terima Kasih*\n*Powered By hyuuxyzDev & LoL Human*"
-                await hyuuxyz.sendMessage(m.chat, {
+                ini_txt += "*Terima Kasih*\n*Powered By ndaaDev & LoL Human*"
+                await ndaa.sendMessage(m.chat, {
                     image: {
                         url: get_result.image
                     },
@@ -517,7 +517,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 ini_txt += "4 - Mungkin Tidak"
                 ini_txt += "5 - Kembali ke Pertanyaan Sebelumnya"
             }
-            hyuuxyz.sendText(m.chat, ini_txt, m).then(() => {
+            ndaa.sendText(m.chat, ini_txt, m).then(() => {
                 const data_ = akinator[m.sender.split('@')[0]]
                 data_["question"] = question
                 data_["step"] = step
@@ -532,7 +532,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 await newReply('*Anda Telah menyerah*')
                 delete tebakgambar[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
-                await hyuuxyz.sendText(m.chat, `🎮 Tebak Gambar 🎮\n\nJawaban Benar 🎉`, m)
+                await ndaa.sendText(m.chat, `🎮 Tebak Gambar 🎮\n\nJawaban Benar 🎉`, m)
                 delete tebakgambar[m.sender.split('@')[0]]
             } else newReply('*Jawaban Salah!*')
         }
@@ -554,7 +554,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 await newReply('*Anda Telah menyerah*')
                 delete tebakasahotak[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
-                await hyuuxyz.sendText(m.chat, `🎮 Asah Otak 🎮\n\nJawaban Benar 🎉`, m)
+                await ndaa.sendText(m.chat, `🎮 Asah Otak 🎮\n\nJawaban Benar 🎉`, m)
                 delete tebakasahotak[m.sender.split('@')[0]]
             } else newReply('*Jawaban Salah!*')
         }
@@ -565,7 +565,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 await newReply('*Anda Telah menyerah*')
                 delete tebaksiapakahaku[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
-                await hyuuxyz.sendText(m.chat, `🎮 Siapakah Aku 🎮\n\nJawaban Benar 🎉`, m)
+                await ndaa.sendText(m.chat, `🎮 Siapakah Aku 🎮\n\nJawaban Benar 🎉`, m)
                 delete tebaksiapakahaku[m.sender.split('@')[0]]
             } else newReply('*Jawaban Salah!*')
         }
@@ -576,7 +576,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 await newReply('*Anda Telah menyerah*')
                 delete tebaksusunkata[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
-                await hyuuxyz.sendText(m.chat, `🎮 Susun Kata 🎮\n\nJawaban Benar 🎉`, m)
+                await ndaa.sendText(m.chat, `🎮 Susun Kata 🎮\n\nJawaban Benar 🎉`, m)
                 delete tebaksusunkata[m.sender.split('@')[0]]
             } else newReply('*Jawaban Salah!*')
         }
@@ -587,7 +587,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 await newReply('*Anda Telah menyerah*')
                 delete tebakbendera[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
-                await hyuuxyz.sendText(m.chat, `🎮 Tebak Gambar 🎮\n\nJawaban Benar 🎉`, m)
+                await ndaa.sendText(m.chat, `🎮 Tebak Gambar 🎮\n\nJawaban Benar 🎉`, m)
                 delete tebakbendera[m.sender.split('@')[0]]
             } else newReply('*Jawaban Salah!*')
         }
@@ -598,7 +598,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 await newReply('*Anda Telah menyerah*')
                 delete tebakbendera2[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
-                await hyuuxyz.sendText(m.chat, `🎮 Tebak Bendera 🎮\n\nJawaban Benar 🎉`, m)
+                await ndaa.sendText(m.chat, `🎮 Tebak Bendera 🎮\n\nJawaban Benar 🎉`, m)
                 delete tebakbendera2[m.sender.split('@')[0]]
             } else newReply('*Jawaban Salah!*')
         }
@@ -609,7 +609,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 await newReply('*Anda Telah menyerah*')
                 delete tebakkimia[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
-                await hyuuxyz.sendText(m.chat, `🎮 Tebak Kimia 🎮\n\nJawaban Benar 🎉`, m)
+                await ndaa.sendText(m.chat, `🎮 Tebak Kimia 🎮\n\nJawaban Benar 🎉`, m)
                 delete tebakkimia[m.sender.split('@')[0]]
             } else newReply('*Jawaban Salah!*')
         }
@@ -620,7 +620,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 await newReply('*Anda Telah menyerah*')
                 delete tebaktekateki[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
-                await hyuuxyz.sendText(m.chat, `🎮 Teka Teki 🎮\n\nJawaban Benar 🎉`, m)
+                await ndaa.sendText(m.chat, `🎮 Teka Teki 🎮\n\nJawaban Benar 🎉`, m)
                 delete tebaktekateki[m.sender.split('@')[0]]
             } else newReply('*Jawaban Salah!*')
         }
@@ -631,7 +631,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 await newReply('*Anda Telah menyerah*')
                 delete tebaklagu[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
-                await hyuuxyz.sendText(m.chat, `🎮 Tebak Lagu 🎮\n\nJawaban Benar 🎉`, m)
+                await ndaa.sendText(m.chat, `🎮 Tebak Lagu 🎮\n\nJawaban Benar 🎉`, m)
                 delete tebaklagu[m.sender.split('@')[0]]
             } else newReply('*Jawaban Salah!*')
         }
@@ -642,7 +642,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 await newReply('*Anda Telah menyerah*')
                 delete tebakkata[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
-                await hyuuxyz.sendText(m.chat, `🎮 Tebak Kata 🎮\n\nJawaban Benar 🎉`, m)
+                await ndaa.sendText(m.chat, `🎮 Tebak Kata 🎮\n\nJawaban Benar 🎉`, m)
                 delete tebakkata[m.sender.split('@')[0]]
             } else newReply('*Jawaban Salah!*')
         }
@@ -653,7 +653,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 await newReply('*Anda Telah menyerah*')
                 delete tebakkalimat[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
-                await hyuuxyz.sendText(m.chat, `🎮 Tebak Kalimat 🎮\n\nJawaban Benar 🎉`, m)
+                await ndaa.sendText(m.chat, `🎮 Tebak Kalimat 🎮\n\nJawaban Benar 🎉`, m)
                 delete tebakkalimat[m.sender.split('@')[0]]
             } else newReply('*Jawaban Salah!*')
         }
@@ -664,7 +664,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 await newReply('*Anda Telah menyerah*')
                 delete tebaklirik[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
-                await hyuuxyz.sendText(m.chat, `🎮 Tebak Lirik 🎮\n\nJawaban Benar 🎉`, m)
+                await ndaa.sendText(m.chat, `🎮 Tebak Lirik 🎮\n\nJawaban Benar 🎉`, m)
                 delete tebaklirik[m.sender.split('@')[0]]
             } else newReply('*Jawaban Salah!*')
         }
@@ -675,7 +675,7 @@ const isInventoryMonay = cekDuluJoinAdaApaKagaMonaynyaDiJson(m.sender)
                 await newReply('*Anda Telah menyerah*')
                 delete tebaktebakan[m.sender.split('@')[0]]
             } else if (budy.toLowerCase() == jawaban) {
-                await hyuuxyz.sendText(m.chat, `🎮 Tebak Tebakan 🎮\n\nJawaban Benar 🎉`, m)
+                await ndaa.sendText(m.chat, `🎮 Tebak Tebakan 🎮\n\nJawaban Benar 🎉`, m)
                 delete tebaktebakan[m.sender.split('@')[0]]
             } else newReply('*Jawaban Salah!*')
         }
@@ -736,10 +736,10 @@ ${isWin ? `@${winner.split('@')[0]} Menang!` : isTie ? `Game berakhir` : `Gilira
 Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
             if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)
                 room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
-            if (room.x !== room.o) hyuuxyz.sendText(room.x, str, m, {
+            if (room.x !== room.o) ndaa.sendText(room.x, str, m, {
                 mentions: parseMention(str)
             })
-            hyuuxyz.sendText(room.o, str, m, {
+            ndaa.sendText(room.o, str, m, {
                 mentions: parseMention(str)
             })
             if (isTie || isWin) {
@@ -765,7 +765,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
                 let heheh = ms(getTime)
                 _afk.splice(afk.getAfkPosition(m.sender, _afk), 1)
                 fs.writeFileSync('./src/data/user/afk-user.json', JSON.stringify(_afk))
-                hyuuxyz.sendTextWithMentions(m.chat, `@${m.sender.split('@')[0]} telah kembali dari afk`, m)
+                ndaa.sendTextWithMentions(m.chat, `@${m.sender.split('@')[0]} telah kembali dari afk`, m)
             }
         }
         switch (isCommand) {
@@ -787,7 +787,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
             case 'setimgqouted':
             case 'siq': {
                 if (!isCreator) return newReply(mess.owner)
-                let delb = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
+                let delb = await ndaa.downloadAndSaveMediaMessage(quoted)
                 await fsx.copy(delb, './media/quoted.jpg')
                 fs.unlinkSync(delb)
                 newReply(mess.done)
@@ -796,7 +796,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
             case 'setimgmenu':
             case 'sim': {
                 if (!isCreator) return newReply(mess.owner)
-                let delb = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
+                let delb = await ndaa.downloadAndSaveMediaMessage(quoted)
                 await fsx.copy(delb, './media/menu.jpg')
                 fs.unlinkSync(delb)
                 newReply(mess.done)
@@ -805,7 +805,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
             case 'setvidmenu':
             case 'svm': {
                 if (!isCreator) return newReply(mess.owner)
-                let delb = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
+                let delb = await ndaa.downloadAndSaveMediaMessage(quoted)
                 await fsx.copy(delb, './media/menu.mp4')
                 fs.unlinkSync(delb)
                 newReply(mess.done)
@@ -854,7 +854,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
                     txt += `Nomer : ${i.id}\n`
                     txt += `Expired : ${i.expired} Second\n`         
                 }                
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     text: txt,
                     mentions: i
                 }, {
@@ -892,12 +892,12 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
             break
             case "cekidgc": {
 if (!isCreator) return newReply(`Jir Lu Siapa Cok`)
-let getGroups = await hyuuxyz.groupFetchAllParticipating()
+let getGroups = await ndaa.groupFetchAllParticipating()
 let groups = Object.entries(getGroups).slice(0).map((entry) => entry[1])
 let anu = groups.map((v) => v.id)
 let teks = `⬣ *LIST GROUP MU*\n\nTotal Group : ${anu.length} Group\n\n`
 for (let x of anu) {
-let metadata2 = await hyuuxyz.groupMetadata(x)
+let metadata2 = await ndaa.groupMetadata(x)
 teks += `◉ Nama : ${metadata2.subject}\n◉ ID : ${metadata2.id}\n◉ Member : ${metadata2.participants.length}\n\n────────────────────────\n\n`
 }
 newReply(teks + `Untuk Penggunaan Silahkan Ketik Command ${prefix}pushkontak id|teks\n\nSebelum Menggunakan Silahkan Salin Dulu Id Group Nya Di Atas`)
@@ -909,7 +909,7 @@ if (!isCreator) return newReply(`Jir Lu Siapa Cok`)
 if (isGroup) return newReply(`Khusus Di Chat Prib Bwang`)
 if (!text) return newReply(`Penggunaan Salah Silahkan Gunakan Command Seperti Ini\n${prefix+command} idgroup|tekspushkontak\nUntuk Liat Id Group Silahkan Ketik .cekidgc`)
 newReply(mess.wait)
-const groupMetadataa = !m.isGroup? await hyuuxyz.groupMetadata(`${text.split("|")[0]}`).catch(e => {}) : ""
+const groupMetadataa = !m.isGroup? await ndaa.groupMetadata(`${text.split("|")[0]}`).catch(e => {}) : ""
 const participants = !m.isGroup? await groupMetadataa.participants : ""
 const halls = await participants.filter(v => v.id.endsWith('.net')).map(v => v.id)
 global.tekspushkon = text.split("|")[1]
@@ -919,12 +919,12 @@ if (isContacts) return
 contacts.push(mem)
 fs.writeFileSync('./database/contacts.json', JSON.stringify(contacts))
 if (/image/.test(mime)) {
-media = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
+media = await ndaa.downloadAndSaveMediaMessage(quoted)
 memk = await TelegraPh(media)
-await hyuuxyz.sendMessage(mem, { image: { url: memk }, caption: global.tekspushkon })
+await ndaa.sendMessage(mem, { image: { url: memk }, caption: global.tekspushkon })
 await sleep(1000)
 } else {
-await hyuuxyz.sendMessage(mem, { text: global.tekspushkon })
+await ndaa.sendMessage(mem, { text: global.tekspushkon })
 await sleep(1000)
 }
 }
@@ -943,7 +943,7 @@ fs.writeFileSync("./database/contacts.vcf", vcardContent, "utf8");
 } catch (err) {
 newReply(util.format(err))
 } finally {
-await hyuuxyz.sendMessage(from, { document: fs.readFileSync("./.netdatabase/contacts.vcf"), fileName: "contacts.vcf", caption: "Nih Kak Tinggal Pencet File Di Atas Terus Save Aja Ke Kontak", mimetype: "text/vcard", }, { quoted: m })
+await ndaa.sendMessage(from, { document: fs.readFileSync("./.netdatabase/contacts.vcf"), fileName: "contacts.vcf", caption: "Nih Kak Tinggal Pencet File Di Atas Terus Save Aja Ke Kontak", mimetype: "text/vcard", }, { quoted: m })
 contacts.splice(0, contacts.length)
 fs.writeFileSync("./database/contacts.json", JSON.stringify(contacts))
 }
@@ -955,7 +955,7 @@ if (!isCreator) return newReply(`Jir Lu Siapa Cok`)
 if (!isGroup) return newReply(`Khusus Di Dalam Grup Jirr`)
 if (!text) return newReply(`Penggunaan Salah Silahkan Gunakan Command Seperti Ini\n${prefix+command} teks`)
 newReply(mess.wait)
-const groupMetadata = m.isGroup? await hyuuxyz.groupMetadata(from).catch(e => {}) : ""
+const groupMetadata = m.isGroup? await ndaa.groupMetadata(from).catch(e => {}) : ""
 const groupOwner = m.isGroup? groupMetadata.owner : ""
 const participantts = m.isGroup? await groupMetadata.participants : ""
 const halsss = await participantts.filter(v => v.id.endsWith('.net')).map(v => v.id)
@@ -965,12 +965,12 @@ for (let men of halsss) {
 contacts.push(men)
 fs.writeFileSync('./database/contacts.json', JSON.stringify(contacts))
 if (/image/.test(mime)) {
-media = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
+media = await ndaa.downloadAndSaveMediaMessage(quoted)
 mem = await TelegraPh(media)
-await hyuuxyz.sendMessage(men, { image: { url: mem }, caption: global.tekspushkonv2 })
+await ndaa.sendMessage(men, { image: { url: mem }, caption: global.tekspushkonv2 })
 await sleep(1000)
 } else {
-await hyuuxyz.sendMessage(men, { text: global.tekspushkonv2 })
+await ndaa.sendMessage(men, { text: global.tekspushkonv2 })
 await sleep(1000)
 }
 }
@@ -990,7 +990,7 @@ fs.writeFileSync("./database/contacts.vcf", vcardContent, "utf8");
 } catch (err) {
 newReply(util.format(err))
 } finally {
-await hyuuxyz.sendMessage(sender, { document: fs.readFileSync("./media/database/contacts.vcf"), fileName: "contacts.vcf", caption: "Nih Kak Tinggal Pencet File Di Atas Terus Save Ke Kontak", mimetype: "text/vcard", }, { quoted: m })
+await ndaa.sendMessage(sender, { document: fs.readFileSync("./media/database/contacts.vcf"), fileName: "contacts.vcf", caption: "Nih Kak Tinggal Pencet File Di Atas Terus Save Ke Kontak", mimetype: "text/vcard", }, { quoted: m })
 contacts.splice(0, contacts.length)
 fs.writeFileSync("./database/contacts.json", JSON.stringify(contacts))
 }
@@ -998,14 +998,14 @@ fs.writeFileSync("./database/contacts.json", JSON.stringify(contacts))
 break
             case 'bcgc': case 'jpm': {
 if (!isCreator) return newReply('Lu Siapa?')
-if (!text) throw `Text mana?\n\nExample : ${prefix + command} Need Vps? Cet hyuuxyz`
-let getGroups = await hyuuxyz.groupFetchAllParticipating()
+if (!text) throw `Text mana?\n\nExample : ${prefix + command} Need Vps? Cet ndaa`
+let getGroups = await ndaa.groupFetchAllParticipating()
 let groups = Object.entries(getGroups).slice(0).map(entry => entry[1])
 let anu = groups.map(v => v.id)
 newReply(`Mengirim Broadcast Ke ${anu.length} Group Chat, Waktu Selesai ${anu.length * 1.5} detik`)
 for (let i of anu) {
 await sleep(1500)
-hyuuxyz.sendMessage(i, {text: `${text}`}, {quoted:ftroli})
+ndaa.sendMessage(i, {text: `${text}`}, {quoted:ftroli})
     }
 newReply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
 }
@@ -1014,19 +1014,19 @@ break
 case "bchidetag": case "bchide": {
 if (!isCreator) return newReply(`Jir Lu Siapa Cok`)
 if (!text) return newReply(`*Penggunaan Salah Silahkan Gunakan Seperti Ini*\n${prefix+command} teks|jeda\n\nReply Gambar Untuk Mengirim Gambar Ke Semua Group\nUntuk Jeda Itu Delay Jadi Nominal Jeda Itu 1000 = 1 detik`)
-let getGroups = await hyuuxyz.groupFetchAllParticipating()
+let getGroups = await ndaa.groupFetchAllParticipating()
 let groups = Object.entries(getGroups).slice(0).map((entry) => entry[1])
 let anu = groups.map((v) => v.id)
 for (let xnxx of anu) {
-let metadat72 = await hyuuxyz.groupMetadata(xnxx)
+let metadat72 = await ndaa.groupMetadata(xnxx)
 let participanh = await metadat72.participants
 if (/image/.test(mime)) {
-media = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
+media = await ndaa.downloadAndSaveMediaMessage(quoted)
 mem = await TelegraPh(media)
-await hyuuxyz.sendMessage(xnxx, { image: { url: mem }, caption: text.split('|')[0], mentions: participanh.map(a => a.id) })
+await ndaa.sendMessage(xnxx, { image: { url: mem }, caption: text.split('|')[0], mentions: participanh.map(a => a.id) })
 await sleep(text.split('|')[1])
 } else {
-await hyuuxyz.sendMessage(xnxx, { text: text.split('|')[0], mentions: participanh.map(a => a.id) })
+await ndaa.sendMessage(xnxx, { text: text.split('|')[0], mentions: participanh.map(a => a.id) })
 await sleep(text.split('|')[1])
 }}
 newReply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
@@ -1034,19 +1034,19 @@ newReply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
 break
 
 case "bcimg": case "jpm3": {
-if (!isCreator) return newReply(`Lu hyuuxyz Kah?`)
+if (!isCreator) return newReply(`Lu ndaa Kah?`)
 if (!text) return newReply(`*Penggunaan Salah Silahkan Gunakan Seperti Ini*\n${prefix+command} teks|jeda\n\nReply Gambar Untuk Mengirim Gambar Ke Semua Group\nUntuk Jeda Itu Delay Jadi Nominal Jeda Itu 1000 = 1 detik`)
-let getGroups = await hyuuxyz.groupFetchAllParticipating()
+let getGroups = await ndaa.groupFetchAllParticipating()
 let groups = Object.entries(getGroups).slice(0).map((entry) => entry[1])
 let anu = groups.map((v) => v.id)
 for (let xnxx of anu) {
 if (/image/.test(mime)) {
-media = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
+media = await ndaa.downloadAndSaveMediaMessage(quoted)
 mem = await TelegraPh(media)
-await hyuuxyz.sendMessage(xnxx, { image: { url: mem }, caption: text.split('|')[0] })
+await ndaa.sendMessage(xnxx, { image: { url: mem }, caption: text.split('|')[0] })
 await sleep(text.split('|')[1])
 } else {
-await hyuuxyz.sendMessage(xnxx, { text: text.split('|')[0] })
+await ndaa.sendMessage(xnxx, { text: text.split('|')[0] })
 await sleep(text.split('|')[1])
 }}
 newReply(`Sukses Mengirim Broadcast Ke ${anu.length} Group`)
@@ -1059,7 +1059,7 @@ break
                     if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) return newReply('Link Invalid!')
                     newReply(mess.wait)
                     let result = args[0].split('https://chat.whatsapp.com/')[1]
-                    await hyuuxyz.groupAcceptInvite(result).then((res) => newReply(json(res))).catch((err) => newReply(json(err)))
+                    await ndaa.groupAcceptInvite(result).then((res) => newReply(json(res))).catch((err) => newReply(json(err)))
                 } catch {
                     newReply('Gagal Masuk Ke Group')
                 }
@@ -1074,7 +1074,7 @@ break
                 if (!isCreator) return newReply(mess.owner)
                 newReply('Tunggu Sebentar, Sedang mengambil file sesi mu')
                 let sesi = await fs.readFileSync('./session/creds.json')
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     document: sesi,
                     mimetype: 'application/json',
                     fileName: 'creds.json'
@@ -1135,10 +1135,10 @@ break
                 if (!isCreator) return newReply(mess.owner)
                 if (args.length < 1) return newReply(`Example ${prefix + command} public/self`)
                 if (q == 'public') {
-                    hyuuxyz.public = true
+                    ndaa.public = true
                     newReply(mess.done)
                 } else if (q == 'self') {
-                    hyuuxyz.public = false
+                    ndaa.public = false
                     newReply(mess.done)
                 }
                 break
@@ -1151,7 +1151,7 @@ break
                 break
             case 'setlink':
                 if (!isCreator) return newReply(mess.owner)
-                if (!text) return newReply(`Contoh : ${prefix + command} https://youtube.com/@ImHyuu`)
+                if (!text) return newReply(`Contoh : ${prefix + command} https://youtube.com/@ImNdaa`)
                 global.packname = text.split("|")[0]
                 global.author = text.split("|")[1]
                 newReply(`Link berhasil diubah menjadi\n\n• Link : ${global.link}`)
@@ -1163,12 +1163,12 @@ break
                 if (!quoted) return newReply(`Kirim/newReply Image Dengan Caption ${prefix + command}`)
                 if (!/image/.test(mime)) return newReply(`Kirim/newReply Image Dengan Caption ${prefix + command}`)
                 if (/webp/.test(mime)) return newReply(`Kirim/newReply Image Dengan Caption ${prefix + command}`)
-                var medis = await hyuuxyz.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
+                var medis = await ndaa.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
                 if (args[0] == 'full') {
                     var {
                         img
                     } = await generateProfilePicture(medis)
-                    await hyuuxyz.query({
+                    await ndaa.query({
                         tag: 'iq',
                         attrs: {
                             to: botNumber,
@@ -1186,7 +1186,7 @@ break
                     fs.unlinkSync(medis)
                     newReply(mess.done)
                 } else {
-                    var memeg = await hyuuxyz.updateProfilePicture(botNumber, {
+                    var memeg = await ndaa.updateProfilePicture(botNumber, {
                         url: medis
                     })
                     fs.unlinkSync(medis)
@@ -1196,18 +1196,18 @@ break
             case 'block':
                 if (!isCreator) return newReply(mess.owner)
                 let blockw = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
-                await hyuuxyz.updateBlockStatus(blockw, 'block').then((res) => newReply(json(res))).catch((err) => newReply(json(err)))
+                await ndaa.updateBlockStatus(blockw, 'block').then((res) => newReply(json(res))).catch((err) => newReply(json(err)))
                 break
             case 'unblock':
                 if (!isCreator) return newReply(mess.owner)
                 let blockww = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
-                await hyuuxyz.updateBlockStatus(blockww, 'unblock').then((res) => newReply(json(res))).catch((err) => newReply(json(err)))
+                await ndaa.updateBlockStatus(blockww, 'unblock').then((res) => newReply(json(res))).catch((err) => newReply(json(err)))
                 break
             case 'leave':
                 if (!isCreator) return newReply(mess.owner)
                 if (!m.isGroup) return newReply(mess.group)
                 newReply('Dadah Semuanya 🥺')
-                await hyuuxyz.groupLeave(m.chat)
+                await ndaa.groupLeave(m.chat)
                 break
             case "backup":
 {
@@ -1226,7 +1226,7 @@ await loading()
                 pe != ""
             );
           const exec = await execSync(`zip -r NewBot.zip ${ls.join(" ")}`);
-          await hyuuxyz.sendMessage(
+          await ndaa.sendMessage(
             m.chat,
             {
               document: await fs.readFileSync("./NewBot.zip"),
@@ -1242,7 +1242,7 @@ await loading()
             case 'ambilcase':
                 if (!isCreator) return newReply(mess.owner)
                 const getCase = (cases) => {
-                    return "case" + `'${cases}'` + fs.readFileSync("Hyuu.js").toString().split('case \'' + cases + '\'')[1].split("break")[0] + "break"
+                    return "case" + `'${cases}'` + fs.readFileSync("Ndaa.js").toString().split('case \'' + cases + '\'')[1].split("break")[0] + "break"
                 }
                 newReply(`${getCase(q)}`)
                 break
@@ -1259,7 +1259,7 @@ await loading()
                     isBaileys
                 } = m.quoted
                 if (!isBaileys) return newReply('The message was not sent by a bot!')
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     delete: {
                         remoteJid: m.chat,
                         fromMe: true,
@@ -1272,9 +1272,9 @@ await loading()
             case 'jadianime': {
                 if (!isPremium) return newReply(mess.prem)
                 if (!isMedia) return newReply("Where The A Image")
-                let media = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
+                let media = await ndaa.downloadAndSaveMediaMessage(quoted)
                 let anu = await TelegraPh(media)
-                await hyuuxyz.sendMessage(m.chat, {
+                await ndaa.sendMessage(m.chat, {
                     image: {
                         url: `https://api.lolhuman.xyz/api/imagetoanime?img=${anu}&apikey=${lol}`
                     },
@@ -1287,10 +1287,10 @@ await loading()
             case 'jadizombie': {
                 if (!isPremium) return newReply(mess.prem)
                 if (!isMedia) return newReply("Where The A Image")
-                let media = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
+                let media = await ndaa.downloadAndSaveMediaMessage(quoted)
                 let anu = await TelegraPh(media)
                 let data = await fetchJson(`https://api.betabotz.org/api/maker/jadizombie?url=${anu}&apikey=${beta}`)
-                await hyuuxyz.sendMessage(m.chat, {
+                await ndaa.sendMessage(m.chat, {
                     image: {
                         url: `${data.result}`
                     },
@@ -1320,7 +1320,7 @@ await loading()
                 setTimeout(() => {
                     var nomor = m.participant
                     const close = `*Tepat waktu* grup ditutup oleh admin\nsekarang hanya admin yang dapat mengirim pesan`
-                    hyuuxyz.groupSettingUpdate(m.chat, 'announcement')
+                    ndaa.groupSettingUpdate(m.chat, 'announcement')
                     newReply(close)
                 }, timer)
                 break
@@ -1343,7 +1343,7 @@ await loading()
                 setTimeout(() => {
                     var nomor = m.participant
                     const open = `*Tepat waktu* grup dibuka oleh admin\n sekarang member dapat mengirim pesan`
-                    hyuuxyz.groupSettingUpdate(m.chat, 'not_announcement')
+                    ndaa.groupSettingUpdate(m.chat, 'not_announcement')
                     newReply(open)
                 }, timer)
                 break
@@ -1352,28 +1352,28 @@ await loading()
                 if (!isAdmins && !isGroupOwner && !isCreator) return newReply(mess.admin)
                 if (!isBotAdmins) return newReply(mess.botAdmin)
                 let blockwww = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
-                await hyuuxyz.groupParticipantsUpdate(m.chat, [blockwww], 'remove').then((res) => newReply(mess.done)).catch((err) => newReply(json(err)))
+                await ndaa.groupParticipantsUpdate(m.chat, [blockwww], 'remove').then((res) => newReply(mess.done)).catch((err) => newReply(json(err)))
                 break
             case 'add':
                 if (!m.isGroup) return newReply(mess.group)
                 if (!isAdmins && !isGroupOwner && !isCreator) return newReply(mess.admin)
                 if (!isBotAdmins) return newReply(mess.botAdmin)
                 let blockwwww = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
-                await hyuuxyz.groupParticipantsUpdate(m.chat, [blockwwww], 'add').then((res) => newReply(mess.done)).catch((err) => newReply(json(err)))
+                await ndaa.groupParticipantsUpdate(m.chat, [blockwwww], 'add').then((res) => newReply(mess.done)).catch((err) => newReply(json(err)))
                 break
             case 'promote':
                 if (!m.isGroup) return newReply(mess.group)
                 if (!isAdmins && !isGroupOwner && !isCreator) return newReply(mess.admin)
                 if (!isBotAdmins) return newReply(mess.botAdmin)
                 let blockwwwww = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
-                await hyuuxyz.groupParticipantsUpdate(m.chat, [blockwwwww], 'promote').then((res) => newReply(mess.done)).catch((err) => newReply(json(err)))
+                await ndaa.groupParticipantsUpdate(m.chat, [blockwwwww], 'promote').then((res) => newReply(mess.done)).catch((err) => newReply(json(err)))
                 break
             case 'demote':
                 if (!m.isGroup) return newReply(mess.group)
                 if (!isAdmins && !isGroupOwner && !isCreator) return newReply(mess.admin)
                 if (!isBotAdmins) return newReply(mess.botAdmin)
                 let blockwwwwwa = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '') + '@s.whatsapp.net'
-                await hyuuxyz.groupParticipantsUpdate(m.chat, [blockwwwwwa], 'demote').then((res) => newReply(mess.done)).catch((err) => newReply(json(err)))
+                await ndaa.groupParticipantsUpdate(m.chat, [blockwwwwwa], 'demote').then((res) => newReply(mess.done)).catch((err) => newReply(json(err)))
                 break
             case 'setname':
             case 'setsubject':
@@ -1381,7 +1381,7 @@ await loading()
                 if (!isAdmins && !isGroupOwner && !isCreator) return newReply(mess.admin)
                 if (!isBotAdmins) return newReply(mess.botAdmin)
                 if (!text) return 'Text ?'
-                await hyuuxyz.groupUpdateSubject(m.chat, text).then((res) => newReply(mess.done)).catch((err) => newReply(json(err)))
+                await ndaa.groupUpdateSubject(m.chat, text).then((res) => newReply(mess.done)).catch((err) => newReply(json(err)))
                 break
             case 'setdesc':
             case 'setdesk':
@@ -1389,7 +1389,7 @@ await loading()
                 if (!isAdmins && !isGroupOwner && !isCreator) return newReply(mess.admin)
                 if (!isBotAdmins) return newReply(mess.botAdmin)
                 if (!text) return 'Text ?'
-                await hyuuxyz.groupUpdateDescription(m.chat, text).then((res) => newReply(mess.done)).catch((err) => newReply(json(err)))
+                await ndaa.groupUpdateDescription(m.chat, text).then((res) => newReply(mess.done)).catch((err) => newReply(json(err)))
                 break
             case 'setppgroup':
             case 'setppgrup':
@@ -1400,12 +1400,12 @@ await loading()
                 if (!quoted) return newReply(`Kirim/newReply Image Dengan Caption ${prefix + command}`)
                 if (!/image/.test(mime)) return newReply(`Kirim/newReply Image Dengan Caption ${prefix + command}`)
                 if (/webp/.test(mime)) return newReply(`Kirim/newReply Image Dengan Caption ${prefix + command}`)
-                var medis = await hyuuxyz.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
+                var medis = await ndaa.downloadAndSaveMediaMessage(quoted, 'ppbot.jpeg')
                 if (args[0] == 'full') {
                     var {
                         img
                     } = await generateProfilePicture(medis)
-                    await hyuuxyz.query({
+                    await ndaa.query({
                         tag: 'iq',
                         attrs: {
                             to: m.chat,
@@ -1423,7 +1423,7 @@ await loading()
                     fs.unlinkSync(medis)
                     newReply(mess.done)
                 } else {
-                    var memeg = await hyuuxyz.updateProfilePicture(m.chat, {
+                    var memeg = await ndaa.updateProfilePicture(m.chat, {
                         url: medis
                     })
                     fs.unlinkSync(medis)
@@ -1440,7 +1440,7 @@ await loading()
                 for (let mem of participants) {
                     teks += `• @${mem.id.split('@')[0]}\n`
                 }
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     text: teks,
                     mentions: participants.map(a => a.id)
                 }, {
@@ -1451,7 +1451,7 @@ await loading()
                 if (!m.isGroup) return newReply(mess.group)
                 if (!isAdmins && !isGroupOwner && !isCreator) return newReply(mess.admin)
                 if (!isBotAdmins) return newReply(mess.botAdmin)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     text: q ? q : '',
                     mentions: participants.map(a => a.id)
                 }, {
@@ -1463,7 +1463,7 @@ await loading()
                 if (!isBotAdmins) return newReply(mess.botAdmin)
                 if (!isAdmins) return newReply(mess.admin)
                 if (!m.quoted) return newReply(`Reply pesan dengan caption ${prefix + command}`)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     forward: m.quoted.fakeObj,
                     mentions: participants.map(a => a.id)
                 })
@@ -1474,9 +1474,9 @@ await loading()
                 if (!isAdmins && !isGroupOwner && !isCreator) return newReply(mess.admin)
                 if (!isBotAdmins) return newReply(mess.botAdmin)
                 if (args[0] === 'close') {
-                    await hyuuxyz.groupSettingUpdate(m.chat, 'announcement').then((res) => newReply(`Sukses Menutup Group 🕊️`)).catch((err) => newReply(json(err)))
+                    await ndaa.groupSettingUpdate(m.chat, 'announcement').then((res) => newReply(`Sukses Menutup Group 🕊️`)).catch((err) => newReply(json(err)))
                 } else if (args[0] === 'open') {
-                    await hyuuxyz.groupSettingUpdate(m.chat, 'not_announcement').then((res) => newReply(`Sukses Membuka Group 🕊️`)).catch((err) => newReply(json(err)))
+                    await ndaa.groupSettingUpdate(m.chat, 'not_announcement').then((res) => newReply(`Sukses Membuka Group 🕊️`)).catch((err) => newReply(json(err)))
                 } else {
                     newReply(`Mode ${command}\n\n\nKetik ${prefix + command}open/close`)
                 }
@@ -1486,9 +1486,9 @@ await loading()
                 if (!isAdmins && !isGroupOwner && !isCreator) return newReply(mess.admin)
                 if (!isBotAdmins) return newReply(mess.botAdmin)
                 if (args[0] === 'open') {
-                    await hyuuxyz.groupSettingUpdate(m.chat, 'unlocked').then((res) => newReply(`Sukses Membuka Edit Info Group 🕊️`)).catch((err) => newReply(json(err)))
+                    await ndaa.groupSettingUpdate(m.chat, 'unlocked').then((res) => newReply(`Sukses Membuka Edit Info Group 🕊️`)).catch((err) => newReply(json(err)))
                 } else if (args[0] === 'close') {
-                    await hyuuxyz.groupSettingUpdate(m.chat, 'locked').then((res) => newReply(`Sukses Menutup Edit Info Group 🕊️`)).catch((err) => newReply(json(err)))
+                    await ndaa.groupSettingUpdate(m.chat, 'locked').then((res) => newReply(`Sukses Menutup Edit Info Group 🕊️`)).catch((err) => newReply(json(err)))
                 } else {
                     newReply(`Mode ${command}\n\n\nKetik ${prefix + command}on/off`)
                 }
@@ -1499,8 +1499,8 @@ await loading()
                 if (!m.isGroup) return newReply(mess.group)
                 if (!isAdmins && !isGroupOwner && !isCreator) return newReply(mess.admin)
                 if (!isBotAdmins) return newReply(mess.botAdmin)
-                let response = await hyuuxyz.groupInviteCode(m.chat)
-                hyuuxyz.sendText(m.chat, `👥 *INFO LINK GROUP*\n📛 *Nama :* ${groupMetadata.subject}\n👤 *Owner Grup :* ${groupMetadata.owner !== undefined ? '@' + groupMetadata.owner.split`@`[0] : 'Tidak diketahui'}\n🌱 *ID :* ${groupMetadata.id}\n🔗 *Link Chat :* https://chat.whatsapp.com/${response}\n👥 *Member :* ${groupMetadata.participants.length}\n`, m, {
+                let response = await ndaa.groupInviteCode(m.chat)
+                ndaa.sendText(m.chat, `👥 *INFO LINK GROUP*\n📛 *Nama :* ${groupMetadata.subject}\n👤 *Owner Grup :* ${groupMetadata.owner !== undefined ? '@' + groupMetadata.owner.split`@`[0] : 'Tidak diketahui'}\n🌱 *ID :* ${groupMetadata.id}\n🔗 *Link Chat :* https://chat.whatsapp.com/${response}\n👥 *Member :* ${groupMetadata.participants.length}\n`, m, {
                     detectLink: true
                 })
                 break
@@ -1509,7 +1509,7 @@ await loading()
                 if (!m.isGroup) return newReply(mess.group)
                 if (!isAdmins && !isGroupOwner && !isCreator) return newReply(mess.admin)
                 if (!isBotAdmins) return newReply(mess.botAdmin)
-                await hyuuxyz.groupRevokeInvite(m.chat)
+                await ndaa.groupRevokeInvite(m.chat)
                     .then(res => {
                         newReply(`Sukses Menyetel Ulang, Tautan Undangan Grup ${groupMetadata.subject}`)
                     }).catch((err) => newReply(json(err)))
@@ -1519,7 +1519,7 @@ await loading()
                 if (!m.isGroup) newReply(mess.group)
                 let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
                 let online = [...Object.keys(store.presences[id]), botNumber]
-                hyuuxyz.sendText(m.chat, '⏰ List Online:\n\n' + online.map(v => '🌱 @' + v.replace(/@.+/, '')).join`\n`, m, {
+                ndaa.sendText(m.chat, '⏰ List Online:\n\n' + online.map(v => '🌱 @' + v.replace(/@.+/, '')).join`\n`, m, {
                     mentions: online
                 })
                 break
@@ -1528,7 +1528,7 @@ await loading()
                 /* ~~~~~~~~~ MAIN & STATUS BOT ~~~~~~~~~ */
             case 'daftar':
                 if (isRegistered) return newReply('Kamu sudah terdaftar')
-                if (!q.includes('.')) return newReply(`Format salah!\n\nContoh: ${prefix + command} Hyuu.18`)
+                if (!q.includes('.')) return newReply(`Format salah!\n\nContoh: ${prefix + command} Ndaa.18`)
                 const namaUser = q.substring(0, q.indexOf('.') - 0)
                 const umurUser = q.substring(q.lastIndexOf('.') + 1)
                 const serialUser = createSerial(20)
@@ -1536,10 +1536,10 @@ await loading()
                 if (namaUser.length >= 30) return newReply(`why is your name so long it's a name or a train`)
                 if (umurUser > 40) return newReply(`your age is too  old maximum 40 years`)
                 if (umurUser < 12) return newReply(`your age is too young minimum 12 years`)
-				let mzd = `Kamu telah terdaftar dengan data sebagai berikut:\n\n⭔ Nama : ${namaUser}\n⭔ Umur : ${umurUser}\n⭔ Nomor : wa.me/${m.sender.split("@")[0]}\n⭔ NS : ${serialUser}`
+                let mzd = `Kamu telah terdaftar dengan data sebagai berikut:\n\n⭔ Nama : ${namaUser}\n⭔ Umur : ${umurUser}\n⭔ Nomor : wa.me/${m.sender.split("@")[0]}\n⭔ NS : ${serialUser}`
                 if (!m.isGroup) {
                     addRegisteredUser(m.sender, namaUser, umurUser, serialUser)
-                    hyuuxyz.sendMessage(m.chat, {
+                    ndaa.sendMessage(m.chat, {
                         text: mzd,
                         contextInfo: {
                             externalAdReply: {
@@ -1557,7 +1557,7 @@ await loading()
                     })
                 } else {
                     addRegisteredUser(m.sender, namaUser, umurUser, serialUser)
-                    hyuuxyz.sendMessage(m.chat, {
+                    ndaa.sendMessage(m.chat, {
                         text: mzd,
                         contextInfo: {
                             externalAdReply: {
@@ -1574,12 +1574,12 @@ await loading()
                         quoted: ftroli
                     })
                 }
-		break
-		    case  'capi': {
-		    if (!isCreator) return newReply(mess.owner)
-		    let anu = await fetchJson(`https://api.caliph.biz.id/users/cek?apikey=${caliph}`)
-		    let tks = `》Username : ${anu.username}\n》Limit : ${anu.limit}\n》Premium : ${anu.premium}\n》Expired : ${anu.expired}`
-		    hyuuxyz.relayMessage(m.chat,  {
+        break
+            case  'capi': {
+            if (!isCreator) return newReply(mess.owner)
+            let anu = await fetchJson(`https://api.caliph.biz.id/users/cek?apikey=${caliph}`)
+            let tks = `》Username : ${anu.username}\n》Limit : ${anu.limit}\n》Premium : ${anu.premium}\n》Expired : ${anu.expired}`
+            ndaa.relayMessage(m.chat,  {
                         requestPaymentMessage: {
                         currencyCodeIso4217: 'IDR',
                         amount1000: 30000000,
@@ -1642,7 +1642,7 @@ ${cpus[0].model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type =>
 _CPU Core(s) Usage (${cpus.length} Core CPU)_
 ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Object.keys(cpu.times).map(type => `- *${(type + '*').padEnd(6)}: ${(100 * cpu.times[type] / cpu.total).toFixed(2)}%`).join('\n')}`).join('\n\n')}` : ''}
 `.trim()
-                await hyuuxyz.sendMessage(m.chat, {
+                await ndaa.sendMessage(m.chat, {
                     text: respon,
                     contextInfo: {
                         externalAdReply: {
@@ -1663,7 +1663,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             case 'buypremium':
             case 'premiumuser': {
                 let teks = `Hi ${pushname}👋\n Ingin Beli Premium? Chat Saja Owner😉`
-                await hyuuxyz.sendMessage(m.chat, {
+                await ndaa.sendMessage(m.chat, {
                     text: teks,
                     contextInfo: {
                         externalAdReply: {
@@ -1702,7 +1702,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                         stdout,
                         stderr
                     } = o
-                    if (stdout.trim()) hyuuxyz.sendMessage(m.chat, {
+                    if (stdout.trim()) ndaa.sendMessage(m.chat, {
                         text: stdout,
                         contextInfo: {
                             externalAdReply: {
@@ -1718,7 +1718,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
                     }, {
                         quoted: ftroli
                     })
-                    if (stderr.trim()) hyuuxyz.sendMessage(m.chat, {
+                    if (stderr.trim()) ndaa.sendMessage(m.chat, {
                         text: stderr,
                         contextInfo: {
                             externalAdReply: {
@@ -1739,7 +1739,7 @@ ${cpus.map((cpu, i) => `${i + 1}. ${cpu.model.trim()} (${cpu.speed} MHZ)\n${Obje
             break
             case 'runtime':
                 let pinga = `Bot Telah Berjalan Selama ${runtime(process.uptime())}`
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     text: pinga,
                     contextInfo: {
                         externalAdReply: {
@@ -1765,7 +1765,7 @@ let teks = `*「  Rules ${namabot} 」*
 • *Gausah Sok Asik Ngirim Virtex/Bug Ke Bot*
 
 *Catatan:* _*Jika Ada Fitur Yang Error*_\_*nHarap Lapor Ke Owner Agar Segera Di Perbaiki*_`
-hyuuxyz.relayMessage(m.chat,  {
+ndaa.relayMessage(m.chat,  {
                         requestPaymentMessage: {
                         currencyCodeIso4217: 'IDR',
                         amount1000: 30000000,
@@ -1784,11 +1784,11 @@ let capn = `*✪ Script Bot ${namabot}*
 
  • Baileys : WhiskeySockets
  • Base : Arxzy
- • Fix Features : Hyuu
+ • Fix Features : Ndaa
 
 Harga Script? Tanya Ke .owner
-© HyuuYT5`
-await hyuuxyz.relayMessage(m.chat,  {
+© NdaaYT5`
+await ndaa.relayMessage(m.chat,  {
 requestPaymentMessage: {
 currencyCodeIso4217: 'IDR',
 amount1000: 30000000,
@@ -1805,7 +1805,7 @@ break
             case 'donate':
             case 'donasi':
                 let katanya = `Hallo Kakak ${pushname}\n\nJika Ingin Berdonasi Menggunakan QRIS\n\n\n*NOTES:*\n 1.Bawa Bukti Telah Berdonasi Kepada Owner!!!\nSeberapa Pun Kakak Berdonasi Bagi Kami Sangat Berharga`
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     image: fs.readFileSync('./media/qris.jpg'),
                     caption: katanya
                 }, {
@@ -1814,7 +1814,7 @@ break
                 break
             case 'payment':
                 let katana = `Hallo Kakak ${pushname}\n\nJika Ingin Bayar Menggunakan QRIS\n\n\n*NOTES:*\n 1.Bawa Bukti Telah Transfer Kepada Owner!!!`
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     image: fs.readFileSync('./media/qris.jpg'),
                     caption: katana
                 }, {
@@ -1824,22 +1824,22 @@ break
             case 'owner': 
         case 'creator': {
                 const vcard =
-				'BEGIN:VCARD\n' + // metadata of the contact card
-				'VERSION:3.0\n' +
-				`FN:${namaowner}\n` + // full name
-				`ORG:${namabot};\n` + // the organization of the contact
-				`TEL;type=MSG;type=CELL;type=VOICE;waid=${numberowner}:+${numberowner}\n` + // WhatsApp ID + phone number
-				'END:VCARD'
-			hyuuxyz.sendMessage(m.chat, {
-				contacts: {
-					displayName: namaowner,
-					contacts: [{ vcard }],
-				},
-			}, { quoted: fkontak })
+                'BEGIN:VCARD\n' + // metadata of the contact card
+                'VERSION:3.0\n' +
+                `FN:${namaowner}\n` + // full name
+                `ORG:${namabot};\n` + // the organization of the contact
+                `TEL;type=MSG;type=CELL;type=VOICE;waid=${numberowner}:+${numberowner}\n` + // WhatsApp ID + phone number
+                'END:VCARD'
+            ndaa.sendMessage(m.chat, {
+                contacts: {
+                    displayName: namaowner,
+                    contacts: [{ vcard }],
+                },
+            }, { quoted: fkontak })
                }
         break
             case 'tqto':
-                newReply(`*Terima Kasih Kepada*\n\n>| 1. ArxzyDev ( Base )\n>| 2. Hyuu ( Fix )\n>| 3. LolHuman ( APi KEYs )\n> 4. CaliphDev ( APi KEYs )\n>| 5. Penyedia Module\n\n Powered By HyuuYT5`)
+                newReply(`*Terima Kasih Kepada*\n\n>| 1. ArxzyDev ( Base )\n>| 2. Ndaa ( Fix )\n>| 3. LolHuman ( APi KEYs )\n> 4. CaliphDev ( APi KEYs )\n>| 5. Penyedia Module\n\n Powered By NdaaYT5`)
                 break
             /* ~~~~~~~~~ RPG FITUR ~~~~~~~~~ */
 case 'inventori': case 'inventory': case 'profile':{
@@ -1890,7 +1890,7 @@ var emasnya = emas[Math.floor(Math.random() * emas.length)]
 var emeraldnya = emerald[Math.floor(Math.random() * emerald.length)]
 setTimeout( () => {
 let caption = `[ Hasil Tambang ]\n*Iron* : ${besinya}\n*Gold* : ${emasnya}\n*Emerald* : ${emeraldnya}`
-hyuuxyz.sendMessage(m.chat, { image: { url: './media/tambang.jpg' }, caption: caption }, { quoted: m })
+ndaa.sendMessage(m.chat, { image: { url: './media/tambang.jpg' }, caption: caption }, { quoted: m })
 }, 7000)
 setTimeout( () => {
 newReply(`${pushname} Mulai Menambang`)
@@ -2098,7 +2098,7 @@ teksehmazeh += `_[ INFO ]_\n`
 teksehmazeh += `*Lokasi* : ${lokasinya}\n`
 teksehmazeh += `*Luka* : ${lukanya}, Darah - 10\n`
 teksehmazeh += `*Sisa Darah* : ${getDarah(m.sender)}\n`
-hyuuxyz.sendMessage(m.chat, { image: { url: image }, caption: teksehmazeh }, { quoted: m })
+ndaa.sendMessage(m.chat, { image: { url: image }, caption: teksehmazeh }, { quoted: m })
 }, 5000)
 setTimeout( () => {
 newReply(`${pushname} Mulai Berburu Di ${lokasinya}`)
@@ -2119,7 +2119,7 @@ addGajah(m.sender, gajah)
                 if (!quoted) return newReply(`Balas Video/Image Dengan Caption ${prefix + command}`)
                 if (/image/.test(mime)) {
                     let media = await quoted.download()
-                    let encmedia = await hyuuxyz.sendImageAsSticker(m.chat, media, m, {
+                    let encmedia = await ndaa.sendImageAsSticker(m.chat, media, m, {
                         packname: packname,
                         author: author
                     })
@@ -2127,7 +2127,7 @@ addGajah(m.sender, gajah)
                 } else if (isVideo || /video/.test(mime)) {
                     if ((quoted.msg || quoted).seconds > 11) return newReply('Maksimal 10 detik!')
                     let media = await quoted.download()
-                    let encmedia = await hyuuxyz.sendVideoAsSticker(m.chat, media, m, {
+                    let encmedia = await ndaa.sendVideoAsSticker(m.chat, media, m, {
                         packname: packname,
                         author: author
                     })
@@ -2144,10 +2144,10 @@ addGajah(m.sender, gajah)
                 newReply(mess.wait)
                 atas = text.split('|')[0] ? text.split('|')[0] : '-'
                 bawah = text.split('|')[1] ? text.split('|')[1] : '-'
-                let dwnld = await hyuuxyz.downloadAndSaveMediaMessage(qmsg)
+                let dwnld = await ndaa.downloadAndSaveMediaMessage(qmsg)
                 let fatGans = await TelegraPh(dwnld)
                 let smeme = `https://api.memegen.link/images/custom/${encodeURIComponent(bawah)}/${encodeURIComponent(atas)}.png?background=${fatGans}`
-                let pop = await hyuuxyz.sendImageAsSticker(m.chat, smeme, m, {
+                let pop = await ndaa.sendImageAsSticker(m.chat, smeme, m, {
                     packname: packname,
                     author: author
                 })
@@ -2160,16 +2160,16 @@ addGajah(m.sender, gajah)
                 if (!teks2) return newReply(`Kirim/Reply image/video dengan caption ${prefix + command} teks1|teks2`)
                 newReply(mess.wait)
                 if (/image/.test(mime)) {
-                    let media = await hyuuxyz.downloadMediaMessage(qmsg)
-                    let encmedia = await hyuuxyz.sendImageAsSticker(m.chat, media, m, {
+                    let media = await ndaa.downloadMediaMessage(qmsg)
+                    let encmedia = await ndaa.sendImageAsSticker(m.chat, media, m, {
                         packname: teks1,
                         author: teks2
                     })
                     await fs.unlinkSync(encmedia)
                 } else if (/video/.test(mime)) {
                     if ((quoted.msg || quoted).seconds > 11) return newReply('Maksimal 10 detik!')
-                    let media = await hyuuxyz.downloadMediaMessage(qmsg)
-                    let encmedia = await hyuuxyz.sendVideoAsSticker(m.chat, media, m, {
+                    let media = await ndaa.downloadMediaMessage(qmsg)
+                    let encmedia = await ndaa.sendVideoAsSticker(m.chat, media, m, {
                         packname: teks1,
                         author: teks2
                     })
@@ -2183,13 +2183,13 @@ addGajah(m.sender, gajah)
             case 'toimg': {
                 if (!/webp/.test(mime)) return newReply(`Reply sticker dengan caption *${prefix + command}*`)
                 newReply(mess.wait)
-                let media = await hyuuxyz.downloadAndSaveMediaMessage(qmsg)
+                let media = await ndaa.downloadAndSaveMediaMessage(qmsg)
                 let ran = await getRandom('.png')
                 exec(`ffmpeg -i ${media} ${ran}`, (err) => {
                     fs.unlinkSync(media)
                     if (err) return err
                     let buffer = fs.readFileSync(ran)
-                    hyuuxyz.sendMessage(m.chat, {
+                    ndaa.sendMessage(m.chat, {
                         image: buffer
                     }, {
                         quoted: ftroli
@@ -2203,10 +2203,10 @@ addGajah(m.sender, gajah)
                 if (!quoted) return newReply('Reply Image')
                 if (!/webp/.test(mime)) return newReply(`reply sticker with caption *${prefix + command}*`)
                 newReply(mess.wait)
-		        let { webp2mp4File } = require('./lib/uploader')
-                let media = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
+                let { webp2mp4File } = require('./lib/uploader.js')
+                let media = await ndaa.downloadAndSaveMediaMessage(quoted)
                 let webpToMp4 = await webp2mp4File(media)
-                await hyuuxyz.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' } }, { quoted: ftroli })
+                await ndaa.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' } }, { quoted: ftroli })
                 await fs.unlinkSync(media)
             }
             break
@@ -2214,9 +2214,9 @@ addGajah(m.sender, gajah)
             case 'toaudio': {
                 if (!/video/.test(mime) && !/audio/.test(mime)) return newReply(`Kirim/newReply Video/Audio Yang Ingin Dijadikan Audio Dengan Caption ${prefix + command}`)
                 newReply(mess.wait)
-                let media = await hyuuxyz.downloadMediaMessage(qmsg)
+                let media = await ndaa.downloadMediaMessage(qmsg)
                 let audio = await toAudio(media, 'mp4')
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     audio: audio,
                     mimetype: 'audio/mpeg'
                 }, {
@@ -2228,12 +2228,12 @@ addGajah(m.sender, gajah)
             case 'tomp3': {
                 if (!/video/.test(mime) && !/audio/.test(mime)) return newReply(`Kirim/newReply Video/Audio Yang Ingin Dijadikan MP3 Dengan Caption ${prefix + command}`)
                 newReply(mess.wait)
-                let media = await hyuuxyz.downloadMediaMessage(qmsg)
+                let media = await ndaa.downloadMediaMessage(qmsg)
                 let audio = await toAudio(media, 'mp4')
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     document: audio,
                     mimetype: 'audio/mp3',
-                    fileName: `hyuuxyz-MD.mp3`
+                    fileName: `ndaa-MD.mp3`
                 }, {
                     quoted: ftroli
                 })
@@ -2244,12 +2244,12 @@ addGajah(m.sender, gajah)
             case 'toptt': {
                 if (!/video/.test(mime) && !/audio/.test(mime)) return newReply(`newReply Video/Audio Yang Ingin Dijadikan VN Dengan Caption ${prefix + command}`)
                 newReply(mess.wait)
-                let media = await hyuuxyz.downloadMediaMessage(qmsg)
+                let media = await ndaa.downloadMediaMessage(qmsg)
                 let {
                     toPTT
-                } = require('./lib/converter')
+                } = require('./lib/converter.js')
                 let audio = await toPTT(media, 'mp4')
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     audio: audio,
                     mimetype: 'audio/mpeg',
                     ptt: true
@@ -2265,18 +2265,18 @@ addGajah(m.sender, gajah)
             if (/video/.test(mime)) {
             var ppt = quoted
             var ptv = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-         	"ptvMessage": ppt
+            "ptvMessage": ppt
             }), { userJid: m.chat, quoted:m})
-            hyuuxyz.relayMessage(m.chat, ptv.message, { messageId: ptv.key.id })
+            ndaa.relayMessage(m.chat, ptv.message, { messageId: ptv.key.id })
             }
             }
             break
             case 'togif': {
                 if (!/webp/.test(mime)) return newReply(`newReply stiker dengan caption *${prefix + command}*`)
                 newReply(mess.wait)
-                let media = await hyuuxyz.downloadAndSaveMediaMessage(qmsg)
+                let media = await ndaa.downloadAndSaveMediaMessage(qmsg)
                 let webpToMp4 = await webp2mp4File(media)
-                await hyuuxyz.sendMessage(m.chat, {
+                await ndaa.sendMessage(m.chat, {
                     video: {
                         url: webpToMp4.result,
                         caption: 'Convert Webp To Video'
@@ -2291,12 +2291,12 @@ addGajah(m.sender, gajah)
             break
             case 'tourl': {
                 newReply(mess.wait)
-                let media = await hyuuxyz.downloadAndSaveMediaMessage(qmsg)
+                let media = await ndaa.downloadAndSaveMediaMessage(qmsg)
                 if (/image/.test(mime)) {
                 let anu = await TelegraPh(media)
                 let mono = '```'
                 let txt = `${mono}Convert Image To Url${mono}\n\n🖨 Link: ${util.format(anu)}\n❌ Exp: *No Expired*`
-                await hyuuxyz.sendMessage(m.chat, { text: txt }, {quoted: m})
+                await ndaa.sendMessage(m.chat, { text: txt }, {quoted: m})
                 await fs.unlinkSync(media)
             }
             }
@@ -2304,10 +2304,10 @@ addGajah(m.sender, gajah)
             case 'snobg': {
                 let respond = `Kirim Atau Reply Gambar Dengan Caption ${prefix + command}`
                 if (!/image/.test(mime)) return newReply(respond)
-                let dwnld = await hyuuxyz.downloadAndSaveMediaMessage(qmsg)
+                let dwnld = await ndaa.downloadAndSaveMediaMessage(qmsg)
                 let fatGans = await TelegraPh(dwnld)
                 let smeme = `https://api.lolhuman.xyz/api/removebg?apikey=${lol}&img=${fatGans}`
-                let pop = await hyuuxyz.sendImageAsSticker(m.chat, smeme, m, {
+                let pop = await ndaa.sendImageAsSticker(m.chat, smeme, m, {
                     packname: packname,
                     author: author
                 })
@@ -2321,7 +2321,7 @@ addGajah(m.sender, gajah)
                 newReply(mess.wait)
                 let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
                 for (let res of anu.results) {
-                    let encmedia = await hyuuxyz.sendImageAsSticker(m.chat, res.url, m, {
+                    let encmedia = await ndaa.sendImageAsSticker(m.chat, res.url, m, {
                         packname: global.packname,
                         author: global.author,
                         categories: res.tags
@@ -2334,7 +2334,7 @@ addGajah(m.sender, gajah)
                 if (!text) return newReply(`Contoh : ${prefix + command} 😅`)
                 let anu = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(text)}`)
                 for (let res of anu.results) {
-                    let encmedia = await hyuuxyz.sendImageAsSticker(m.chat, res.url, m, {
+                    let encmedia = await ndaa.sendImageAsSticker(m.chat, res.url, m, {
                         packname: global.packname,
                         author: global.author,
                         categories: res.tags
@@ -2346,8 +2346,8 @@ addGajah(m.sender, gajah)
             case 'vnonce': {
             if (!quoted) return newReply(`Reply Audio`)
                     if (/audio/.test(mime)) {
-                    anuu = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
-                    hyuuxyz.sendMessage(m.chat, {
+                    anuu = await ndaa.downloadAndSaveMediaMessage(quoted)
+                    ndaa.sendMessage(m.chat, {
                         audio: {
                             url: anuu
                         },
@@ -2364,8 +2364,8 @@ addGajah(m.sender, gajah)
             case 'toviewonce': {
                 if (!quoted) return newReply(`Reply Image/Video`)
                 if (/image/.test(mime)) {
-                    anuan = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
-                    hyuuxyz.sendMessage(m.chat, {
+                    anuan = await ndaa.downloadAndSaveMediaMessage(quoted)
+                    ndaa.sendMessage(m.chat, {
                         image: {
                             url: anuan
                         },
@@ -2376,8 +2376,8 @@ addGajah(m.sender, gajah)
                         quoted: ftroli
                     })
                 } else if (/video/.test(mime)) {
-                    anuanuan = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
-                    hyuuxyz.sendMessage(m.chat, {
+                    anuanuan = await ndaa.downloadAndSaveMediaMessage(quoted)
+                    ndaa.sendMessage(m.chat, {
                         video: {
                             url: anuanuan
                         },
@@ -2401,7 +2401,7 @@ addGajah(m.sender, gajah)
                 let buff = getRandom('.jpg')
                 await fs.writeFileSync('./' + buff, data)
                 let medi = fs.readFileSync('./' + buff)
-                await hyuuxyz.sendMessage(from, {
+                await ndaa.sendMessage(from, {
                     image: medi,
                     caption: "Here you go!"
                 }, {
@@ -2429,13 +2429,13 @@ addGajah(m.sender, gajah)
                 if (/squirrel/.test(command)) set = '-filter:a "atempo=0.5,asetrate=65100"'
                 if (/audio/.test(mime)) {
                 newReply(mess.wait)
-                let media = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
+                let media = await ndaa.downloadAndSaveMediaMessage(quoted)
                 let ran = getRandom('.mp3')
                 exec(`ffmpeg -i ${media} ${set} ${ran}`, (err, stderr, stdout) => {
                 fs.unlinkSync(media)
                 if (err) return newReply(err)
                 let buff = fs.readFileSync(ran)
-                hyuuxyz.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : ftroli })
+                ndaa.sendMessage(m.chat, { audio: buff, mimetype: 'audio/mpeg' }, { quoted : ftroli })
                 fs.unlinkSync(ran)
                 })
                 } else newReply(`Reply to the audio you want to change with a caption *${prefix + command}*`)
@@ -2444,105 +2444,105 @@ addGajah(m.sender, gajah)
                 }
                 break
             case 'fliptext': {
-                if (args.length < 1) return newReply(`Example:\n${prefix}fliptext hyuuxyzDev`)
+                if (args.length < 1) return newReply(`Example:\n${prefix}fliptext ndaaDev`)
                 quere = args.join(" ")
                 flipe = quere.split('').reverse().join('')
                 newReply(`\`\`\`「 FLIP TEXT 」\`\`\`\n*•> Normal :*\n${quere}\n*•> Flip :*\n${flipe}`)
             }
             break
            /* ~~~~~~~~~ INFORMATION. FEATURED ~~~~~~~~~ */
-			case 'infogempa':
-			await loading()
-			var he = await fetchJson(`https://api.lolhuman.xyz/api/infogempa?apikey=${lol}`)
-			var caption = `Lokasi : ${he.result.lokasi}\n`
-			caption += `Waktu : ${he.result.waktu}\n`
-			caption += `Potensi : ${he.result.potensi}\n`
-			caption += `Magnitude : ${he.result.magnitude}\n`
-			caption += `Kedalaman : ${he.result.kedalaman}\n`
-			caption += `Koordinat : ${he.result.koordinat}`
-			hyuuxyz.sendMessage(from, { image: { url: he.result.map }, caption })
-			break
-			
-			case 'infocuaca':{
-			await loading()
-			if (args.length == 0) return newReply(`Example: ${prefix + command} Yogyakarta`)
-			var ka = await fetchJson(`https://api.lolhuman.xyz/api/cuaca/${args[0]}?apikey=${lol}`)
-			hyuuxyz.sendMessage(m.chat, { location: { degreesLatitude: ka.result.latitude, degreesLongitude: ka.result.longitude } })
-			var titttttttttt = `Tempat : ${ka.result.tempat}\n`
-			titttttttttt += `Cuaca : ${ka.result.cuaca}\n`
-			titttttttttt += `Angin : ${ka.result.angin}\n`
-			titttttttttt += `Description : ${ka.result.description}\n`
-			titttttttttt += `Kelembapan : ${ka.result.kelembapan}\n`
-			titttttttttt += `Suhu : ${ka.result.suhu}\n`
-			titttttttttt += `Udara : ${ka.result.udara}\n`
-			titttttttttt += `Permukaan laut : ${ka.result.permukaan_laut}\n`
-			newReply(titttttttttt)
-			}
-			break
-			case 'quotessenja':{
-			newReply(mess.wait)
-			let data = await fetchJson(`https://api.zahwazein.xyz/randomtext/katasenja?apikey=${zenz}`)
-			let teks = `${data.result.message}`
-			newReply(teks)
-			}
-			break
-			case 'motivasi':{
-			newReply(mess.wait)
-			let data = await fetchJson(`https://api.zahwazein.xyz/randomtext/motivasi?apikey=${zenz}`)
-			let tekss = `${data.result.message}`
-			newReply(tekss)
-			}
-			break
-			case 'randompantun':{
-			newReply(mess.wait)
-			let data = await fetchJson(`https://api.zahwazein.xyz/randomtext/pantun?apikey=${zenz}`)
-			let msg = `${data.result.message}`
-			newReply(msg)
-			}
-			break
-			case 'cerpen':{
-			newReply(mess.wait)
-			let data = await fetchJson(`https://api.caliph.biz.id/api/cerpen?apikey=${caliph}`)
-			let msggs = `Judul: *${data.judul}*\n`
-			msggs += `Sumber: *${data.sumber}*\n`
-			msggs += `Cerita: ${data.cerita}`
-			newReply(msggs)
-			}
-			break
-			case 'faktaunik': {
-			newReply(mess.wait)
-			let data = await fetchJson(`https://api.zahwazein.xyz/randomtext/faktaunik?apikey=${zenz}`)
-			let tks = `${data.result.message}`
-			newReply(tks)
-			}
-			break
-			case 'wikipedia':
-			if (!q) return newReply(`Example: ${prefix + command} Tahu`)
-			newReply(mess.wait)
-			let data = await fetchJson(`https://api.zahwazein.xyz/information/wikipedia?query=${q}&apikey=${zenz}`)
-			let owhh = `Judul: ${data.result.judul}\n`
-			owhh += `Keterangan: ${data.result.isi}`
-			newReply(owhh)
-			break
-			case 'pinterest': 
+            case 'infogempa':
+            await loading()
+            var he = await fetchJson(`https://api.lolhuman.xyz/api/infogempa?apikey=${lol}`)
+            var caption = `Lokasi : ${he.result.lokasi}\n`
+            caption += `Waktu : ${he.result.waktu}\n`
+            caption += `Potensi : ${he.result.potensi}\n`
+            caption += `Magnitude : ${he.result.magnitude}\n`
+            caption += `Kedalaman : ${he.result.kedalaman}\n`
+            caption += `Koordinat : ${he.result.koordinat}`
+            ndaa.sendMessage(from, { image: { url: he.result.map }, caption })
+            break
+            
+            case 'infocuaca':{
+            await loading()
+            if (args.length == 0) return newReply(`Example: ${prefix + command} Yogyakarta`)
+            var ka = await fetchJson(`https://api.lolhuman.xyz/api/cuaca/${args[0]}?apikey=${lol}`)
+            ndaa.sendMessage(m.chat, { location: { degreesLatitude: ka.result.latitude, degreesLongitude: ka.result.longitude } })
+            var titttttttttt = `Tempat : ${ka.result.tempat}\n`
+            titttttttttt += `Cuaca : ${ka.result.cuaca}\n`
+            titttttttttt += `Angin : ${ka.result.angin}\n`
+            titttttttttt += `Description : ${ka.result.description}\n`
+            titttttttttt += `Kelembapan : ${ka.result.kelembapan}\n`
+            titttttttttt += `Suhu : ${ka.result.suhu}\n`
+            titttttttttt += `Udara : ${ka.result.udara}\n`
+            titttttttttt += `Permukaan laut : ${ka.result.permukaan_laut}\n`
+            newReply(titttttttttt)
+            }
+            break
+            case 'quotessenja':{
+            newReply(mess.wait)
+            let data = await fetchJson(`https://api.zahwazein.xyz/randomtext/katasenja?apikey=${zenz}`)
+            let teks = `${data.result.message}`
+            newReply(teks)
+            }
+            break
+            case 'motivasi':{
+            newReply(mess.wait)
+            let data = await fetchJson(`https://api.zahwazein.xyz/randomtext/motivasi?apikey=${zenz}`)
+            let tekss = `${data.result.message}`
+            newReply(tekss)
+            }
+            break
+            case 'randompantun':{
+            newReply(mess.wait)
+            let data = await fetchJson(`https://api.zahwazein.xyz/randomtext/pantun?apikey=${zenz}`)
+            let msg = `${data.result.message}`
+            newReply(msg)
+            }
+            break
+            case 'cerpen':{
+            newReply(mess.wait)
+            let data = await fetchJson(`https://api.caliph.biz.id/api/cerpen?apikey=${caliph}`)
+            let msggs = `Judul: *${data.judul}*\n`
+            msggs += `Sumber: *${data.sumber}*\n`
+            msggs += `Cerita: ${data.cerita}`
+            newReply(msggs)
+            }
+            break
+            case 'faktaunik': {
+            newReply(mess.wait)
+            let data = await fetchJson(`https://api.zahwazein.xyz/randomtext/faktaunik?apikey=${zenz}`)
+            let tks = `${data.result.message}`
+            newReply(tks)
+            }
+            break
+            case 'wikipedia':
+            if (!q) return newReply(`Example: ${prefix + command} Tahu`)
+            newReply(mess.wait)
+            let data = await fetchJson(`https://api.zahwazein.xyz/information/wikipedia?query=${q}&apikey=${zenz}`)
+            let owhh = `Judul: ${data.result.judul}\n`
+            owhh += `Keterangan: ${data.result.isi}`
+            newReply(owhh)
+            break
+            case 'pinterest': 
             case 'pin': {
                 if (!text) return newReply(`Example : ${prefix + command} Mobil`)
                 newReply(mess.wait)
-		        let { pinterest } = require('./lib/scraper')
+                let { pinterest } = require('./lib/scraper.js')
                 anu = await pinterest(text)
                 result = anu[Math.floor(Math.random() * anu.length)]               
-                hyuuxyz.sendMessage(m.chat, { image: { url: result}, caption: mess.done}, { quoted: m })
+                ndaa.sendMessage(m.chat, { image: { url: result}, caption: mess.done}, { quoted: m })
             }
             break
             case 'kbbi':{
-			if (!q) return newReply(`Example: ${prefix + command} kursi`)
-			newReply(mess.wait)
-			let data = await fetchJson(`https://api.zahwazein.xyz/information/kbbi?query=${q}&apikey=${zenz}`)
-			var titid = `\`\`\`Title : ${data.result.title}\`\`\`\n`
-			titid += `\`\`\`Arti : ${data.result.arti}\`\`\``
-			newReply(titid)
-			}
-			break
+            if (!q) return newReply(`Example: ${prefix + command} kursi`)
+            newReply(mess.wait)
+            let data = await fetchJson(`https://api.zahwazein.xyz/information/kbbi?query=${q}&apikey=${zenz}`)
+            var titid = `\`\`\`Title : ${data.result.title}\`\`\`\n`
+            titid += `\`\`\`Arti : ${data.result.arti}\`\`\``
+            newReply(titid)
+            }
+            break
             /* ~~~~~~~~~ ASUPAN ~~~~~~~~~ */
             case 'cecan':
             case 'china':
@@ -2556,64 +2556,64 @@ addGajah(m.sender, gajah)
                 newReply(mess.wait)
                 let anu = await fetchJson(`https://raw.githubusercontent.com/Abuzzpoet/Databasee/main/Cecan/${command}.json`)
                 result = anu[Math.floor(Math.random() * anu.length)]               
-                hyuuxyz.sendMessage(m.chat, { image: { url: result}, caption: mess.done }, { quoted: ftroli })
+                ndaa.sendMessage(m.chat, { image: { url: result}, caption: mess.done }, { quoted: ftroli })
             }
             break
-			/* ~~~~~~~~~ TEXT PRO ~~~~~~~~~ */
+            /* ~~~~~~~~~ TEXT PRO ~~~~~~~~~ */
         case 'pornhub':
-		case 'glitch':
-		case 'avenger':
-		case 'space':
-		case 'ninjalogo':
-		case 'marvelstudio':
-		case 'lionlogo':
-		case 'wolflogo':
-		case 'steel3d':
-		case 'wallgravity':
-		    if (!text) return newReply(`Example: ${prefix + command} Hyuu|Offc`)
-		    let txtt = text.split('|');
-			if (txtt.length < 2) return newReply(`Example: ${prefix + command} Hyuu|Offc`)
-			newReply(mess.wait)
-			hyuuxyz.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/textprome2/${command}?apikey=${lol}&text1=${txtt[0]}&text2=${txtt[1]}`}, caption: `Type: ${command}\nText: ${args}\n\nCreated By Hyuu`}, { quoted: ftroli })
-			break
-		
-		case 'blackpink':
-		case 'neon':
-		case 'greenneon':
-		case 'advanceglow':
-		case 'futureneon':
-		case 'sandwriting':
-		case 'sandsummer':
-		case 'sandengraved':
-		case 'metaldark':
-		case 'neonlight':
-		case 'holographic':
-		case 'text1917':
-		case 'minion':
-		case 'deluxesilver':
-		case 'newyearcard':
-		case 'bloodfrosted':
-		case 'halloween':
-		case 'jokerlogo':
-		case 'fireworksparkle':
-		case 'natureleaves':
-		case 'bokeh':
-		case 'toxic':
-		case 'strawberry':
-		case 'box3d':
-		case 'roadwarning':
-		case 'breakwall':
-		case 'icecold':
-		case 'luxury':
-		case 'cloud':
-		case 'summersand':
-		case 'horrorblood':
-		case 'thunder':
-			if (!q) return newReply(`Example: ${prefix + command} Hyuu`)
-			newReply(mess.wait)
-			hyuuxyz.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/textprome/${command}?apikey=${lol}&text=${q}` }, caption: `Type: ${command}\nText: ${q}\n\nCreated By Hyuu`}, { quoted: ftroli })
-			break
-	
+        case 'glitch':
+        case 'avenger':
+        case 'space':
+        case 'ninjalogo':
+        case 'marvelstudio':
+        case 'lionlogo':
+        case 'wolflogo':
+        case 'steel3d':
+        case 'wallgravity':
+            if (!text) return newReply(`Example: ${prefix + command} Ndaa|Offc`)
+            let txtt = text.split('|');
+            if (txtt.length < 2) return newReply(`Example: ${prefix + command} Ndaa|Offc`)
+            newReply(mess.wait)
+            ndaa.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/textprome2/${command}?apikey=${lol}&text1=${txtt[0]}&text2=${txtt[1]}`}, caption: `Type: ${command}\nText: ${args}\n\nCreated By Ndaa`}, { quoted: ftroli })
+            break
+        
+        case 'blackpink':
+        case 'neon':
+        case 'greenneon':
+        case 'advanceglow':
+        case 'futureneon':
+        case 'sandwriting':
+        case 'sandsummer':
+        case 'sandengraved':
+        case 'metaldark':
+        case 'neonlight':
+        case 'holographic':
+        case 'text1917':
+        case 'minion':
+        case 'deluxesilver':
+        case 'newyearcard':
+        case 'bloodfrosted':
+        case 'halloween':
+        case 'jokerlogo':
+        case 'fireworksparkle':
+        case 'natureleaves':
+        case 'bokeh':
+        case 'toxic':
+        case 'strawberry':
+        case 'box3d':
+        case 'roadwarning':
+        case 'breakwall':
+        case 'icecold':
+        case 'luxury':
+        case 'cloud':
+        case 'summersand':
+        case 'horrorblood':
+        case 'thunder':
+            if (!q) return newReply(`Example: ${prefix + command} Ndaa`)
+            newReply(mess.wait)
+            ndaa.sendMessage(m.chat, { image: { url: `https://api.lolhuman.xyz/api/textprome/${command}?apikey=${lol}&text=${q}` }, caption: `Type: ${command}\nText: ${q}\n\nCreated By Ndaa`}, { quoted: ftroli })
+            break
+    
                  /* ~~~~~~~~~ ANIME ~~~~~~~~~ */
                 case 'kiryuusearch': {
                 if (!q) return newReply(`Example: ${prefix + command} mushoku`)
@@ -2663,48 +2663,48 @@ break
                 /* ~~~~~~~~~ DATABASE MEDIA ~~~~~~~~~ */
             case 'listvn': {
                 let teks = '┌──⭓「 *List Vn* 」\n│\n'
-                for (let x of Vnhyuuxyz) {
+                for (let x of Vnndaa) {
                     teks += `│⭔ ${x}\n`
                 }
-                teks += `│\n└────────────⭓\n\n*Total : ${Vnhyuuxyz.length}*`
+                teks += `│\n└────────────⭓\n\n*Total : ${Vnndaa.length}*`
                 newReply(teks)
             }
             break
             case 'liststicker': {
                 let teks = '┌──⭓「 *List Sticker* 」\n│\n'
-                for (let x of Stickerhyuuxyz) {
+                for (let x of Stickerndaa) {
                     teks += `│⭔ ${x}\n`
                 }
-                teks += `│\n└────────────⭓\n\n*Total : ${Stickerhyuuxyz.length}*`
+                teks += `│\n└────────────⭓\n\n*Total : ${Stickerndaa.length}*`
                 newReply(teks)
             }
             break
             case 'listimage': {
                 let teks = '┌──⭓「 *List Image* 」\n│\n'
-                for (let x of Imagehyuuxyz) {
+                for (let x of Imagendaa) {
                     teks += `│⭔ ${x}\n`
                 }
-                teks += `│\n└────────────⭓\n\n*Total : ${Imagehyuuxyz.length}*`
+                teks += `│\n└────────────⭓\n\n*Total : ${Imagendaa.length}*`
                 newReply(teks)
             }
             break
             case 'listvideo': {
                 let teks = '┌──⭓「 *List Video* 」\n│\n'
-                for (let x of Videohyuuxyz) {
+                for (let x of Videondaa) {
                     teks += `│⭔ ${x}\n`
                 }
-                teks += `│\n└────────────⭓\n\n*Total : ${Videohyuuxyz.length}*`
+                teks += `│\n└────────────⭓\n\n*Total : ${Videondaa.length}*`
                 newReply(teks)
             }
             break
             case 'addvideo': {
                 if (!isPremium) return newReply(mess.prem)
                 if (args.length < 1) return newReply('Nama Videonya?')
-                if (Videohyuuxyz.includes(q)) return newReply("Nama Yang Kamu Masukan Sudah Ada")
-                let delb = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
-                Videohyuuxyz.push(q)
+                if (Videondaa.includes(q)) return newReply("Nama Yang Kamu Masukan Sudah Ada")
+                let delb = await ndaa.downloadAndSaveMediaMessage(quoted)
+                Videondaa.push(q)
                 await fsx.copy(delb, `./media/video/${q}.mp4`)
-                fs.writeFileSync('./src/media/video.json', JSON.stringify(Videohyuuxyz))
+                fs.writeFileSync('./src/media/video.json', JSON.stringify(Videondaa))
                 fs.unlinkSync(delb)
                 newReply(`Success Menambahkan Video\nUntuk Melihat Ketik ${prefix}listvideo`)
             }
@@ -2712,10 +2712,10 @@ break
             case 'delvideo': {
                 if (!isPremium) return newReply(mess.prem)
                 if (args.length < 1) return newReply('Masukan Nama Video')
-                if (!Videohyuuxyz.includes(q)) return newReply("Nama Tidak Ada Di Dalam Database")
-                let wanu = Videohyuuxyz.indexOf(q)
-                Videohyuuxyz.splice(wanu, 1)
-                fs.writeFileSync('./src/media/video.json', JSON.stringify(Videohyuuxyz))
+                if (!Videondaa.includes(q)) return newReply("Nama Tidak Ada Di Dalam Database")
+                let wanu = Videondaa.indexOf(q)
+                Videondaa.splice(wanu, 1)
+                fs.writeFileSync('./src/media/video.json', JSON.stringify(Videondaa))
                 fs.unlinkSync(`./media/video/${q}.mp4`)
                 newReply(`Success Sukses Menghapus Video ${q}`)
             }
@@ -2723,9 +2723,9 @@ break
             case 'addpap': {
                 if (!isPremium) return newReply(mess.prem)
                 if (args.length < 1) return newReply('Nama Imagenya?')
-                if (Imagehyuuxyz.includes(q)) return newReply("Nama Yang Kamu Masukan Sudah Terdaftar Di Dalam Database")
+                if (Imagendaa.includes(q)) return newReply("Nama Yang Kamu Masukan Sudah Terdaftar Di Dalam Database")
                 newReply(mess.wait)
-                let media = await hyuuxyz.downloadAndSaveMediaMessage(qmsg)
+                let media = await ndaa.downloadAndSaveMediaMessage(qmsg)
                 if (/image/.test(mime)) {
                 let anu = await TelegraPh(media)
                 let eff = `${util.format(anu)}`
@@ -2740,11 +2740,11 @@ break
             case 'addimage': {
                 if (!isPremium) return newReply(mess.prem)
                 if (args.length < 1) return newReply('Nama Imagenya?')
-                if (Imagehyuuxyz.includes(q)) return newReply("Nama Yang Kamu Masukan Sudah Terdaftar Di Dalam Database")
-                let delb = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
-                Imagehyuuxyz.push(q)
+                if (Imagendaa.includes(q)) return newReply("Nama Yang Kamu Masukan Sudah Terdaftar Di Dalam Database")
+                let delb = await ndaa.downloadAndSaveMediaMessage(quoted)
+                Imagendaa.push(q)
                 await fsx.copy(delb, `./media/image/${q}.jpg`)
-                fs.writeFileSync('./src/media/image.json', JSON.stringify(Imagehyuuxyz))
+                fs.writeFileSync('./src/media/image.json', JSON.stringify(Imagendaa))
                 fs.unlinkSync(delb)
                 newReply(`Sukses Menambahkan Image\nUntuk Cek Ketik ${prefix}listimage`)
             }
@@ -2753,10 +2753,10 @@ break
             case 'delimage': {
                 if (!isPremium) return newReply(mess.prem)
                 if (args.length < 1) return newReply('Masukan Nama Imagenya')
-                if (!Imagehyuuxyz.includes(q)) return newReply("Nama Image Yang Kamu Masukan Tidak Terdaftar")
-                let wanu = Imagehyuuxyz.indexOf(q)
-                Imagehyuuxyz.splice(wanu, 1)
-                fs.writeFileSync('./src/media/image.json', JSON.stringify(Imagehyuuxyz))
+                if (!Imagendaa.includes(q)) return newReply("Nama Image Yang Kamu Masukan Tidak Terdaftar")
+                let wanu = Imagendaa.indexOf(q)
+                Imagendaa.splice(wanu, 1)
+                fs.writeFileSync('./src/media/image.json', JSON.stringify(Imagendaa))
                 fs.unlinkSync(`./media/image/${q}.jpg`)
                 newReply(`Suksed Menghapus Image ${q}`)
             }
@@ -2764,11 +2764,11 @@ break
             case 'addsticker': {
                 if (!isPremium) return newReply(mess.prem)
                 if (args.length < 1) return newReply('Masukan Nama Stickernya?')
-                if (Stickerhyuuxyz.includes(q)) return newReply("Nama Telah Di Pakai")
-                let delb = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
-                Stickerhyuuxyz.push(q)
+                if (Stickerndaa.includes(q)) return newReply("Nama Telah Di Pakai")
+                let delb = await ndaa.downloadAndSaveMediaMessage(quoted)
+                Stickerndaa.push(q)
                 await fsx.copy(delb, `./media/sticker/${q}.webp`)
-                fs.writeFileSync('./src/media/sticker.json', JSON.stringify(Stickerhyuuxyz))
+                fs.writeFileSync('./src/media/sticker.json', JSON.stringify(Stickerndaa))
                 fs.unlinkSync(delb)
                 newReply(`Sukses Menambahkan Sticker\nUntuk Mengecek Ketik ${prefix}liststicker`)
             }
@@ -2776,10 +2776,10 @@ break
             case 'delsticker': {
                 if (!isPremium) return newReply(mess.prem)
                 if (args.length < 1) return newReply('Masukan Nama Stickernya')
-                if (!Stickerhyuuxyz.includes(q)) return newReply("Nama Tidak Terdaftar Di Database")
-                let wanu = Stickerhyuuxyz.indexOf(q)
-                Stickerhyuuxyz.splice(wanu, 1)
-                fs.writeFileSync('./src/media/sticker.json', JSON.stringify(Stickerhyuuxyz))
+                if (!Stickerndaa.includes(q)) return newReply("Nama Tidak Terdaftar Di Database")
+                let wanu = Stickerndaa.indexOf(q)
+                Stickerndaa.splice(wanu, 1)
+                fs.writeFileSync('./src/media/sticker.json', JSON.stringify(Stickerndaa))
                 fs.unlinkSync(`./media/sticker/${q}.webp`)
                 newReply(`Sukses Menghapus Sticker ${q}`)
             }
@@ -2787,11 +2787,11 @@ break
             case 'addvn': {
                 if (!isPremium) return newReply(mess.prem)
                 if (args.length < 1) return newReply('Masukan Namanya?')
-                if (Vnhyuuxyz.includes(q)) return newReply("Nama Telah Di Pakai")
-                let delb = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
-                Vnhyuuxyz.push(q)
+                if (Vnndaa.includes(q)) return newReply("Nama Telah Di Pakai")
+                let delb = await ndaa.downloadAndSaveMediaMessage(quoted)
+                Vnndaa.push(q)
                 await fsx.copy(delb, `./media/audio/${q}.mp3`)
-                fs.writeFileSync('./src/media/vn.json', JSON.stringify(Vnhyuuxyz))
+                fs.writeFileSync('./src/media/vn.json', JSON.stringify(Vnndaa))
                 fs.unlinkSync(delb)
                 newReply(`Sukses Menambahkan Audio\nUntuk Mengecek Ketik ${prefix}listvn`)
             }
@@ -2799,10 +2799,10 @@ break
             case 'delvn': {
                 if (!isPremium) return newReply(mess.prem)
                 if (args.length < 1) return newReply('Masukan Namanya')
-                if (!Vnhyuuxyz.includes(q)) return newReply("Nama Tidak Terdaftar Di Database")
-                let wanu = Vnhyuuxyz.indexOf(q)
-                Vnhyuuxyz.splice(wanu, 1)
-                fs.writeFileSync('./src/media/vn.json', JSON.stringify(Vnhyuuxyz))
+                if (!Vnndaa.includes(q)) return newReply("Nama Tidak Terdaftar Di Database")
+                let wanu = Vnndaa.indexOf(q)
+                Vnndaa.splice(wanu, 1)
+                fs.writeFileSync('./src/media/vn.json', JSON.stringify(Vnndaa))
                 fs.unlinkSync(`./media/audio/${q}.mp3`)
                 newReply(`Sukses Menghapus Audio ${q}`)
             }
@@ -3040,14 +3040,14 @@ if (/yuki/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.
 if (/yulibocil/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/yulibocil.json')
 if (/yumeko/.test(command)) heyy = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/master/yumeko.json')
 let yeha = heyy[Math.floor(Math.random() * heyy.length)];
-hyuuxyz.sendMessage(m.chat, { image: { url: yeha }, caption : mess.done }, { quoted: m })
+ndaa.sendMessage(m.chat, { image: { url: yeha }, caption : mess.done }, { quoted: m })
 }
 break
             /* ~~~~~~~~~ GAME FEATURES ~~~~~~~~~ */
             case 'ttc':
             case 'ttt':
             case 'tictactoe': {
-                let TicTacToe = require("./lib/tictactoe")
+                let TicTacToe = require("./lib/tictactoe.js")
                 this.game = this.game ? this.game : {}
                 if (Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender))) return newReply('Kamu masih didalam game')
                 let room = Object.values(this.game).find(room => room.state === 'WAITING' && (text ? room.name === text : true))
@@ -3080,10 +3080,10 @@ ${arr.slice(6).join('')}
 Menunggu @${room.game.currentTurn.split('@')[0]}
 
 Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
-                    if (room.x !== room.o) await hyuuxyz.sendText(room.x, str, m, {
+                    if (room.x !== room.o) await ndaa.sendText(room.x, str, m, {
                         mentions: parseMention(str)
                     })
-                    await hyuuxyz.sendText(room.o, str, m, {
+                    await ndaa.sendText(room.o, str, m, {
                         mentions: parseMention(str)
                     })
                 } else {
@@ -3106,7 +3106,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
                 try {
                     if (this.game) {
                         delete this.game
-                        hyuuxyz.sendText(m.chat, `Berhasil delete session TicTacToe`, m)
+                        ndaa.sendText(m.chat, `Berhasil delete session TicTacToe`, m)
                     } else if (!this.game) {
                         newReply(`Session TicTacToe🎮 tidak ada`)
                     } else mewReply('?')
@@ -3134,7 +3134,7 @@ Ketik *nyerah* untuk menyerah dan mengakui kekalahan`
 
 Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 this.suit[id] = {
-                    chat: await hyuuxyz.sendText(m.chat, caption, m, {
+                    chat: await ndaa.sendText(m.chat, caption, m, {
                         mentions: parseMention(caption)
                     }),
                     id: id,
@@ -3142,7 +3142,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     p2: m.mentionedJid[0],
                     status: 'wait',
                     waktu: setTimeout(() => {
-                        if (this.suit[id]) hyuuxyz.sendText(m.chat, `_Waktu suit habis_`, m)
+                        if (this.suit[id]) ndaa.sendText(m.chat, `_Waktu suit habis_`, m)
                         delete this.suit[id]
                     }, 60000),
                     poin,
@@ -3157,10 +3157,10 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 let {
                     genMath,
                     modes
-                } = require('./lib/math')
+                } = require('./lib/math.js')
                 if (!text) return newReply(`Mode: ${Object.keys(modes).join(' | ')}\nContoh penggunaan: ${prefix}math medium`)
                 let result = await genMath(text.toLowerCase())
-                hyuuxyz.sendText(m.chat, `*Berapa hasil dari: ${result.soal.toLowerCase()}*?\n\nWaktu: ${(result.waktu / 1000).toFixed(2)} detik`, m).then(() => {
+                ndaa.sendText(m.chat, `*Berapa hasil dari: ${result.soal.toLowerCase()}*?\n\nWaktu: ${(result.waktu / 1000).toFixed(2)} detik`, m).then(() => {
                     kuismath[m.sender.split('@')[0]] = result.jawaban
                 })
                 await sleep(result.waktu)
@@ -3176,7 +3176,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) return newReply("Masih Ada Sesi Yang Belum Diselesaikan!")
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakgambar.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    hyuuxyz.sendMessage(m.chat, {
+                    ndaa.sendMessage(m.chat, {
                         image: {
                             url: result.img
                         },
@@ -3189,66 +3189,66 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     await sleep(60000)
                     if (tebakgambar.hasOwnProperty(m.sender.split('@')[0])) {
                         console.log("Jawaban: " + result.jawaban)
-                        hyuuxyz.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakgambar[m.sender.split('@')[0]]}`, m)
+                        ndaa.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakgambar[m.sender.split('@')[0]]}`, m)
                         delete tebakgambar[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'kata') {
                     if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) return newReply("Masih Ada Sesi Yang Belum Diselesaikan!")
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakkata.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    hyuuxyz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nWaktu : 60s`, m).then(() => {
+                    ndaa.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nWaktu : 60s`, m).then(() => {
                         tebakkata[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebakkata.hasOwnProperty(m.sender.split('@')[0])) {
                         console.log("Jawaban: " + result.jawaban)
-                        hyuuxyz.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakkata[m.sender.split('@')[0]]}`, m)
+                        ndaa.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakkata[m.sender.split('@')[0]]}`, m)
                         delete tebakkata[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'kalimat') {
                     if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) return newReply("Masih Ada Sesi Yang Belum Diselesaikan!")
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakkalimat.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    hyuuxyz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nWaktu : 60s`, m).then(() => {
+                    ndaa.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\n${result.soal}\nWaktu : 60s`, m).then(() => {
                         tebakkalimat[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebakkalimat.hasOwnProperty(m.sender.split('@')[0])) {
                         console.log("Jawaban: " + result.jawaban)
-                        hyuuxyz.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakkalimat[m.sender.split('@')[0]]}`, m)
+                        ndaa.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakkalimat[m.sender.split('@')[0]]}`, m)
                         delete tebakkalimat[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'lirik') {
                     if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) return newReply("Masih Ada Sesi Yang Belum Diselesaikan!")
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebaklirik.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    hyuuxyz.sendText(m.chat, `Ini Adalah Lirik Dari Lagu? : *${result.soal}*?\nWaktu : 60s`, m).then(() => {
+                    ndaa.sendText(m.chat, `Ini Adalah Lirik Dari Lagu? : *${result.soal}*?\nWaktu : 60s`, m).then(() => {
                         tebaklirik[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebaklirik.hasOwnProperty(m.sender.split('@')[0])) {
                         console.log("Jawaban: " + result.jawaban)
-                        hyuuxyz.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebaklirik[m.sender.split('@')[0]]}`, m)
+                        ndaa.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebaklirik[m.sender.split('@')[0]]}`, m)
                         delete tebaklirik[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'tebakan') {
                     if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0])) return newReply("Masih Ada Sesi Yang Belum Diselesaikan!")
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebaktebakan.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    hyuuxyz.sendText(m.chat, `Jawablah Pertanyaan Berikut : *${result.soal}*?\nWaktu : 60s`, m).then(() => {
+                    ndaa.sendText(m.chat, `Jawablah Pertanyaan Berikut : *${result.soal}*?\nWaktu : 60s`, m).then(() => {
                         tebaktebakan[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebaktebakan.hasOwnProperty(m.sender.split('@')[0])) {
                         console.log("Jawaban: " + result.jawaban)
-                        hyuuxyz.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebaktebakan[m.sender.split('@')[0]]}`, m)
+                        ndaa.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebaktebakan[m.sender.split('@')[0]]}`, m)
                         delete tebaktebakan[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'bendera') {
                     if (tebakbendera.hasOwnProperty(m.sender.split('@')[0])) return newReply("Masih Ada Sesi Yang Belum Diselesaikan!")
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakbendera.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    hyuuxyz.sendMessage(m.chat, {
+                    ndaa.sendMessage(m.chat, {
                         image: {
                             url: result.img
                         },
@@ -3261,14 +3261,14 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     await sleep(60000)
                     if (tebakbendera.hasOwnProperty(m.sender.split('@')[0])) {
                         console.log("Jawaban: " + result.name)
-                        hyuuxyz.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakbendera[m.sender.split('@')[0]]}`, m)
+                        ndaa.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakbendera[m.sender.split('@')[0]]}`, m)
                         delete tebakbendera[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'bendera2') {
                     if (tebakbendera2.hasOwnProperty(m.sender.split('@')[0])) return newReply("Masih Ada Sesi Yang Belum Diselesaikan!")
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakbendera2.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    hyuuxyz.sendMessage(m.chat, {
+                    ndaa.sendMessage(m.chat, {
                         image: {
                             url: result.img
                         },
@@ -3281,72 +3281,72 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                     await sleep(60000)
                     if (tebakbendera2.hasOwnProperty(m.sender.split('@')[0])) {
                         console.log("Jawaban: " + result.name)
-                        hyuuxyz.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakbendera2[m.sender.split('@')[0]]}`, m)
+                        ndaa.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakbendera2[m.sender.split('@')[0]]}`, m)
                         delete tebakbendera2[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'kimia') {
                     if (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) return newReply("Masih Ada Sesi Yang Belum Diselesaikan!")
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tebakkimia.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    hyuuxyz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nUnsur : ${result.unsur}\nWaktu : 60s`, m).then(() => {
+                    ndaa.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nUnsur : ${result.unsur}\nWaktu : 60s`, m).then(() => {
                         tebakkimia[m.sender.split('@')[0]] = result.lambang.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebakkimia.hasOwnProperty(m.sender.split('@')[0])) {
                         console.log("Jawaban: " + result.lambang)
-                        hyuuxyz.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakkimia[m.sender.split('@')[0]]}`, m)
+                        ndaa.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakkimia[m.sender.split('@')[0]]}`, m)
                         delete tebakkimia[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'asahotak') {
                     if (tebakasahotak.hasOwnProperty(m.sender.split('@')[0])) return newReply("Masih Ada Sesi Yang Belum Diselesaikan!")
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/asahotak.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    hyuuxyz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nSoal : ${result.soal}\nWaktu : 60s`, m).then(() => {
+                    ndaa.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nSoal : ${result.soal}\nWaktu : 60s`, m).then(() => {
                         tebakasahotak[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebakasahotak.hasOwnProperty(m.sender.split('@')[0])) {
                         console.log("Jawaban: " + result.jawaban)
-                        hyuuxyz.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakasahotak[m.sender.split('@')[0]]}`, m)
+                        ndaa.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebakasahotak[m.sender.split('@')[0]]}`, m)
                         delete tebakasahotak[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'siapakahaku') {
                     if (tebaksiapakahaku.hasOwnProperty(m.sender.split('@')[0])) return newReply("Masih Ada Sesi Yang Belum Diselesaikan!")
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/siapakahaku.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    hyuuxyz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nSoal : ${result.soal}\nWaktu : 60s`, m).then(() => {
+                    ndaa.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nSoal : ${result.soal}\nWaktu : 60s`, m).then(() => {
                         tebaksiapakahaku[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebaksiapakahaku.hasOwnProperty(m.sender.split('@')[0])) {
                         console.log("Jawaban: " + result.jawaban)
-                        hyuuxyz.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebaksiapakahaku[m.sender.split('@')[0]]}`, m)
+                        ndaa.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebaksiapakahaku[m.sender.split('@')[0]]}`, m)
                         delete tebaksiapakahaku[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'susunkata') {
                     if (tebaksusunkata.hasOwnProperty(m.sender.split('@')[0])) return newReply("Masih Ada Sesi Yang Belum Diselesaikan!")
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/susunkata.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    hyuuxyz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nSoal : ${result.soal}\nTipe : ${result.tipe}\nWaktu : 60s`, m).then(() => {
+                    ndaa.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nSoal : ${result.soal}\nTipe : ${result.tipe}\nWaktu : 60s`, m).then(() => {
                         tebaksusunkata[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebaksusunkata.hasOwnProperty(m.sender.split('@')[0])) {
                         console.log("Jawaban: " + result.jawaban)
-                        hyuuxyz.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebaksusunkata[m.sender.split('@')[0]]}`, m)
+                        ndaa.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebaksusunkata[m.sender.split('@')[0]]}`, m)
                         delete tebaksusunkata[m.sender.split('@')[0]]
                     }
                 } else if (args[0] === 'tekateki') {
                     if (tebaktekateki.hasOwnProperty(m.sender.split('@')[0])) return newReply("Masih Ada Sesi Yang Belum Diselesaikan!")
                     let anu = await fetchJson('https://raw.githubusercontent.com/BochilTeam/database/master/games/tekateki.json')
                     let result = anu[Math.floor(Math.random() * anu.length)]
-                    hyuuxyz.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nSoal : ${result.soal}\nWaktu : 60s`, m).then(() => {
+                    ndaa.sendText(m.chat, `Silahkan Jawab Pertanyaan Berikut\n\nSoal : ${result.soal}\nWaktu : 60s`, m).then(() => {
                         tebaktekateki[m.sender.split('@')[0]] = result.jawaban.toLowerCase()
                     })
                     await sleep(60000)
                     if (tebaktekateki.hasOwnProperty(m.sender.split('@')[0])) {
                         console.log("Jawaban: " + result.jawaban)
-                        hyuuxyz.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebaktekateki[m.sender.split('@')[0]]}`, m)
+                        ndaa.sendText(m.chat, `Waktu Habis\nJawaban:  ${tebaktekateki[m.sender.split('@')[0]]}`, m)
                         delete tebaktekateki[m.sender.split('@')[0]]
                     }
                 }
@@ -3376,7 +3376,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 imi_txt += "2 - Saya Tidak Tau\n"
                 imi_txt += "3 - Mungkin\n"
                 imi_txt += "4 - Mungkin Tidak"
-                hyuuxyz.sendText(m.chat, imi_txt, m).then(() => {
+                ndaa.sendText(m.chat, imi_txt, m).then(() => {
                     akinator[m.sender.split('@')[0]] = srv
                     fs.writeFileSync("./src/data/akinator.json", JSON.stringify(akinator))
                 })
@@ -3400,24 +3400,24 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 if (!isPremium) return newReply(mess.prem)
                 if (!q) return newReply('Example: Apa Itu Javascript')
                 let d = await fetchJson(`https://api.caliph.biz.id/api/ai/oai-gpt?q=${q}&apikey=${caliph}`)                
-                await hyuuxyz.sendMessage(from, {
+                await ndaa.sendMessage(from, {
                     text: d.result
                 }, { quoted: ftroli})
             }
             break
                         /* ~~~~~~~~~ PRIMBON ~~~~~~~~~ */
-			case 'nomerhoki': case 'nomorhoki': {
+            case 'nomerhoki': case 'nomorhoki': {
                 if (!Number(text)) return newReply(`Contoh : ${prefix + command} 6288292024190`)
                 let anu = await primbon.nomer_hoki(Number(text))
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Nomor HP :* ${anu.message.nomer_hp}\n• *Angka Shuzi :* ${anu.message.angka_shuzi}\n• *Energi Positif :*\n- Kekayaan : ${anu.message.energi_positif.kekayaan}\n- Kesehatan : ${anu.message.energi_positif.kesehatan}\n- Cinta : ${anu.message.energi_positif.cinta}\n- Kestabilan : ${anu.message.energi_positif.kestabilan}\n- Persentase : ${anu.message.energi_positif.persentase}\n• *Energi Negatif :*\n- Perselisihan : ${anu.message.energi_negatif.perselisihan}\n- Kehilangan : ${anu.message.energi_negatif.kehilangan}\n- Malapetaka : ${anu.message.energi_negatif.malapetaka}\n- Kehancuran : ${anu.message.energi_negatif.kehancuran}\n- Persentase : ${anu.message.energi_negatif.persentase}`, m)
+                ndaa.sendText(m.chat, `• *Nomor HP :* ${anu.message.nomer_hp}\n• *Angka Shuzi :* ${anu.message.angka_shuzi}\n• *Energi Positif :*\n- Kekayaan : ${anu.message.energi_positif.kekayaan}\n- Kesehatan : ${anu.message.energi_positif.kesehatan}\n- Cinta : ${anu.message.energi_positif.cinta}\n- Kestabilan : ${anu.message.energi_positif.kestabilan}\n- Persentase : ${anu.message.energi_positif.persentase}\n• *Energi Negatif :*\n- Perselisihan : ${anu.message.energi_negatif.perselisihan}\n- Kehilangan : ${anu.message.energi_negatif.kehilangan}\n- Malapetaka : ${anu.message.energi_negatif.malapetaka}\n- Kehancuran : ${anu.message.energi_negatif.kehancuran}\n- Persentase : ${anu.message.energi_negatif.persentase}`, m)
             }
             break
             case 'artimimpi': case 'tafsirmimpi': {
                 if (!text) return newReply(`Contoh : ${prefix + command} belanja`)
                 let anu = await primbon.tafsir_mimpi(text)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Mimpi :* ${anu.message.mimpi}\n• *Arti :* ${anu.message.arti}\n• *Solusi :* ${anu.message.solusi}`, m)
+                ndaa.sendText(m.chat, `• *Mimpi :* ${anu.message.mimpi}\n• *Arti :* ${anu.message.arti}\n• *Solusi :* ${anu.message.solusi}`, m)
             }
             break
             case 'ramalanjodoh': case 'ramaljodoh': {
@@ -3425,7 +3425,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Nama Anda :* ${anu.message.nama_anda.nama}\n• *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n• *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n• *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n• *Hasil :* ${anu.message.result}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Nama Anda :* ${anu.message.nama_anda.nama}\n• *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n• *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n• *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n• *Hasil :* ${anu.message.result}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'ramalanjodohbali': case 'ramaljodohbali': {
@@ -3433,7 +3433,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_jodoh_bali(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Nama Anda :* ${anu.message.nama_anda.nama}\n• *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n• *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n• *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n• *Hasil :* ${anu.message.result}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Nama Anda :* ${anu.message.nama_anda.nama}\n• *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n• *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n• *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n• *Hasil :* ${anu.message.result}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'suamiistri': {
@@ -3441,7 +3441,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.suami_istri(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Nama Suami :* ${anu.message.suami.nama}\n• *Lahir Suami :* ${anu.message.suami.tgl_lahir}\n• *Nama Istri :* ${anu.message.istri.nama}\n• *Lahir Istri :* ${anu.message.istri.tgl_lahir}\n• *Hasil :* ${anu.message.result}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Nama Suami :* ${anu.message.suami.nama}\n• *Lahir Suami :* ${anu.message.suami.tgl_lahir}\n• *Nama Istri :* ${anu.message.istri.nama}\n• *Lahir Istri :* ${anu.message.istri.tgl_lahir}\n• *Hasil :* ${anu.message.result}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'ramalancinta': case 'ramalcinta': {
@@ -3449,14 +3449,14 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 let [nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2] = text.split`,`
                 let anu = await primbon.ramalan_cinta(nama1, tgl1, bln1, thn1, nama2, tgl2, bln2, thn2)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Nama Anda :* ${anu.message.nama_anda.nama}\n• *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n• *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n• *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n• *Sisi Positif :* ${anu.message.sisi_positif}\n• *Sisi Negatif :* ${anu.message.sisi_negatif}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Nama Anda :* ${anu.message.nama_anda.nama}\n• *Lahir Anda :* ${anu.message.nama_anda.tgl_lahir}\n• *Nama Pasangan :* ${anu.message.nama_pasangan.nama}\n• *Lahir Pasangan :* ${anu.message.nama_pasangan.tgl_lahir}\n• *Sisi Positif :* ${anu.message.sisi_positif}\n• *Sisi Negatif :* ${anu.message.sisi_negatif}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'artinama': {
                 if (!text) return newReply(`Contoh : ${prefix + command} Dika Ardianta`)
                 let anu = await primbon.arti_nama(text)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Nama :* ${anu.message.nama}\n• *Arti :* ${anu.message.arti}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Nama :* ${anu.message.nama}\n• *Arti :* ${anu.message.arti}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'kecocokannama': case 'cocoknama': {
@@ -3464,7 +3464,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.kecocokan_nama(nama, tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Nama :* ${anu.message.nama}\n• *Lahir :* ${anu.message.tgl_lahir}\n• *Life Path :* ${anu.message.life_path}\n• *Destiny :* ${anu.message.destiny}\n• *Destiny Desire :* ${anu.message.destiny_desire}\n• *Personality :* ${anu.message.personality}\n• *Persentase :* ${anu.message.persentase_kecocokan}`, m)
+                ndaa.sendText(m.chat, `• *Nama :* ${anu.message.nama}\n• *Lahir :* ${anu.message.tgl_lahir}\n• *Life Path :* ${anu.message.life_path}\n• *Destiny :* ${anu.message.destiny}\n• *Destiny Desire :* ${anu.message.destiny_desire}\n• *Personality :* ${anu.message.personality}\n• *Persentase :* ${anu.message.persentase_kecocokan}`, m)
             }
             break
             case 'kecocokanpasangan': case 'cocokpasangan': case 'pasangan': {
@@ -3472,15 +3472,15 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 let [nama1, nama2] = text.split`|`
                 let anu = await primbon.kecocokan_nama_pasangan(nama1, nama2)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendImage(m.chat,  anu.message.gambar, `• *Nama Anda :* ${anu.message.nama_anda}\n• *Nama Pasangan :* ${anu.message.nama_pasangan}\n• *Sisi Positif :* ${anu.message.sisi_positif}\n• *Sisi Negatif :* ${anu.message.sisi_negatif}`, m)
+                ndaa.sendImage(m.chat,  anu.message.gambar, `• *Nama Anda :* ${anu.message.nama_anda}\n• *Nama Pasangan :* ${anu.message.nama_pasangan}\n• *Sisi Positif :* ${anu.message.sisi_positif}\n• *Sisi Negatif :* ${anu.message.sisi_negatif}`, m)
             }
             break
             case 'jadian': {
-	if (!m.isGroup) return newReply(mess.group)
-	let member = participants.map(u => u.id)
-	let orang = member[Math.floor(Math.random() * member.length)]
-	let jodoh = member[Math.floor(Math.random() * member.length)]
-	let jawab = `Ciee yang Jadian Jangan lupa pajak jadiannya
+    if (!m.isGroup) return newReply(mess.group)
+    let member = participants.map(u => u.id)
+    let orang = member[Math.floor(Math.random() * member.length)]
+    let jodoh = member[Math.floor(Math.random() * member.length)]
+    let jawab = `Ciee yang Jadian Jangan lupa pajak jadiannya
 
 @${orang.split('@')[0]} ❤ @${jodoh.split('@')[0]}`
 newReply(jawab)
@@ -3491,7 +3491,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.tanggal_jadian_pernikahan(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Tanggal Pernikahan :* ${anu.message.tanggal}\n• *karakteristik :* ${anu.message.karakteristik}`, m)
+                ndaa.sendText(m.chat, `• *Tanggal Pernikahan :* ${anu.message.tanggal}\n• *karakteristik :* ${anu.message.karakteristik}`, m)
             }
             break
             case 'sifatusaha': {
@@ -3499,7 +3499,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_usaha_bisnis(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Lahir :* ${anu.message.hari_lahir}\n• *Usaha :* ${anu.message.usaha}`, m)
+                ndaa.sendText(m.chat, `• *Lahir :* ${anu.message.hari_lahir}\n• *Usaha :* ${anu.message.usaha}`, m)
             }
             break
             case 'rejeki': case 'rezeki': {
@@ -3507,7 +3507,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rejeki_hoki_weton(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Lahir :* ${anu.message.hari_lahir}\n• *Rezeki :* ${anu.message.rejeki}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Lahir :* ${anu.message.hari_lahir}\n• *Rezeki :* ${anu.message.rejeki}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'pekerjaan': case 'kerja': {
@@ -3515,7 +3515,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.pekerjaan_weton_lahir(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Lahir :* ${anu.message.hari_lahir}\n• *Pekerjaan :* ${anu.message.pekerjaan}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Lahir :* ${anu.message.hari_lahir}\n• *Pekerjaan :* ${anu.message.pekerjaan}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'ramalannasib': case 'ramalnasib': case 'nasib': {
@@ -3523,7 +3523,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.ramalan_nasib(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Analisa :* ${anu.message.analisa}\n• *Angka Akar :* ${anu.message.angka_akar}\n• *Sifat :* ${anu.message.sifat}\n• *Elemen :* ${anu.message.elemen}\n• *Angka Keberuntungan :* ${anu.message.angka_keberuntungan}`, m)
+                ndaa.sendText(m.chat, `• *Analisa :* ${anu.message.analisa}\n• *Angka Akar :* ${anu.message.angka_akar}\n• *Sifat :* ${anu.message.sifat}\n• *Elemen :* ${anu.message.elemen}\n• *Angka Keberuntungan :* ${anu.message.angka_keberuntungan}`, m)
             }
             break
             case 'potensipenyakit': case 'penyakit': {
@@ -3531,7 +3531,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.cek_potensi_penyakit(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Analisa :* ${anu.message.analisa}\n• *Sektor :* ${anu.message.sektor}\n• *Elemen :* ${anu.message.elemen}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Analisa :* ${anu.message.analisa}\n• *Sektor :* ${anu.message.sektor}\n• *Elemen :* ${anu.message.elemen}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'artitarot': case 'tarot': {
@@ -3539,7 +3539,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.arti_kartu_tarot(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendImage(m.chat, anu.message.image, `• *Lahir :* ${anu.message.tgl_lahir}\n• *Simbol Tarot :* ${anu.message.simbol_tarot}\n• *Arti :* ${anu.message.arti}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendImage(m.chat, anu.message.image, `• *Lahir :* ${anu.message.tgl_lahir}\n• *Simbol Tarot :* ${anu.message.simbol_tarot}\n• *Arti :* ${anu.message.arti}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'fengshui': {
@@ -3547,7 +3547,7 @@ break
                 let [nama, gender, tahun] = text.split`,`
                 let anu = await primbon.perhitungan_feng_shui(nama, gender, tahun)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Nama :* ${anu.message.nama}\n• *Lahir :* ${anu.message.tahun_lahir}\n• *Gender :* ${anu.message.jenis_kelamin}\n• *Angka Kua :* ${anu.message.angka_kua}\n• *Kelompok :* ${anu.message.kelompok}\n• *Karakter :* ${anu.message.karakter}\n• *Sektor Baik :* ${anu.message.sektor_baik}\n• *Sektor Buruk :* ${anu.message.sektor_buruk}`, m)
+                ndaa.sendText(m.chat, `• *Nama :* ${anu.message.nama}\n• *Lahir :* ${anu.message.tahun_lahir}\n• *Gender :* ${anu.message.jenis_kelamin}\n• *Angka Kua :* ${anu.message.angka_kua}\n• *Kelompok :* ${anu.message.kelompok}\n• *Karakter :* ${anu.message.karakter}\n• *Sektor Baik :* ${anu.message.sektor_baik}\n• *Sektor Buruk :* ${anu.message.sektor_buruk}`, m)
             }
             break
             case 'haribaik': {
@@ -3555,7 +3555,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.petung_hari_baik(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Lahir :* ${anu.message.tgl_lahir}\n• *Kala Tinantang :* ${anu.message.kala_tinantang}\n• *Info :* ${anu.message.info}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Lahir :* ${anu.message.tgl_lahir}\n• *Kala Tinantang :* ${anu.message.kala_tinantang}\n• *Info :* ${anu.message.info}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'harisangar': case 'taliwangke': {
@@ -3563,7 +3563,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.hari_sangar_taliwangke(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Lahir :* ${anu.message.tgl_lahir}\n• *Hasil :* ${anu.message.result}\n• *Info :* ${anu.message.info}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Lahir :* ${anu.message.tgl_lahir}\n• *Hasil :* ${anu.message.result}\n• *Info :* ${anu.message.info}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'harinaas': case 'harisial': {
@@ -3571,7 +3571,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_hari_naas(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Hari Lahir :* ${anu.message.hari_lahir}\n• *Tanggal Lahir :* ${anu.message.tgl_lahir}\n• *Hari Naas :* ${anu.message.hari_naas}\n• *Info :* ${anu.message.catatan}\n• *Catatan :* ${anu.message.info}`, m)
+                ndaa.sendText(m.chat, `• *Hari Lahir :* ${anu.message.hari_lahir}\n• *Tanggal Lahir :* ${anu.message.tgl_lahir}\n• *Hari Naas :* ${anu.message.hari_naas}\n• *Info :* ${anu.message.catatan}\n• *Catatan :* ${anu.message.info}`, m)
             }
             break
             case 'nagahari': case 'harinaga': {
@@ -3579,7 +3579,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.rahasia_naga_hari(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Hari Lahir :* ${anu.message.hari_lahir}\n• *Tanggal Lahir :* ${anu.message.tgl_lahir}\n• *Arah Naga Hari :* ${anu.message.arah_naga_hari}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Hari Lahir :* ${anu.message.hari_lahir}\n• *Tanggal Lahir :* ${anu.message.tgl_lahir}\n• *Arah Naga Hari :* ${anu.message.arah_naga_hari}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'arahrejeki': case 'arahrezeki': {
@@ -3587,7 +3587,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_arah_rejeki(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Hari Lahir :* ${anu.message.hari_lahir}\n• *tanggal Lahir :* ${anu.message.tgl_lahir}\n• *Arah Rezeki :* ${anu.message.arah_rejeki}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Hari Lahir :* ${anu.message.hari_lahir}\n• *tanggal Lahir :* ${anu.message.tgl_lahir}\n• *Arah Rezeki :* ${anu.message.arah_rejeki}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'peruntungan': {
@@ -3595,7 +3595,7 @@ break
                 let [nama, tgl, bln, thn, untuk] = text.split`,`
                 let anu = await primbon.ramalan_peruntungan(nama, tgl, bln, thn, untuk)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Nama :* ${anu.message.nama}\n• *Lahir :* ${anu.message.tgl_lahir}\n• *Peruntungan Tahun :* ${anu.message.peruntungan_tahun}\n• *Hasil :* ${anu.message.result}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Nama :* ${anu.message.nama}\n• *Lahir :* ${anu.message.tgl_lahir}\n• *Peruntungan Tahun :* ${anu.message.peruntungan_tahun}\n• *Hasil :* ${anu.message.result}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'weton': case 'wetonjawa': {
@@ -3603,7 +3603,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.weton_jawa(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Tanggal :* ${anu.message.tanggal}\n• *Jumlah Neptu :* ${anu.message.jumlah_neptu}\n• *Watak Hari :* ${anu.message.watak_hari}\n• *Naga Hari :* ${anu.message.naga_hari}\n• *Jam Baik :* ${anu.message.jam_baik}\n• *Watak Kelahiran :* ${anu.message.watak_kelahiran}`, m)
+                ndaa.sendText(m.chat, `• *Tanggal :* ${anu.message.tanggal}\n• *Jumlah Neptu :* ${anu.message.jumlah_neptu}\n• *Watak Hari :* ${anu.message.watak_hari}\n• *Naga Hari :* ${anu.message.naga_hari}\n• *Jam Baik :* ${anu.message.jam_baik}\n• *Watak Kelahiran :* ${anu.message.watak_kelahiran}`, m)
             }
             break
             case 'sifat': case 'karakter': {
@@ -3611,7 +3611,7 @@ break
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.sifat_karakter_tanggal_lahir(nama, tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Nama :* ${anu.message.nama}\n• *Lahir :* ${anu.message.tgl_lahir}\n• *Garis Hidup :* ${anu.message.garis_hidup}`, m)
+                ndaa.sendText(m.chat, `• *Nama :* ${anu.message.nama}\n• *Lahir :* ${anu.message.tgl_lahir}\n• *Garis Hidup :* ${anu.message.garis_hidup}`, m)
             }
             break
             case 'keberuntungan': {
@@ -3619,7 +3619,7 @@ break
                 let [nama, tgl, bln, thn] = text.split`,`
                 let anu = await primbon.potensi_keberuntungan(nama, tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Nama :* ${anu.message.nama}\n• *Lahir :* ${anu.message.tgl_lahir}\n• *Hasil :* ${anu.message.result}`, m)
+                ndaa.sendText(m.chat, `• *Nama :* ${anu.message.nama}\n• *Lahir :* ${anu.message.tgl_lahir}\n• *Hasil :* ${anu.message.result}`, m)
             }
             break
             case 'memancing': {
@@ -3627,7 +3627,7 @@ break
                 let [tgl, bln, thn] = text.split`,`
                 let anu = await primbon.primbon_memancing_ikan(tgl, bln, thn)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Tanggal :* ${anu.message.tgl_memancing}\n• *Hasil :* ${anu.message.result}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Tanggal :* ${anu.message.tgl_memancing}\n• *Hasil :* ${anu.message.result}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             case 'masasubur': {
@@ -3635,77 +3635,77 @@ break
                 let [tgl, bln, thn, siklus] = text.split`,`
                 let anu = await primbon.masa_subur(tgl, bln, thn, siklus)
                 if (anu.status == false) return newReply(anu.message)
-                hyuuxyz.sendText(m.chat, `• *Hasil :* ${anu.message.result}\n• *Catatan :* ${anu.message.catatan}`, m)
+                ndaa.sendText(m.chat, `• *Hasil :* ${anu.message.result}\n• *Catatan :* ${anu.message.catatan}`, m)
             }
             break
             /* ~~~~~~~~~ STALKER ~~~~~~~~~ */
             case 'igstalk': {
-			if (args.length == 0) return newReply(`Example: ${prefix + command} whyzzxy`)
-			newReply(mess.wait)
-			let j = await fetchJson(`https://api.lolhuman.xyz/api/stalkig/${args[0]}?apikey=${lol}`)
-				let caption = `Username : ${j.result.username}\n`
-				caption += `Full Name : ${j.result.fullname}\n`
-				caption += `Posts : ${j.result.posts}\n`
-				caption += `Followers : ${j.result.followers}\n`
-				caption += `Following : ${j.result.following}\n`
-				caption += `Bio : ${j.result.bio}`
-				hyuuxyz.sendMessage(m.chat, { image: { url: j.result.photo_profile }, caption })
-			}
-			break
+            if (args.length == 0) return newReply(`Example: ${prefix + command} whyzzxy`)
+            newReply(mess.wait)
+            let j = await fetchJson(`https://api.lolhuman.xyz/api/stalkig/${args[0]}?apikey=${lol}`)
+                let caption = `Username : ${j.result.username}\n`
+                caption += `Full Name : ${j.result.fullname}\n`
+                caption += `Posts : ${j.result.posts}\n`
+                caption += `Followers : ${j.result.followers}\n`
+                caption += `Following : ${j.result.following}\n`
+                caption += `Bio : ${j.result.bio}`
+                ndaa.sendMessage(m.chat, { image: { url: j.result.photo_profile }, caption })
+            }
+            break
 
             case 'ttstalk': {
-			if (args.length == 0) return newReply(`Example: ${prefix + command} dryan.pu`)
-			newReply(mess.wait)
-			let v = await fetchJson(`https://api.lolhuman.xyz/api/stalktiktok/${args[0]}?apikey=${lol}`)
-				let caption = `Username : ${v.result.username}\n`
-				caption += `Nickname : ${v.result.nickname}\n`
-				caption += `Followers : ${v.result.followers}\n`
-				caption += `Followings : ${v.result.followings}\n`
-				caption += `Likes : ${v.result.likes}\n`
-				caption += `Video : ${v.result.video}\n`
-				caption += `Bio : ${v.result.bio}\n`
-				hyuuxyz.sendMessage(m.chat, { image: { url: v.result.user_picture }, caption })
-			}
-			break
-			
-			case 'mlstalk': {
-			if (args.length == 0) return newReply(`Example: ${prefix + command} 84830127/2169`)
-			newReply(mess.wait)
-			let data = await fetchJson(`https://api.lolhuman.xyz/api/mobilelegend/${args[0]}?apikey=${lol}`)
-			newReply(data.result)
-			}
-			break
-			
-			case 'ghstalk': {
-			if (args.length == 0) return newReply(`Example: ${prefix + command} Hyuu`)
-			newReply(mess.wait)
-			let data = await fetchJson(`https://api.lolhuman.xyz/api/github/${args[0]}?apikey=${lol}`)
-				var caption = `Name : ${data.result.name}\n`
-				caption += `Link : ${data.result.url}\n`
-				caption += `Public Repo : ${data.result.public_repos}\n`
-				caption += `Public Gists : ${data.result.public_gists}\n`
-				caption += `Followers : ${data.result.followers}\n`
-				caption += `Following : ${data.result.following}\n`
-				caption += `Bio : ${data.result.bio}`
-				hyuuxyz.sendMessage(m.chat, { image: { url: data.result.avatar }, caption })
-			}
-			break
-			
-		    case 'twstalk': {
-			if (args.length == 0) return newReply(`Example: ${prefix + command} jokowi`)
-			newReply(mess.wait)
-			let data = await fetchJson(`https://api.lolhuman.xyz/api/twitter/${args[0]}?apikey=${lol}`)
-				var caption = `Username : ${data.result.screen_name}\n`
-				caption += `Name : ${data.result.name}\n`
-				caption += `Tweet : ${data.result.tweet}\n`
-				caption += `Joined : ${data.result.joined}\n`
-				caption += `Followers : ${data.result.followers}\n`
-				caption += `Following : ${data.result.following}\n`
-				caption += `Like : ${data.result.like}\n`
-				caption += `Description : ${data.result.description}`
-				hyuuxyz.sendMessage(m.chat, { image: { url: data.result.profile_picture }, caption })
-			}
-			break
+            if (args.length == 0) return newReply(`Example: ${prefix + command} dryan.pu`)
+            newReply(mess.wait)
+            let v = await fetchJson(`https://api.lolhuman.xyz/api/stalktiktok/${args[0]}?apikey=${lol}`)
+                let caption = `Username : ${v.result.username}\n`
+                caption += `Nickname : ${v.result.nickname}\n`
+                caption += `Followers : ${v.result.followers}\n`
+                caption += `Followings : ${v.result.followings}\n`
+                caption += `Likes : ${v.result.likes}\n`
+                caption += `Video : ${v.result.video}\n`
+                caption += `Bio : ${v.result.bio}\n`
+                ndaa.sendMessage(m.chat, { image: { url: v.result.user_picture }, caption })
+            }
+            break
+            
+            case 'mlstalk': {
+            if (args.length == 0) return newReply(`Example: ${prefix + command} 84830127/2169`)
+            newReply(mess.wait)
+            let data = await fetchJson(`https://api.lolhuman.xyz/api/mobilelegend/${args[0]}?apikey=${lol}`)
+            newReply(data.result)
+            }
+            break
+            
+            case 'ghstalk': {
+            if (args.length == 0) return newReply(`Example: ${prefix + command} Ndaa`)
+            newReply(mess.wait)
+            let data = await fetchJson(`https://api.lolhuman.xyz/api/github/${args[0]}?apikey=${lol}`)
+                var caption = `Name : ${data.result.name}\n`
+                caption += `Link : ${data.result.url}\n`
+                caption += `Public Repo : ${data.result.public_repos}\n`
+                caption += `Public Gists : ${data.result.public_gists}\n`
+                caption += `Followers : ${data.result.followers}\n`
+                caption += `Following : ${data.result.following}\n`
+                caption += `Bio : ${data.result.bio}`
+                ndaa.sendMessage(m.chat, { image: { url: data.result.avatar }, caption })
+            }
+            break
+            
+            case 'twstalk': {
+            if (args.length == 0) return newReply(`Example: ${prefix + command} jokowi`)
+            newReply(mess.wait)
+            let data = await fetchJson(`https://api.lolhuman.xyz/api/twitter/${args[0]}?apikey=${lol}`)
+                var caption = `Username : ${data.result.screen_name}\n`
+                caption += `Name : ${data.result.name}\n`
+                caption += `Tweet : ${data.result.tweet}\n`
+                caption += `Joined : ${data.result.joined}\n`
+                caption += `Followers : ${data.result.followers}\n`
+                caption += `Following : ${data.result.following}\n`
+                caption += `Like : ${data.result.like}\n`
+                caption += `Description : ${data.result.description}`
+                ndaa.sendMessage(m.chat, { image: { url: data.result.profile_picture }, caption })
+            }
+            break
             
             /* ~~~~~~~~~ DOWNLOADER ~~~~~~~~~ */
             case 'git': case 'gitclone':
@@ -3716,11 +3716,11 @@ break
             repo = repo.replace(/.git$/, '')
             let url = `https://api.github.com/repos/${user}/${repo}/zipball`
             let filename = (await fetch(url, {method: 'HEAD'})).headers.get('content-disposition').match(/attachment; filename=(.*)/)[1]
-            hyuuxyz.sendMessage(m.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip' }, { quoted: fkontak }).catch((err) => newReply(mess.error))
+            ndaa.sendMessage(m.chat, { document: { url: url }, fileName: filename+'.zip', mimetype: 'application/zip' }, { quoted: fkontak }).catch((err) => newReply(mess.error))
             break
             case 'tiktok':
             let haha = `*Pilih Mau Yang Mana:*\n\n • Video: .ttv1 + Link\n • Audio: .ttv2 + Link.`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: haha,
                         contextInfo: {
                             externalAdReply: {
@@ -3742,7 +3742,7 @@ hyuuxyz.sendMessage(m.chat, {
                 if (!q) return newReply('where is the link')
                 let e = await fetchJson(`https://api.caliph.biz.id/api/tiktok?url=${q}&apikey=${caliph}`)
                 let ee = `*DOWNLOADER TIKTOK*\n\n_Title:_ ${e.data.title}\n_Likes:_ ${e.data.stats.likeCount}\n_Comment:_ ${e.data.stats.commentCount}\n_Share:_ ${e.data.stats.shareCount}`
-                await hyuuxyz.sendMessage(m.chat, {
+                await ndaa.sendMessage(m.chat, {
                     video: {
                         url: e.data.video.noWatermark
                     },
@@ -3756,7 +3756,7 @@ hyuuxyz.sendMessage(m.chat, {
             case 'ttaudio': {
                 if (!q) return newReply('where is the link')
                 let i = await fetchJson(`https://api.caliph.biz.id/api/tiktok?url=${q}&apikey=${caliph}`)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     audio: {
                         url: i.data.music.play_url
                     },
@@ -3769,7 +3769,7 @@ hyuuxyz.sendMessage(m.chat, {
             case 'cocofun':
                 if (!q) return newReply('where is the link')
                 let j = await fetchJson(`https://api.lolhuman.xyz/api/cocofun?apikey=${lol}&url=${q}`)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     video: {
                         url: j.result.nowm
                     },
@@ -3781,7 +3781,7 @@ hyuuxyz.sendMessage(m.chat, {
             case 'mediafire':
                 if (!q) return newReply('where is the link')
                 let ha = await fetchJson(`https://api.lolhuman.xyz/api/mediafire?apikey=${lol}&url=${q}`)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     document: {
                         url: ha.result.link
                     },
@@ -3795,7 +3795,7 @@ hyuuxyz.sendMessage(m.chat, {
             case 'sv':
                 if (!q) return newReply('where is the link')
                 let ma = await fetchJson(`https://api.lolhuman.xyz/api/snackvideo?apikey=${lol}&url=${q}`)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     video: {
                         url: ma.result.url
                     },
@@ -3812,7 +3812,7 @@ let txt = `\`\`\`YOUTUBE SEARCH\`\`\`\n\n`
 txt += `• Title : *${x.result.title}*\n`
 txt += `• Duration : *${x.result.duration}*\n`
 txt += `• url : *${x.result.url}*`
-hyuuxyz.sendMessage(m.chat, { image: { url: x.result.thumbnail }, caption: txt }, {quoted: m})
+ndaa.sendMessage(m.chat, { image: { url: x.result.thumbnail }, caption: txt }, {quoted: m})
 }
 break
             case 'ytmp4': {
@@ -3825,7 +3825,7 @@ break
                 txt += `• Views : *${data.result.view}*\n`
                 txt += `• Desc : ${data.result.description}\n\n`
                 txt += `Copy the link above and type the .ytmp3 link for audio and the .ytmp4 link for video.`
-                await hyuuxyz.sendMessage(m.chat, {
+                await ndaa.sendMessage(m.chat, {
                     document: {
                         url: data.result.link.link
                     },
@@ -3857,7 +3857,7 @@ break
                 txtt += `• Duration : *${data.result.duration}*\n`
                 txtt += `• Views : *${data.result.view}*\n`
                 txtt += `• Desc : ${data.result.description}`
-                await hyuuxyz.sendMessage(m.chat, {
+                await ndaa.sendMessage(m.chat, {
                     document: {
                         url: data.result.link.link
                     },
@@ -3886,7 +3886,7 @@ break
                 let ag = await fetchJson(`https://api.lolhuman.xyz/api/instagram?apikey=${lol}&url=${q}`)
                 for (var i = 0; i < ag.result.length; i++) {
                     let pap = ag.result[i].includes('.jpg') ? 'image' : 'video'
-                    await hyuuxyz.sendMessage(m.chat, {
+                    await ndaa.sendMessage(m.chat, {
                         [pap]: {
                             url: ag.result[i]
                         },
@@ -3902,7 +3902,7 @@ break
                 let apacuba = await fetchJson(`https://api.lolhuman.xyz/api/pinterestdl?apikey=${lol}&url=${q}`)
                 for (var i = 0; i < apacuba.result; i++) {
                     let pap = apacuba.result[i].includes('.jpg') ? 'image' : 'video'
-                    await hyuuxyz.sendMessage(m.chat, {
+                    await ndaa.sendMessage(m.chat, {
                         [pap]: {
                             url: apacuba.result[i]
                         },
@@ -3919,7 +3919,7 @@ break
                 let ap = await fetchJson(`https://api.lolhuman.xyz/api/ig-highlights?apikey=${lol}&url=${q}`)
                 for (var oa = 0; oa < ap.result.length; oa++) {
                     let pap = ap.result[oa].includes('.jpg') ? 'image' : 'video'
-                    await hyuuxyz.sendMessage(m.chat, {
+                    await ndaa.sendMessage(m.chat, {
                         [pap]: {
                             url: ap.result[oa]
                         },
@@ -3935,7 +3935,7 @@ case 'gcbug' : {
 if (!isPremium) return newReply(mess.prem)
  if (!args[0]) return newReply(`Use ${prefix+command} link\nExample ${prefix+command} https://chat.whatsapp.com/JVKKTg3rmmiKEL3MQBVplg`)
 let result = args[0].split('https://chat.whatsapp.com/')[1]
-let xeongc = await hyuuxyz.groupAcceptInvite(result)
+let xeongc = await ndaa.groupAcceptInvite(result)
 amount = "30"
 for (let i = 0; i < amount; i++) {
 const xeonybug1 = `${xeontext1}`
@@ -3946,7 +3946,7 @@ var scheduledCallCreationMessage = generateWAMessageFromContent(from, proto.Mess
 "title": xeonybug1,
 }
 }), { userJid: from, quoted : m})
-hyuuxyz.relayMessage(xeongc, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
+ndaa.relayMessage(xeongc, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
 await sleep(3000)
 }
 }
@@ -3956,7 +3956,7 @@ case 'delaygcbug' :  {
 if (!isPremium) return newReply(mess.prem)
 if (!args[0]) return newReply(`Use ${prefix+command} link\nExample ${prefix+command} https://chat.whatsapp.com/JVKKTg3rmmiKEL3MQBVplg`)
 let result = args[0].split('https://chat.whatsapp.com/')[1]
-let xeongc = await hyuuxyz.groupAcceptInvite(result)
+let xeongc = await ndaa.groupAcceptInvite(result)
 amount = "30"
 for (let i = 0; i < amount; i++) {
 const xeonybug1 = textbug5
@@ -3967,7 +3967,7 @@ var scheduledCallCreationMessage = generateWAMessageFromContent(from, proto.Mess
 "title": xeonybug1,
 }
 }), { userJid: from, quoted : m})
-hyuuxyz.relayMessage(xeongc, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
+ndaa.relayMessage(xeongc, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
 await sleep(3000)
 }
 }
@@ -3977,7 +3977,7 @@ case 'laggcbug' :  {
 if (!isPremium) return newReply(mess.prem)
 if (!args[0]) return newReply(`Use ${prefix+command} link\nExample ${prefix+command} https://chat.whatsapp.com/JVKKTg3rmmiKEL3MQBVplg`)
 let result = args[0].split('https://chat.whatsapp.com/')[1]
-let xeongc = await hyuuxyz.groupAcceptInvite(result)
+let xeongc = await ndaa.groupAcceptInvite(result)
 amount = "30"
 for (let i = 0; i < amount; i++) {
 const xeonybug1 = textbug2
@@ -3988,7 +3988,7 @@ var scheduledCallCreationMessage = generateWAMessageFromContent(from, proto.Mess
 "title": xeonybug1,
 }
 }), { userJid: from, quoted : m})
-hyuuxyz.relayMessage(xeongc, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
+ndaa.relayMessage(xeongc, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
 await sleep(3000)
 }
 }
@@ -4009,7 +4009,7 @@ var scheduledCallCreationMessage = generateWAMessageFromContent(from, proto.Mess
 "title": xeonybug1,
 }
 }), { userJid: from, quoted : m})
-hyuuxyz.relayMessage(xeongc, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
+ndaa.relayMessage(xeongc, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
 await sleep(3000)
 }
 }
@@ -4019,7 +4019,7 @@ case 'unlimitedgcbug' :  {
 if (!isPremium) return newReply(mess.prem)
 if (!args[0]) return newReply(`Use ${prefix+command} link\nExample ${prefix+command} https://chat.whatsapp.com/JVKKTg3rmmiKEL3MQBVplg`)
 let result = args[0].split('https://chat.whatsapp.com/')[1]
-let xeongc = await hyuuxyz.groupAcceptInvite(result)
+let xeongc = await ndaa.groupAcceptInvite(result)
 amount = "30"
 for (let i = 0; i < amount; i++) {
 const xeonybug1 = textbug3
@@ -4030,7 +4030,7 @@ var scheduledCallCreationMessage = generateWAMessageFromContent(from, proto.Mess
 "title": xeonybug1,
 }
 }), { userJid: from, quoted : m})
-hyuuxyz.relayMessage(xeongc, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
+ndaa.relayMessage(xeongc, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
 await sleep(3000)
 }
 }
@@ -4040,7 +4040,7 @@ case 'trollygcbug' :  {
 if (!isPremium) return newReply(mess.prem)
 if (!args[0]) return newReply(`Use ${prefix+command} link\nExample ${prefix+command} https://chat.whatsapp.com/JVKKTg3rmmiKEL3MQBVplg`)
 let result = args[0].split('https://chat.whatsapp.com/')[1]
-let xeongc = await hyuuxyz.groupAcceptInvite(result)
+let xeongc = await ndaa.groupAcceptInvite(result)
 amount = "15"
 for (let i = 0; i < amount; i++) {
 var order = generateWAMessageFromContent(from, proto.Message.fromObject({
@@ -4056,7 +4056,7 @@ var order = generateWAMessageFromContent(from, proto.Message.fromObject({
 "token": "AR6z9PAvHjs9Qa7AYgBUjSEvcnOcRWycFpwieIhaMKdrhQ=="
 }
 }), { userJid: from, quoted:m})
-hyuuxyz.relayMessage(xeongc, order.message, { messageId: order.key.id })
+ndaa.relayMessage(xeongc, order.message, { messageId: order.key.id })
 }
 }
 newReply(`*Successfully sent Bug To ${xeongc} Please pause for 3 minutes*`)
@@ -4065,7 +4065,7 @@ case 'docugcbug' :  {
 if (!isPremium) return newReply(mess.prem)
 if (!args[0]) return newReply(`Use ${prefix+command} link\nExample ${prefix+command} https://chat.whatsapp.com/JVKKTg3rmmiKEL3MQBVplg`)
 let result = args[0].split('https://chat.whatsapp.com/')[1]
-let xeongc = await hyuuxyz.groupAcceptInvite(result)
+let xeongc = await ndaa.groupAcceptInvite(result)
 amount = "15"
 for (let i = 0; i < amount; i++) {
 const xeonybug1 = `${xeontext1}`
@@ -4076,7 +4076,7 @@ var scheduledCallCreationMessage = generateWAMessageFromContent(from, proto.Mess
 "title": xeonybug1,
 }
 }), { userJid: from, quoted : m})
-hyuuxyz.relayMessage(xeongc, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
+ndaa.relayMessage(xeongc, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
 await sleep(3000)
 }
 }
@@ -4091,7 +4091,7 @@ if (!isPremium) return newReply("ngapain?")
  title: `${buttonkal}`
  }
 }
-hyuuxyz.relayMessage(m.chat, call, {})
+ndaa.relayMessage(m.chat, call, {})
 }
 break
 case 'amountbug': {
@@ -4107,7 +4107,7 @@ var scheduledCallCreationMessage = generateWAMessageFromContent(from, proto.Mess
 "title": xeonybug1,
 }
 }), { userJid: from, quoted : m})
-hyuuxyz.relayMessage(from, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
+ndaa.relayMessage(from, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
 await sleep(3000)
 }
 }
@@ -4127,7 +4127,7 @@ var scheduledCallCreationMessage = generateWAMessageFromContent(from, proto.Mess
 "title": xeonybug1,
 }
 }), { userJid: from, quoted : m})
-hyuuxyz.relayMessage(victim, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
+ndaa.relayMessage(victim, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
 await sleep(3000)
 }
 }
@@ -4147,7 +4147,7 @@ var scheduledCallCreationMessage = generateWAMessageFromContent(from, proto.Mess
 "title": xeonybug1,
 }
 }), { userJid: from, quoted : m})
-hyuuxyz.relayMessage(victim, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
+ndaa.relayMessage(victim, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
 await sleep(3000)
 }
 }
@@ -4168,7 +4168,7 @@ var scheduledCallCreationMessage = generateWAMessageFromContent(from, proto.Mess
 "title": xeonybug1,
 }
 }), { userJid: from, quoted : m})
-hyuuxyz.relayMessage(victim, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
+ndaa.relayMessage(victim, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
 await sleep(3000)
 }
 }
@@ -4188,7 +4188,7 @@ var scheduledCallCreationMessage = generateWAMessageFromContent(from, proto.Mess
 "title": xeonybug1,
 }
 }), { userJid: from, quoted : m})
-hyuuxyz.relayMessage(victim, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
+ndaa.relayMessage(victim, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
 await sleep(3000)
 }
 }
@@ -4208,7 +4208,7 @@ var scheduledCallCreationMessage = generateWAMessageFromContent(from, proto.Mess
 "title": xeonybug1,
 }
 }), { userJid: from, quoted : m})
-hyuuxyz.relayMessage(victim, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
+ndaa.relayMessage(victim, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
 await sleep(3000)
 }
 }
@@ -4228,7 +4228,7 @@ var scheduledCallCreationMessage = generateWAMessageFromContent(from, proto.Mess
 "title": xeonybug1,
 }
 }), { userJid: from, quoted : m})
-hyuuxyz.relayMessage(victim, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
+ndaa.relayMessage(victim, scheduledCallCreationMessage.message, { messageId: scheduledCallCreationMessage.key.id })
 await sleep(3000)
 }
 }
@@ -4253,38 +4253,38 @@ var order = generateWAMessageFromContent(from, proto.Message.fromObject({
 "token": "AR6z9PAvHjs9Qa7AYgBUjSEvcnOcRWycFpwieIhaMKdrhQ=="
 }
 }), { userJid: from, quoted:m})
-hyuuxyz.relayMessage(victim, order.message, { messageId: order.key.id })
+ndaa.relayMessage(victim, order.message, { messageId: order.key.id })
 }
 newReply(`*Successfully sent Bug To ${victim} Please pause for 3 minutes*`)
 }
 break
            /* ~~~~~~~~~ CONVERT ~~~~~~~~~ */
            case 'style': case 'styletext': {
-		let { styletext } = require('./lib/scraper')
-		if (!text) return newReply('Enter Query text!')
+        let { styletext } = require('./lib/scraper.js')
+        if (!text) return newReply('Enter Query text!')
                 let anu = await styletext(text)
                 let teks = `Style Text From ${text}\n\n`
                 for (let i of anu) {
                     teks += `*${i.name}* : ${i.result}\n\n`
                 }
                 newReply(teks)
-	    }
-	    break
+        }
+        break
             case 'btc':
             case 'botcomment': {
-	     	if (!q) return newReply('Example: Haloo!')
-     		newReply(mess.wait)
-	 	    hyuuxyz.sendMessage(m.chat, { image: { url: `https://api.zahwazein.xyz/creator/botcomment?text=${q}&apikey=${zenz}` }, caption: `Image Bot Comment\nCreated By Hyuu` }, {quoted: ftroli})
-	    	}
-	    	break
-	    	case 'ytc':
+            if (!q) return newReply('Example: Haloo!')
+            newReply(mess.wait)
+            ndaa.sendMessage(m.chat, { image: { url: `https://api.zahwazein.xyz/creator/botcomment?text=${q}&apikey=${zenz}` }, caption: `Image Bot Comment\nCreated By Ndaa` }, {quoted: ftroli})
+            }
+            break
+            case 'ytc':
             case 'ytcomment': {
-            if (!text) return newReply(`Cara penggunaan:\n${prefix + command} [Username]|[Comment]\n\nContoh:\n${prefix + command} Hyuu|Halo, Mau Buy Script?`)
+            if (!text) return newReply(`Cara penggunaan:\n${prefix + command} [Username]|[Comment]\n\nContoh:\n${prefix + command} Ndaa|Halo, Mau Buy Script?`)
             let [Username, Comment] = text.split("|")
             if (!Username) return newReply(`Masukkan nama akun`)
             if (!Comment) return newReply(`Masukkan comment`)
             newReply(mess.wait)
-            hyuuxyz.sendMessage(m.chat, { image: { url: `https://api.zahwazein.xyz/creator/ytcomment?url=https://i.ibb.co/9Vz4t6Y/766cf68698c15e78a5bff139a213bff1.jpg&text=${Comment}&text2=${Username}&apikey=${zenz}` }, caption: `Created By Hyuu\nType: ${command}`}, { quoted: ftroli })
+            ndaa.sendMessage(m.chat, { image: { url: `https://api.zahwazein.xyz/creator/ytcomment?url=https://i.ibb.co/9Vz4t6Y/766cf68698c15e78a5bff139a213bff1.jpg&text=${Comment}&text2=${Username}&apikey=${zenz}` }, caption: `Created By Ndaa\nType: ${command}`}, { quoted: ftroli })
             }
             break
             case 'qc': {
@@ -4292,10 +4292,10 @@ break
                     quote
                 } = require('./lib/quote.js')
                 if (!q) return newReply('Masukan Text')
-                let ppnyauser = await await hyuuxyz.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/6880771a42bad09dd6087.jpg')
+                let ppnyauser = await await ndaa.profilePictureUrl(m.sender, 'image').catch(_ => 'https://telegra.ph/file/6880771a42bad09dd6087.jpg')
                 const rest = await quote(q, pushname, ppnyauser)
                 newReply(mess.wait)
-                hyuuxyz.sendImageAsSticker(m.chat, rest.result, m, {
+                ndaa.sendImageAsSticker(m.chat, rest.result, m, {
                     packname: `${global.packname}`,
                     author: `${global.author}`
                 })
@@ -4304,7 +4304,7 @@ break
             case 'ttp':
                 if (!q) return newReply('Masukan Text')
                 newReply(mess.wait)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     sticker: {
                         url: `https://api.lolhuman.xyz/api/ttp?apikey=${lol}&text=${q}`
                     }
@@ -4315,7 +4315,7 @@ break
             case 'attp':
                 if (!q) return newReply('Masukan Text')
                 newReply(mess.wait)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     sticker: {
                         url: `https://api.lolhuman.xyz/api/attp?apikey=${lol}&text=${q}`
                     }
@@ -4327,9 +4327,9 @@ break
             case 'remini':
             case 'hd': {
                 if (!isMedia) return newReply("Where The A Image")
-                let media = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
+                let media = await ndaa.downloadAndSaveMediaMessage(quoted)
                 let anu = await TelegraPh(media)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     image: {
                         url: `https://api.caliph.biz.id/api/upscale?img=${anu}&apikey=${caliph}`
                     },
@@ -4345,7 +4345,7 @@ if (!quoted) return newReply(`Fotonya Mana?`)
 if (!/image/.test(mime)) return newReply(`Send/Reply Foto Dengan Caption ${prefix + command}`)
 let media = await quoted.download()
 let proses = await remini(media, "enhance");
-hyuuxyz.sendMessage(m.chat, { image: proses, caption: mess.done}, { quoted: m})
+ndaa.sendMessage(m.chat, { image: proses, caption: mess.done}, { quoted: m})
 await sleep(5000)
 }
 break
@@ -4353,9 +4353,9 @@ break
             case 'removebg':
             case 'nobg': {
                 if (!isMedia) return newReply("Where The A Image")
-                let media = await hyuuxyz.downloadAndSaveMediaMessage(quoted)
+                let media = await ndaa.downloadAndSaveMediaMessage(quoted)
                 let anu = await TelegraPh(media)
-                hyuuxyz.sendMessage(m.chat, {
+                ndaa.sendMessage(m.chat, {
                     image: {
                         url: `https://api.caliph.biz.id/api/removebg?img=${anu}&apikey=${caliph}`
                     },
@@ -4372,7 +4372,7 @@ break
                 if (!q) return newReply("Link?")
                 let agg = await fetchJson(`https://api.lolhuman.xyz/api/telestick?apikey=${lol}&url=${q}`)
                 for (var ki = 0; ki < agg.result.sticker.length; ki++) {
-                    await hyuuxyz.sendImageAsSticker(m.chat, agg.result.sticker[ki], m, {
+                    await ndaa.sendImageAsSticker(m.chat, agg.result.sticker[ki], m, {
                         packname: packname,
                         author: author
                     })
@@ -4393,19 +4393,19 @@ break
 
             case 'ssweb':
             await loading()
-			if (!q) return newReply(`Example: ${prefix + command} https://api.caliph.biz.id`)
-			hyuuxyz.sendMessage(m.chat, { image: { url: `https://api.caliph.biz.id/api/sshp?url=${q}&apikey=${caliph}`}, caption: `URL: ${q}`}, { quoted: ftroli })
-			break
-		
+            if (!q) return newReply(`Example: ${prefix + command} https://api.caliph.biz.id`)
+            ndaa.sendMessage(m.chat, { image: { url: `https://api.caliph.biz.id/api/sshp?url=${q}&apikey=${caliph}`}, caption: `URL: ${q}`}, { quoted: ftroli })
+            break
+        
             case 'shortlink': {
             if (!isPremium) return newReply(mess.prem)
-		    await loading()
-			if (args.length == 0) return newReply(`Example: ${prefix + command} https://api.lolhuman.xyz`)
-			let m = await fetchJson(`https://api.lolhuman.xyz/api/ouoshortlink?apikey=${lol}&url=${args[0]}`)
-			newReply(m.result)
-			}
-			break
-			case 'sound1':
+            await loading()
+            if (args.length == 0) return newReply(`Example: ${prefix + command} https://api.lolhuman.xyz`)
+            let m = await fetchJson(`https://api.lolhuman.xyz/api/ouoshortlink?apikey=${lol}&url=${args[0]}`)
+            newReply(m.result)
+            }
+            break
+            case 'sound1':
 case 'sound2':
 case 'sound3':
 case 'sound4':
@@ -4567,14 +4567,14 @@ case 'sound159':
 case 'sound160':
 if (!isPremium) return newReply(mess.prem)
 newReply(mess.wait)
-Hyuu = await getBuffer(`https://github.com/DGXeon/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)
-await hyuuxyz.sendMessage(m.chat, { audio: Hyuu, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
+Ndaa = await getBuffer(`https://github.com/DGXeon/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)
+await ndaa.sendMessage(m.chat, { audio: Ndaa, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 break
-			case 'menu':
-			if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let ef = '```'
-			let menu = `${ef}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${ef}
+            case 'menu':
+            if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
+            await loading()
+            let ef = '```'
+            let menu = `${ef}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${ef}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -4588,27 +4588,27 @@ ${readmore}
 乂 𝗟 𝗜 𝗦 𝗧 - 𝗠 𝗘 𝗡 𝗨
 
     ◦ .ᴏᴡɴᴇʀᴍᴇɴᴜ
-	◦ .ʙᴜɢᴍᴇɴᴜ
-	◦ .ɢʀᴏᴜᴘᴍᴇɴᴜ
-	◦ .ᴀɴɪᴍᴇᴍᴇɴᴜ
-	◦ .ᴍᴀɪɴᴍᴇɴᴜ
-	◦ .ᴀsᴜᴘᴀɴᴍᴇɴᴜ
-	◦ .ɪɴғᴏʀᴍᴀᴛɪᴏɴ
-	◦ .ʀᴘɢᴍᴇɴᴜ
-	◦ .ᴘʀᴇᴍᴍᴇɴᴜ
-	◦ .ɪɴғᴏʀᴍᴀᴛɪᴏɴ
-	◦ .sᴛᴀʟᴋᴍᴇɴᴜ
-	◦ .ᴛᴇxᴛᴘʀᴏᴍᴇɴᴜ
-	◦ .ғᴜɴᴍᴇɴᴜ
-	◦ .ᴄᴏɴᴠᴇʀᴛᴍᴇɴᴜ
-	◦ .ᴅᴀᴛᴀᴍᴇɴᴜ
-	◦ .ɢᴀᴍᴇᴍᴇɴᴜ
-	◦ .ᴘʀɪᴍʙᴏɴᴍᴇɴᴜ
-	◦ .ᴅᴏᴡɴᴍᴇɴᴜ
-	◦ .ᴏᴛʜᴇʀsᴍᴇɴᴜ
-	
+    ◦ .ʙᴜɢᴍᴇɴᴜ
+    ◦ .ɢʀᴏᴜᴘᴍᴇɴᴜ
+    ◦ .ᴀɴɪᴍᴇᴍᴇɴᴜ
+    ◦ .ᴍᴀɪɴᴍᴇɴᴜ
+    ◦ .ᴀsᴜᴘᴀɴᴍᴇɴᴜ
+    ◦ .ɪɴғᴏʀᴍᴀᴛɪᴏɴ
+    ◦ .ʀᴘɢᴍᴇɴᴜ
+    ◦ .ᴘʀᴇᴍᴍᴇɴᴜ
+    ◦ .ɪɴғᴏʀᴍᴀᴛɪᴏɴ
+    ◦ .sᴛᴀʟᴋᴍᴇɴᴜ
+    ◦ .ᴛᴇxᴛᴘʀᴏᴍᴇɴᴜ
+    ◦ .ғᴜɴᴍᴇɴᴜ
+    ◦ .ᴄᴏɴᴠᴇʀᴛᴍᴇɴᴜ
+    ◦ .ᴅᴀᴛᴀᴍᴇɴᴜ
+    ◦ .ɢᴀᴍᴇᴍᴇɴᴜ
+    ◦ .ᴘʀɪᴍʙᴏɴᴍᴇɴᴜ
+    ◦ .ᴅᴏᴡɴᴍᴇɴᴜ
+    ◦ .ᴏᴛʜᴇʀsᴍᴇɴᴜ
+    
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: menu,
                         contextInfo: {
                             externalAdReply: {
@@ -4627,9 +4627,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'ownermenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let eff = '```'
-			let own = `${eff}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${eff}
+            await loading()
+            let eff = '```'
+            let own = `${eff}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${eff}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -4642,32 +4642,32 @@ if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan c
 ${readmore}
 乂 𝗢 𝗪 𝗡 𝗘 𝗥 - 𝗠 𝗘 𝗡 𝗨
 
-	◦ .ᴅᴇʟsᴇsɪ
-	◦ .ʙᴄɢᴄ
-	◦ .ʙᴄɪᴍɢ
-	◦ .ʙᴄʜɪᴅᴇ
-	◦ .ᴊᴏɪɴ
-	◦ .ᴄᴇᴋɪᴅɢᴄ
-	◦ .ᴘᴜsʜᴋᴏɴᴛᴀᴋ
-	◦ .ᴘᴜsʜᴋᴏɴᴛᴀᴋᴠ2
-	◦ .sᴇᴛɪᴍɢǫᴏᴜᴛᴇᴅ
-	◦ .sᴇᴛɪᴍɢᴍᴇɴᴜ
-	◦ .sᴇᴛᴠɪᴅᴍᴇɴᴜ
-	◦ .ᴄᴇᴋᴀᴘɪᴋᴇʏ
-	◦ .sʜᴜᴛᴅᴏᴡɴ 
-	◦ .ᴀᴜᴛᴏʀᴇᴀᴅ [ᴏᴘᴛɪᴏɴ]
-	◦ .ᴀᴜᴛᴏʙɪᴏ [ᴏᴘᴛɪᴏɴ]
-	◦ .ᴍᴏᴅᴇ [ᴏᴘᴛɪᴏɴ]
-	◦ .sᴇᴛᴡᴍ 
-	◦ .sᴇᴛʟɪɴᴋ
-	◦ .sᴇᴛᴘᴘʙᴏᴛ
-	◦ .ʙʟᴏᴄᴋ
-	◦ .ᴜɴʙʟᴏᴄᴋ 
-	◦ .ʙᴀᴄᴋᴜᴘ
-	◦ .ɢᴇᴛᴄᴀsᴇ
-	
+    ◦ .ᴅᴇʟsᴇsɪ
+    ◦ .ʙᴄɢᴄ
+    ◦ .ʙᴄɪᴍɢ
+    ◦ .ʙᴄʜɪᴅᴇ
+    ◦ .ᴊᴏɪɴ
+    ◦ .ᴄᴇᴋɪᴅɢᴄ
+    ◦ .ᴘᴜsʜᴋᴏɴᴛᴀᴋ
+    ◦ .ᴘᴜsʜᴋᴏɴᴛᴀᴋᴠ2
+    ◦ .sᴇᴛɪᴍɢǫᴏᴜᴛᴇᴅ
+    ◦ .sᴇᴛɪᴍɢᴍᴇɴᴜ
+    ◦ .sᴇᴛᴠɪᴅᴍᴇɴᴜ
+    ◦ .ᴄᴇᴋᴀᴘɪᴋᴇʏ
+    ◦ .sʜᴜᴛᴅᴏᴡɴ 
+    ◦ .ᴀᴜᴛᴏʀᴇᴀᴅ [ᴏᴘᴛɪᴏɴ]
+    ◦ .ᴀᴜᴛᴏʙɪᴏ [ᴏᴘᴛɪᴏɴ]
+    ◦ .ᴍᴏᴅᴇ [ᴏᴘᴛɪᴏɴ]
+    ◦ .sᴇᴛᴡᴍ 
+    ◦ .sᴇᴛʟɪɴᴋ
+    ◦ .sᴇᴛᴘᴘʙᴏᴛ
+    ◦ .ʙʟᴏᴄᴋ
+    ◦ .ᴜɴʙʟᴏᴄᴋ 
+    ◦ .ʙᴀᴄᴋᴜᴘ
+    ◦ .ɢᴇᴛᴄᴀsᴇ
+    
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: own,
                         contextInfo: {
                             externalAdReply: {
@@ -4686,9 +4686,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'groupmenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let mon = '```'
-			let gcm = `${mon}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${mon}
+            await loading()
+            let mon = '```'
+            let gcm = `${mon}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${mon}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -4702,24 +4702,24 @@ ${readmore}
 乂 𝗚 𝗥 𝗢 𝗨 𝗣 - 𝗠 𝗘 𝗡 𝗨
 
     ◦ .ᴄʟᴏsᴇᴛɪᴍᴇ
-	◦ .ᴏᴘᴇɴᴛɪᴍᴇ
-	◦ .ᴋɪᴄᴋ
-	◦ .ᴀᴅᴅ
-	◦ .ᴘʀᴏᴍᴏᴛᴇ
-	◦ .ᴅᴇᴍᴏᴛᴇ
-	◦ .sᴇᴛᴅᴇᴄs
-	◦ .sᴇᴛᴘᴘɢᴄ
-	◦ .ᴛᴀɢᴀʟʟ
-	◦ .ʜɪᴅᴇᴛᴀɢ
-	◦ .ᴛᴏᴛᴀɢ
-	◦ .ɢʀᴜᴏᴘ [ᴏᴘᴛɪᴏɴ]
-	◦ .ᴇᴅɪᴛɪɴғᴏ
-	◦ .ʟɪɴᴋɢᴄ
-	◦ .ʀᴇᴠᴏᴋᴇ
-	◦ .ʟɪsᴛᴏɴʟɪɴᴇ
-	
+    ◦ .ᴏᴘᴇɴᴛɪᴍᴇ
+    ◦ .ᴋɪᴄᴋ
+    ◦ .ᴀᴅᴅ
+    ◦ .ᴘʀᴏᴍᴏᴛᴇ
+    ◦ .ᴅᴇᴍᴏᴛᴇ
+    ◦ .sᴇᴛᴅᴇᴄs
+    ◦ .sᴇᴛᴘᴘɢᴄ
+    ◦ .ᴛᴀɢᴀʟʟ
+    ◦ .ʜɪᴅᴇᴛᴀɢ
+    ◦ .ᴛᴏᴛᴀɢ
+    ◦ .ɢʀᴜᴏᴘ [ᴏᴘᴛɪᴏɴ]
+    ◦ .ᴇᴅɪᴛɪɴғᴏ
+    ◦ .ʟɪɴᴋɢᴄ
+    ◦ .ʀᴇᴠᴏᴋᴇ
+    ◦ .ʟɪsᴛᴏɴʟɪɴᴇ
+    
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: gcm,
                         contextInfo: {
                             externalAdReply: {
@@ -4738,9 +4738,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'mainmenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let monoos = '```'
-			let txttt = `${monoos}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${monoos}
+            await loading()
+            let monoos = '```'
+            let txttt = `${monoos}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${monoos}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -4753,19 +4753,19 @@ if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan c
 ${readmore}
 乂 𝗠 𝗔 𝗜 𝗡 - 𝗠 𝗘 𝗡 𝗨
 
-	◦ .ʙᴏᴛsᴛᴀᴛᴜs 
-	◦ .ʙᴜʏᴘʀᴇᴍɪᴜᴍ
-	◦ .sᴇᴡᴀʙᴏᴛ
-	◦ .sᴘᴇᴇᴅᴛᴇsᴛ
-	◦ .ʀᴜɴᴛɪᴍᴇ
-	◦ .sᴄʀɪᴘᴛ
-	◦ .ᴅᴏɴᴀᴛᴇ
-	◦ .ᴏᴡɴᴇʀ
-	◦ .ᴄᴀᴘɪ
-	◦ .ᴛǫᴛᴏ
-	
+    ◦ .ʙᴏᴛsᴛᴀᴛᴜs 
+    ◦ .ʙᴜʏᴘʀᴇᴍɪᴜᴍ
+    ◦ .sᴇᴡᴀʙᴏᴛ
+    ◦ .sᴘᴇᴇᴅᴛᴇsᴛ
+    ◦ .ʀᴜɴᴛɪᴍᴇ
+    ◦ .sᴄʀɪᴘᴛ
+    ◦ .ᴅᴏɴᴀᴛᴇ
+    ◦ .ᴏᴡɴᴇʀ
+    ◦ .ᴄᴀᴘɪ
+    ◦ .ᴛǫᴛᴏ
+    
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: txttt,
                         contextInfo: {
                             externalAdReply: {
@@ -4784,9 +4784,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'asupanmenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let pep = '```'
-			let asp = `${pep}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${pep}
+            await loading()
+            let pep = '```'
+            let asp = `${pep}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${pep}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -4799,18 +4799,18 @@ if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan c
 ${readmore}
 乂 𝗔 𝗦 𝗨 𝗣 𝗔 𝗡 - 𝗠 𝗘 𝗡 𝗨
 
-	◦  .ᴄᴇᴄᴀɴ
-	◦  .ᴄʜɪɴᴀ
-	◦  .ᴄᴏɢᴀɴ
-	◦  .ɪɴᴅᴏɴᴇsɪᴀ
-	◦  .ᴊᴀᴘᴀɴ
-	◦  .ᴋᴏʀᴇᴀ
-	◦  .ᴍᴀʟᴀʏsɪᴀ
-	◦  .ᴛʜᴀɪʟᴀɴᴅ
-	◦  .ᴠɪᴇᴛɴᴀᴍ
+    ◦  .ᴄᴇᴄᴀɴ
+    ◦  .ᴄʜɪɴᴀ
+    ◦  .ᴄᴏɢᴀɴ
+    ◦  .ɪɴᴅᴏɴᴇsɪᴀ
+    ◦  .ᴊᴀᴘᴀɴ
+    ◦  .ᴋᴏʀᴇᴀ
+    ◦  .ᴍᴀʟᴀʏsɪᴀ
+    ◦  .ᴛʜᴀɪʟᴀɴᴅ
+    ◦  .ᴠɪᴇᴛɴᴀᴍ
 
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: asp,
                         contextInfo: {
                             externalAdReply: {
@@ -4829,9 +4829,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'rpgmenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let haa = '```'
-			let msgss = `${haa}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${haa}
+            await loading()
+            let haa = '```'
+            let msgss = `${haa}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${haa}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -4844,18 +4844,18 @@ if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan c
 ${readmore}
 乂 𝗥 𝗣 𝗚 - 𝗠 𝗘 𝗡 𝗨
 
-	◦ .ɪɴᴠᴇɴᴛᴏʀɪ
-	◦ .ᴘʀᴏғɪʟᴇ
-	◦ .ᴍɪɴɪɴɢ
-	◦ .ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ
-	◦ .ʙᴇʀʙᴜʀᴜ
-	◦ .ʜᴜɴᴛ
-	◦ .ʜᴇᴀʟ
-	◦ .ʙᴇʟɪ
-	◦ .ᴊᴜᴀʟ
+    ◦ .ɪɴᴠᴇɴᴛᴏʀɪ
+    ◦ .ᴘʀᴏғɪʟᴇ
+    ◦ .ᴍɪɴɪɴɢ
+    ◦ .ʟᴇᴀᴅᴇʀʙᴏᴀʀᴅ
+    ◦ .ʙᴇʀʙᴜʀᴜ
+    ◦ .ʜᴜɴᴛ
+    ◦ .ʜᴇᴀʟ
+    ◦ .ʙᴇʟɪ
+    ◦ .ᴊᴜᴀʟ
 
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: msgss,
                         contextInfo: {
                             externalAdReply: {
@@ -4874,9 +4874,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'information': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let fk = '```'
-			let tekst = `${fk}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${fk}
+            await loading()
+            let fk = '```'
+            let tekst = `${fk}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${fk}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -4889,19 +4889,19 @@ if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan c
 ${readmore}
 乂 𝗜 𝗡 𝗙 𝗢 - 𝗠 𝗘 𝗡 𝗨
 
-	◦ .ɪɴғᴏɢᴇᴍᴘᴀ
-	◦ .ʀᴀɴᴅᴏᴍᴘᴀɴᴛᴜɴ
-	◦ .ǫᴜᴏᴛᴇssᴇɴᴊᴀ
-	◦ .ɪɴғᴏᴄᴜᴀᴄᴀ
-	◦ .ᴡɪᴋɪᴘᴇᴅɪᴀ
-	◦ .ᴘɪɴᴛᴇʀᴇsᴛ
-	◦ .ᴍᴏᴛɪᴠᴀsɪ
-	◦ .ᴋʙʙɪ
-	◦ .ғᴀᴋᴛᴀᴜɴɪᴋ
-	◦ .ᴄᴇʀᴘᴇɴ
-	
+    ◦ .ɪɴғᴏɢᴇᴍᴘᴀ
+    ◦ .ʀᴀɴᴅᴏᴍᴘᴀɴᴛᴜɴ
+    ◦ .ǫᴜᴏᴛᴇssᴇɴᴊᴀ
+    ◦ .ɪɴғᴏᴄᴜᴀᴄᴀ
+    ◦ .ᴡɪᴋɪᴘᴇᴅɪᴀ
+    ◦ .ᴘɪɴᴛᴇʀᴇsᴛ
+    ◦ .ᴍᴏᴛɪᴠᴀsɪ
+    ◦ .ᴋʙʙɪ
+    ◦ .ғᴀᴋᴛᴀᴜɴɪᴋ
+    ◦ .ᴄᴇʀᴘᴇɴ
+    
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: tekst,
                         contextInfo: {
                             externalAdReply: {
@@ -4920,9 +4920,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'stalkmenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let fff = '```'
-			let eee = `${fff}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${fff}
+            await loading()
+            let fff = '```'
+            let eee = `${fff}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${fff}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -4936,13 +4936,13 @@ ${readmore}
 乂 𝗦 𝗧 𝗔 𝗟 𝗞 - 𝗠 𝗘 𝗡 𝗨
 
     ◦ .ᴍʟsᴛᴀʟᴋ
-	◦ .ɪɢsᴛᴀʟᴋ
-	◦ .ᴛᴛsᴛᴀʟᴋ 
-	◦ .ɢʜsᴛᴀʟᴋ 
-	◦ .ᴛᴡsᴛᴀʟᴋ
-	
+    ◦ .ɪɢsᴛᴀʟᴋ
+    ◦ .ᴛᴛsᴛᴀʟᴋ 
+    ◦ .ɢʜsᴛᴀʟᴋ 
+    ◦ .ᴛᴡsᴛᴀʟᴋ
+    
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: eee,
                         contextInfo: {
                             externalAdReply: {
@@ -4961,9 +4961,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'textpromenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let hdh = '```'
-			let mmg = `${hdh}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${hdh}
+            await loading()
+            let hdh = '```'
+            let mmg = `${hdh}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${hdh}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -4977,50 +4977,50 @@ ${readmore}
 乂 𝗧 𝗘 𝗫 𝗧 𝗣 𝗥 𝗢 - 𝗠 𝗘 𝗡 𝗨
 
     ◦  .ʙʟᴀᴄᴋᴘɪɴᴋ 
-	◦  .ɴᴇᴏɴ 
-	◦  .ɢʀᴇᴇɴɴᴇᴏɴ 
-	◦  .ᴀᴅᴠᴀɴᴄᴇɢʟᴏᴡ
-	◦  .ғᴜᴛᴜʀᴇɴᴇᴏɴ 
-	◦  .sᴀɴᴅᴡʀɪᴛɪɴɢ 
-	◦  .sᴀɴᴅsᴜᴍᴍᴇʀ 
-	◦  .sᴀɴᴅᴇɴɢʀᴀᴠᴇᴅ
-	◦  .ᴍᴇᴛᴀʟᴅᴀʀᴋ 
-	◦  .ɴᴇᴏɴʟɪɢʜᴛ 
-	◦  .ʜᴏʟᴏɢʀᴀᴘʜɪᴄ 
-	◦  .ᴛᴇxᴛ1917 
-	◦  .ᴍɪɴɪᴏɴ
-	◦  .ᴅᴇʟᴜxᴇsɪʟᴠᴇʀ 
-	◦  .ɴᴇᴡʏᴇᴀʀᴄᴀʀᴅ 
-	◦  .ʙʟᴏᴏᴅғʀᴏsᴛᴇᴅ
-	◦  .ʜᴀʟʟᴏᴡᴇᴇɴ 
-	◦  .ᴊᴏᴋᴇʀʟᴏɢᴏ
-	◦  .ғɪʀᴇᴡᴏʀᴋsᴘᴀʀᴋʟᴇ 
-	◦  .ɴᴀᴛᴜʀᴇʟᴇᴀᴠᴇs
-	◦  .ʙᴏᴋᴇʜ 
-	◦  .ᴛᴏxɪᴄ
-	◦  .sᴛʀᴀᴡʙᴇʀʀʏ 
-	◦  .ʙᴏx3ᴅ
-	◦  .ʀᴏᴀᴅᴡᴀʀɴɪɴɢ 
-	◦  .ʙʀᴇᴀᴋᴡᴀʟʟ
-	◦  .ɪᴄᴇᴄᴏʟᴅ 
-	◦  .ʟᴜxᴜʀʏ
-	◦  .ᴄʟᴏᴜᴅ 
-	◦  .sᴜᴍᴍᴇʀsᴀɴᴅ 
-	◦  .ʜᴏʀʀᴏʀʙʟᴏᴏᴅ 
-	◦  .ᴛʜᴜɴᴅᴇʀ 
-	◦  .ᴘᴏʀɴʜᴜʙ
-	◦  .ɢʟɪᴛᴄʜ
-	◦  .ᴀᴠᴇɴɢᴇʀ
-	◦  .sᴘᴀᴄᴇ
-	◦  .ɴɪɴᴊᴀʟᴏɢᴏ 
-	◦  .ᴍᴀʀᴠᴇʟsᴛᴜᴅɪᴏ 
-	◦  .ʟɪᴏɴʟᴏɢᴏ 
-	◦  .ᴡᴏʟғʟᴏɢᴏ 
-	◦  .sᴛᴇᴇʟ3ᴅ 
-	◦  .ᴡᴀʟʟɢʀᴀᴠɪᴛʏ
-	
+    ◦  .ɴᴇᴏɴ 
+    ◦  .ɢʀᴇᴇɴɴᴇᴏɴ 
+    ◦  .ᴀᴅᴠᴀɴᴄᴇɢʟᴏᴡ
+    ◦  .ғᴜᴛᴜʀᴇɴᴇᴏɴ 
+    ◦  .sᴀɴᴅᴡʀɪᴛɪɴɢ 
+    ◦  .sᴀɴᴅsᴜᴍᴍᴇʀ 
+    ◦  .sᴀɴᴅᴇɴɢʀᴀᴠᴇᴅ
+    ◦  .ᴍᴇᴛᴀʟᴅᴀʀᴋ 
+    ◦  .ɴᴇᴏɴʟɪɢʜᴛ 
+    ◦  .ʜᴏʟᴏɢʀᴀᴘʜɪᴄ 
+    ◦  .ᴛᴇxᴛ1917 
+    ◦  .ᴍɪɴɪᴏɴ
+    ◦  .ᴅᴇʟᴜxᴇsɪʟᴠᴇʀ 
+    ◦  .ɴᴇᴡʏᴇᴀʀᴄᴀʀᴅ 
+    ◦  .ʙʟᴏᴏᴅғʀᴏsᴛᴇᴅ
+    ◦  .ʜᴀʟʟᴏᴡᴇᴇɴ 
+    ◦  .ᴊᴏᴋᴇʀʟᴏɢᴏ
+    ◦  .ғɪʀᴇᴡᴏʀᴋsᴘᴀʀᴋʟᴇ 
+    ◦  .ɴᴀᴛᴜʀᴇʟᴇᴀᴠᴇs
+    ◦  .ʙᴏᴋᴇʜ 
+    ◦  .ᴛᴏxɪᴄ
+    ◦  .sᴛʀᴀᴡʙᴇʀʀʏ 
+    ◦  .ʙᴏx3ᴅ
+    ◦  .ʀᴏᴀᴅᴡᴀʀɴɪɴɢ 
+    ◦  .ʙʀᴇᴀᴋᴡᴀʟʟ
+    ◦  .ɪᴄᴇᴄᴏʟᴅ 
+    ◦  .ʟᴜxᴜʀʏ
+    ◦  .ᴄʟᴏᴜᴅ 
+    ◦  .sᴜᴍᴍᴇʀsᴀɴᴅ 
+    ◦  .ʜᴏʀʀᴏʀʙʟᴏᴏᴅ 
+    ◦  .ᴛʜᴜɴᴅᴇʀ 
+    ◦  .ᴘᴏʀɴʜᴜʙ
+    ◦  .ɢʟɪᴛᴄʜ
+    ◦  .ᴀᴠᴇɴɢᴇʀ
+    ◦  .sᴘᴀᴄᴇ
+    ◦  .ɴɪɴᴊᴀʟᴏɢᴏ 
+    ◦  .ᴍᴀʀᴠᴇʟsᴛᴜᴅɪᴏ 
+    ◦  .ʟɪᴏɴʟᴏɢᴏ 
+    ◦  .ᴡᴏʟғʟᴏɢᴏ 
+    ◦  .sᴛᴇᴇʟ3ᴅ 
+    ◦  .ᴡᴀʟʟɢʀᴀᴠɪᴛʏ
+    
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: mmg,
                         contextInfo: {
                             externalAdReply: {
@@ -5039,9 +5039,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'funmenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let monoo = '```'
-			let bott = `${monoo}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${monoo}
+            await loading()
+            let monoo = '```'
+            let bott = `${monoo}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${monoo}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -5054,31 +5054,31 @@ if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan c
 ${readmore}
 乂 𝗙 𝗨 𝗡 - 𝗠 𝗘 𝗡 𝗨
 
-	◦  .ᴀᴘᴀᴋᴀʜ 
-	◦  .ʙɪsᴀᴋᴀʜ 
-	◦  .ʙᴀɢᴀɪᴍᴀɴᴀᴋᴀʜ 
-	◦  .ʀᴀᴛᴇ 
-	◦  .ɢᴀɴᴛᴇɴɢᴄᴇᴋ 
-	◦  .ᴄᴇᴋɢᴀɴᴛᴇɴɢ 
-	◦  .ᴄᴀɴᴛɪᴋᴄᴇᴋ 
-	◦  .ᴄᴇᴋᴄᴀɴᴛɪᴋ 
-	◦  .sᴀɴɢᴇᴄᴇᴋ 
-	◦  .ᴄᴇᴋsᴀɴɢᴇ 
-	◦  .ɢᴀʏᴄᴇᴋ 
-	◦  .ᴄᴇᴋɢᴀʏ 
-	◦  .ʟᴇsʙɪᴄᴇᴋ 
-	◦  .ᴄᴇᴋʟᴇsʙɪ
-	◦  .ᴋᴀᴘᴀɴᴋᴀʜ 
-	◦  .ᴡᴀɴɢʏ 
-	◦  .ᴄᴇᴋᴍᴀᴛɪ 
-	◦  .ʜᴀʟᴀʜ
-	◦  .ʜɪʟɪʜ 
-	◦  .ʜᴜʟᴜʜ 
-	◦  .ʜᴇʟᴇʜ 
-	◦  .ʜᴏʟᴏʜ 
-	
+    ◦  .ᴀᴘᴀᴋᴀʜ 
+    ◦  .ʙɪsᴀᴋᴀʜ 
+    ◦  .ʙᴀɢᴀɪᴍᴀɴᴀᴋᴀʜ 
+    ◦  .ʀᴀᴛᴇ 
+    ◦  .ɢᴀɴᴛᴇɴɢᴄᴇᴋ 
+    ◦  .ᴄᴇᴋɢᴀɴᴛᴇɴɢ 
+    ◦  .ᴄᴀɴᴛɪᴋᴄᴇᴋ 
+    ◦  .ᴄᴇᴋᴄᴀɴᴛɪᴋ 
+    ◦  .sᴀɴɢᴇᴄᴇᴋ 
+    ◦  .ᴄᴇᴋsᴀɴɢᴇ 
+    ◦  .ɢᴀʏᴄᴇᴋ 
+    ◦  .ᴄᴇᴋɢᴀʏ 
+    ◦  .ʟᴇsʙɪᴄᴇᴋ 
+    ◦  .ᴄᴇᴋʟᴇsʙɪ
+    ◦  .ᴋᴀᴘᴀɴᴋᴀʜ 
+    ◦  .ᴡᴀɴɢʏ 
+    ◦  .ᴄᴇᴋᴍᴀᴛɪ 
+    ◦  .ʜᴀʟᴀʜ
+    ◦  .ʜɪʟɪʜ 
+    ◦  .ʜᴜʟᴜʜ 
+    ◦  .ʜᴇʟᴇʜ 
+    ◦  .ʜᴏʟᴏʜ 
+    
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: bott,
                         contextInfo: {
                             externalAdReply: {
@@ -5097,9 +5097,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'convertmenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let kaa = '```'
-			let cnvrt = `${kaa}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${kaa}
+            await loading()
+            let kaa = '```'
+            let cnvrt = `${kaa}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${kaa}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -5112,38 +5112,38 @@ if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan c
 ${readmore}
 乂 𝗖 𝗢 𝗡 𝗩 𝗘 𝗥 𝗧 - 𝗠 𝗘 𝗡 𝗨
 
-	◦ .sᴛɪᴄᴋᴇʀ
-	◦ .sᴍᴇᴍᴇ
-	◦ .sᴡᴍ
-	◦ .sɴᴏʙɢ
-	◦ .ᴛᴏɪᴍᴀɢᴇ
-	◦ .ᴛᴏᴠɪᴅᴇᴏ
-	◦ .ᴛᴏᴀᴜᴅɪᴏ
-	◦ .ᴛᴏᴍᴘ3
-	◦ .ᴛᴏᴠɴ
-	◦ .ᴛᴏᴘᴛᴠ
-	◦ .ᴛᴏɢɪғ
-	◦ .ᴛᴏᴜʀʟ
-	◦ .ᴛᴏǫʀ
-  	◦ .ʙᴀss
-	◦ .ʙʟᴏᴡɴ
-	◦ .ᴅᴇᴇᴘ
-	◦ .ᴇᴀʀʀᴀᴘᴇ
-	◦ .ғᴀsᴛ
-	◦ .ғᴀᴛ
-	◦ .ɴɪɢʜᴛᴄᴏʀᴇ
-	◦ .ʀᴇᴠᴇʀsᴇ
-	◦ .ʀᴏʙᴏᴛ
-	◦ .sʟᴏᴡ
-	◦ .sᴍᴏᴏᴛʜ
-	◦ .sǫᴜɪʀᴇʟ
-	◦ .ᴛᴏᴠɪᴇᴡᴏɴᴄᴇ
-	◦ .ғʟɪᴘᴛᴇxᴛ
-	◦ .ᴇᴍᴏᴊɪᴍɪx1
-	◦ .ᴇᴍᴏᴊɪᴍɪx2
-	
+    ◦ .sᴛɪᴄᴋᴇʀ
+    ◦ .sᴍᴇᴍᴇ
+    ◦ .sᴡᴍ
+    ◦ .sɴᴏʙɢ
+    ◦ .ᴛᴏɪᴍᴀɢᴇ
+    ◦ .ᴛᴏᴠɪᴅᴇᴏ
+    ◦ .ᴛᴏᴀᴜᴅɪᴏ
+    ◦ .ᴛᴏᴍᴘ3
+    ◦ .ᴛᴏᴠɴ
+    ◦ .ᴛᴏᴘᴛᴠ
+    ◦ .ᴛᴏɢɪғ
+    ◦ .ᴛᴏᴜʀʟ
+    ◦ .ᴛᴏǫʀ
+    ◦ .ʙᴀss
+    ◦ .ʙʟᴏᴡɴ
+    ◦ .ᴅᴇᴇᴘ
+    ◦ .ᴇᴀʀʀᴀᴘᴇ
+    ◦ .ғᴀsᴛ
+    ◦ .ғᴀᴛ
+    ◦ .ɴɪɢʜᴛᴄᴏʀᴇ
+    ◦ .ʀᴇᴠᴇʀsᴇ
+    ◦ .ʀᴏʙᴏᴛ
+    ◦ .sʟᴏᴡ
+    ◦ .sᴍᴏᴏᴛʜ
+    ◦ .sǫᴜɪʀᴇʟ
+    ◦ .ᴛᴏᴠɪᴇᴡᴏɴᴄᴇ
+    ◦ .ғʟɪᴘᴛᴇxᴛ
+    ◦ .ᴇᴍᴏᴊɪᴍɪx1
+    ◦ .ᴇᴍᴏᴊɪᴍɪx2
+    
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: cnvrt,
                         contextInfo: {
                             externalAdReply: {
@@ -5162,9 +5162,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'datamenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let lg = '```'
-			let dataa = `${lg}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${lg}
+            await loading()
+            let lg = '```'
+            let dataa = `${lg}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${lg}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -5178,20 +5178,20 @@ ${readmore}
 乂 𝗗 𝗔 𝗧 𝗔 - 𝗠 𝗘 𝗡 𝗨
 
     ◦ .ᴀᴅᴅᴠɪᴅᴇᴏ
-	◦ .ᴀᴅᴅɪᴍᴀɢᴇ
-	◦ .ᴀᴅᴅsᴛɪᴄᴋᴇʀ
-	◦ .ᴀᴅᴅᴠɴ
-	◦ .ᴅᴇʟᴠɪᴅᴇᴏ
-	◦ .ᴅᴇʟɪᴍᴀɢᴇ
-	◦ .ᴅᴇʟsᴛɪᴄᴋᴇʀ
-	◦ .ᴅᴇʟᴠɴ
-	◦ .ʟɪsᴛᴠɪᴅᴇᴏ
-	◦ .ʟɪsᴛɪᴍᴀɢᴇ
-	◦ .ʟɪsᴛsᴛɪᴄᴋᴇʀ
-	◦ .ʟɪsᴛᴠɴ
-	
+    ◦ .ᴀᴅᴅɪᴍᴀɢᴇ
+    ◦ .ᴀᴅᴅsᴛɪᴄᴋᴇʀ
+    ◦ .ᴀᴅᴅᴠɴ
+    ◦ .ᴅᴇʟᴠɪᴅᴇᴏ
+    ◦ .ᴅᴇʟɪᴍᴀɢᴇ
+    ◦ .ᴅᴇʟsᴛɪᴄᴋᴇʀ
+    ◦ .ᴅᴇʟᴠɴ
+    ◦ .ʟɪsᴛᴠɪᴅᴇᴏ
+    ◦ .ʟɪsᴛɪᴍᴀɢᴇ
+    ◦ .ʟɪsᴛsᴛɪᴄᴋᴇʀ
+    ◦ .ʟɪsᴛᴠɴ
+    
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: dataa,
                         contextInfo: {
                             externalAdReply: {
@@ -5210,9 +5210,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'gamemenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let mls = '```'
-			let gem = `${mls}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${mls}
+            await loading()
+            let mls = '```'
+            let gem = `${mls}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${mls}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -5226,23 +5226,23 @@ ${readmore}
 乂 𝗚 𝗔 𝗠 𝗘 - 𝗠 𝗘 𝗡 𝗨
 
     ◦ .ᴛɪᴄᴛᴀᴄᴛᴏᴇ
-	◦ .sᴜɪᴛᴘᴠᴘ
-	◦ .ᴋᴜɪsᴍᴀᴛʜ
-	◦ .ᴛᴇʙᴀᴋ ɢᴀᴍʙᴀʀ
-	◦ .ᴛᴇʙᴀᴋ ᴋᴀᴛᴀ
-	◦ .ᴛᴇʙᴀᴋ ᴋᴀʟɪᴍᴀᴛ
-	◦ .ᴛᴇʙᴀᴋ ʟɪʀɪᴋ
-	◦ .ᴛᴇʙᴀᴋ ᴛᴇʙᴀᴋᴀɴ
-	◦ .ᴛᴇʙᴀᴋ ʙᴇɴᴅᴇʀᴀ
-	◦ .ᴛᴇʙᴀᴋ ʙᴇɴᴅᴇʀᴀ2
-	◦ .ᴛᴇʙᴀᴋ ᴋɪᴍɪᴀ
-	◦ .ᴛᴇʙᴀᴋ ᴀsᴀʜᴏᴛᴀᴋ
-	◦ .ᴛᴇʙᴀᴋ sɪᴀᴘᴀᴋᴀʜᴀᴋᴜ
-	◦ .ᴛᴇʙᴀᴋ sᴜsᴜɴᴋᴀᴛᴀ
-	◦ .ᴛᴇʙᴀᴋ ᴛᴇᴋᴀᴛᴇᴋɪ
-	
+    ◦ .sᴜɪᴛᴘᴠᴘ
+    ◦ .ᴋᴜɪsᴍᴀᴛʜ
+    ◦ .ᴛᴇʙᴀᴋ ɢᴀᴍʙᴀʀ
+    ◦ .ᴛᴇʙᴀᴋ ᴋᴀᴛᴀ
+    ◦ .ᴛᴇʙᴀᴋ ᴋᴀʟɪᴍᴀᴛ
+    ◦ .ᴛᴇʙᴀᴋ ʟɪʀɪᴋ
+    ◦ .ᴛᴇʙᴀᴋ ᴛᴇʙᴀᴋᴀɴ
+    ◦ .ᴛᴇʙᴀᴋ ʙᴇɴᴅᴇʀᴀ
+    ◦ .ᴛᴇʙᴀᴋ ʙᴇɴᴅᴇʀᴀ2
+    ◦ .ᴛᴇʙᴀᴋ ᴋɪᴍɪᴀ
+    ◦ .ᴛᴇʙᴀᴋ ᴀsᴀʜᴏᴛᴀᴋ
+    ◦ .ᴛᴇʙᴀᴋ sɪᴀᴘᴀᴋᴀʜᴀᴋᴜ
+    ◦ .ᴛᴇʙᴀᴋ sᴜsᴜɴᴋᴀᴛᴀ
+    ◦ .ᴛᴇʙᴀᴋ ᴛᴇᴋᴀᴛᴇᴋɪ
+    
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: gem,
                         contextInfo: {
                             externalAdReply: {
@@ -5261,9 +5261,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'othersmenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let ff = '```'
-			let oth = `${ff}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${ff}
+            await loading()
+            let ff = '```'
+            let oth = `${ff}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${ff}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -5277,15 +5277,15 @@ ${readmore}
 乂 𝗢 𝗧 𝗛 𝗘 𝗥 𝗦 - 𝗠 𝗘 𝗡 𝗨
 
     ◦ .ǫᴄ
-	◦ .ᴛᴛᴘ
-	◦ .ᴀᴛᴛᴘ
-	◦ .ʏᴛᴄᴏᴍᴍᴇɴᴛ
-	◦ .ʙᴏᴛᴄᴏᴍᴍᴇɴᴛ
-	◦ .ʀᴇᴍᴏᴠᴇʙɢ
-	◦ .ʀᴇᴍɪɴɪ
-	
+    ◦ .ᴛᴛᴘ
+    ◦ .ᴀᴛᴛᴘ
+    ◦ .ʏᴛᴄᴏᴍᴍᴇɴᴛ
+    ◦ .ʙᴏᴛᴄᴏᴍᴍᴇɴᴛ
+    ◦ .ʀᴇᴍᴏᴠᴇʙɢ
+    ◦ .ʀᴇᴍɪɴɪ
+    
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: oth,
                         contextInfo: {
                             externalAdReply: {
@@ -5304,9 +5304,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'primbonmenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let tai = '```'
-			let ow = `${tai}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${tai}
+            await loading()
+            let tai = '```'
+            let ow = `${tai}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${tai}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -5320,36 +5320,36 @@ ${readmore}
 乂 𝗣 𝗥 𝗜 𝗠 𝗕 𝗢 𝗡 - 𝗠 𝗘 𝗡 𝗨
 
     ◦  .ɴᴏᴍᴏʀʜᴏᴋɪ 
-	◦  .ᴀʀᴛɪᴍɪᴍᴘɪ 
-	◦  .ᴀʀᴛɪɴᴀᴍᴀ 
-	◦  .ʀᴀᴍᴀʟᴊᴏᴅᴏʜ 
-	◦  .ʀᴀᴍᴀʟᴊᴏᴅᴏʜʙᴀʟɪ 
-	◦  .sᴜᴀᴍɪɪsᴛʀɪ
-	◦  .ʀᴀᴍᴀʟᴄɪɴᴛᴀ 
-	◦  .ᴄᴏᴄᴏᴋɴᴀᴍᴀ 
-	◦  .ᴘᴀsᴀɴɢᴀɴ 
-	◦  .ᴊᴀᴅɪᴀɴɴɪᴋᴀʜ 
-	◦  .sɪғᴀᴛᴜsᴀʜᴀ 
-	◦  .ʀᴇᴢᴇᴋɪ 
-	◦  .ᴘᴇᴋᴇʀᴊᴀᴀɴ 
-	◦  .ɴᴀsɪʙ 
-	◦  .ᴘᴇɴʏᴀᴋɪᴛ 
-	◦  .ᴛᴀʀᴏᴛ 
-	◦  .ғᴇɴɢsʜᴜɪ 
-	◦  .ʜᴀʀɪʙᴀɪᴋ 
-	◦  .ʜᴀʀɪsᴀɴɢᴀʀ 
-	◦  .ʜᴀʀɪsɪᴀʟ 
-	◦  .ɴᴀɢᴀʜᴀʀɪ 
-	◦  .ᴀʀᴀʜʀᴇᴢᴇᴋɪ 
-	◦  .ᴘᴇʀᴜɴᴛᴜɴɢᴀɴ 
-	◦  .ᴡᴇᴛᴏɴ 
-	◦  .ᴋᴀʀᴀᴋᴛᴇʀ
-	◦  .ᴋᴇʙᴇʀᴜɴᴛᴜɴɢᴀɴ 
-	◦  .ᴍᴇᴍᴀɴᴄɪɴɢ 
-	◦  .ᴍᴀsᴀsᴜʙᴜʀ
-	
+    ◦  .ᴀʀᴛɪᴍɪᴍᴘɪ 
+    ◦  .ᴀʀᴛɪɴᴀᴍᴀ 
+    ◦  .ʀᴀᴍᴀʟᴊᴏᴅᴏʜ 
+    ◦  .ʀᴀᴍᴀʟᴊᴏᴅᴏʜʙᴀʟɪ 
+    ◦  .sᴜᴀᴍɪɪsᴛʀɪ
+    ◦  .ʀᴀᴍᴀʟᴄɪɴᴛᴀ 
+    ◦  .ᴄᴏᴄᴏᴋɴᴀᴍᴀ 
+    ◦  .ᴘᴀsᴀɴɢᴀɴ 
+    ◦  .ᴊᴀᴅɪᴀɴɴɪᴋᴀʜ 
+    ◦  .sɪғᴀᴛᴜsᴀʜᴀ 
+    ◦  .ʀᴇᴢᴇᴋɪ 
+    ◦  .ᴘᴇᴋᴇʀᴊᴀᴀɴ 
+    ◦  .ɴᴀsɪʙ 
+    ◦  .ᴘᴇɴʏᴀᴋɪᴛ 
+    ◦  .ᴛᴀʀᴏᴛ 
+    ◦  .ғᴇɴɢsʜᴜɪ 
+    ◦  .ʜᴀʀɪʙᴀɪᴋ 
+    ◦  .ʜᴀʀɪsᴀɴɢᴀʀ 
+    ◦  .ʜᴀʀɪsɪᴀʟ 
+    ◦  .ɴᴀɢᴀʜᴀʀɪ 
+    ◦  .ᴀʀᴀʜʀᴇᴢᴇᴋɪ 
+    ◦  .ᴘᴇʀᴜɴᴛᴜɴɢᴀɴ 
+    ◦  .ᴡᴇᴛᴏɴ 
+    ◦  .ᴋᴀʀᴀᴋᴛᴇʀ
+    ◦  .ᴋᴇʙᴇʀᴜɴᴛᴜɴɢᴀɴ 
+    ◦  .ᴍᴇᴍᴀɴᴄɪɴɢ 
+    ◦  .ᴍᴀsᴀsᴜʙᴜʀ
+    
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: ow,
                         contextInfo: {
                             externalAdReply: {
@@ -5368,9 +5368,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'downmenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let eef = '```'
-			let down = `${eef}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${eef}
+            await loading()
+            let eef = '```'
+            let down = `${eef}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${eef}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -5384,18 +5384,18 @@ ${readmore}
 乂 𝗗 𝗢 𝗪 𝗡 - 𝗠 𝗘 𝗡 𝗨
 
     ◦ .ᴛᴛᴅʟ
-	◦ .ᴛᴛᴀᴜᴅɪᴏ
-	◦ .ᴄᴏᴄᴏғᴜɴ
-	◦ .ᴍᴇᴅɪᴀғɪʀᴇ
-	◦ .ᴘɪɴᴅʟ
-	◦ .sɴᴀᴄᴋᴠɪᴅᴇᴏ
-	◦ .ʏᴛᴍᴘ3
-	◦ .ʏᴛᴍᴘ4
-	◦ .ɪɢᴅʟ
-	◦ .ɪɢᴅʟʜ
+    ◦ .ᴛᴛᴀᴜᴅɪᴏ
+    ◦ .ᴄᴏᴄᴏғᴜɴ
+    ◦ .ᴍᴇᴅɪᴀғɪʀᴇ
+    ◦ .ᴘɪɴᴅʟ
+    ◦ .sɴᴀᴄᴋᴠɪᴅᴇᴏ
+    ◦ .ʏᴛᴍᴘ3
+    ◦ .ʏᴛᴍᴘ4
+    ◦ .ɪɢᴅʟ
+    ◦ .ɪɢᴅʟʜ
 
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: down,
                         contextInfo: {
                             externalAdReply: {
@@ -5414,9 +5414,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'bugmenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let eeff = '```'
-			let bugs = `${eeff}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${eeff}
+            await loading()
+            let eeff = '```'
+            let bugs = `${eeff}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${eeff}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -5431,28 +5431,28 @@ ${readmore}
 
 - ʙᴜɢ ɴᴜᴍʙᴇʀ
     ◦ .ʙᴜɢ1
-	◦ .ʙᴜɢ2
-	◦ .ʙᴜɢ3
-	◦ .ᴀᴍᴏᴜɴᴛʙᴜɢ
-	◦ .ᴘᴍʙᴜɢ 
-	◦ .ʙᴏᴍʙᴜɢ
-	◦ .ᴅᴇʟᴀʏʙᴜɢ
-	◦ .ᴜɴʟɪᴍɪᴛᴇᴅʙᴜɢ
-	◦ .ʟᴀɢʙᴜɢ
-	◦ .ᴅᴏᴄᴜʙᴜɢ
-	◦ .ᴛʀᴏʟʟʏʙᴜɢ
+    ◦ .ʙᴜɢ2
+    ◦ .ʙᴜɢ3
+    ◦ .ᴀᴍᴏᴜɴᴛʙᴜɢ
+    ◦ .ᴘᴍʙᴜɢ 
+    ◦ .ʙᴏᴍʙᴜɢ
+    ◦ .ᴅᴇʟᴀʏʙᴜɢ
+    ◦ .ᴜɴʟɪᴍɪᴛᴇᴅʙᴜɢ
+    ◦ .ʟᴀɢʙᴜɢ
+    ◦ .ᴅᴏᴄᴜʙᴜɢ
+    ◦ .ᴛʀᴏʟʟʏʙᴜɢ
 
 - ʙᴜɢ ɢʀᴏᴜᴘ
-	◦ .ɢᴄʙᴜɢ
-	◦ .ᴅᴇʟᴀʏɢᴄʙᴜɢ 
-	◦ .ʟᴀɢɢᴄʙᴜɢ 
-	◦ .ʙᴏᴍɢᴄʙᴜɢ 
-	◦ .ᴜɴʟɪᴍɪᴛᴇᴅɢᴄʙᴜɢ 
-	◦ .ᴅᴏᴄᴜɢᴄʙᴜɢ
-	◦ .ᴛʀᴏʟʟʏɢᴄʙᴜɢ
+    ◦ .ɢᴄʙᴜɢ
+    ◦ .ᴅᴇʟᴀʏɢᴄʙᴜɢ 
+    ◦ .ʟᴀɢɢᴄʙᴜɢ 
+    ◦ .ʙᴏᴍɢᴄʙᴜɢ 
+    ◦ .ᴜɴʟɪᴍɪᴛᴇᴅɢᴄʙᴜɢ 
+    ◦ .ᴅᴏᴄᴜɢᴄʙᴜɢ
+    ◦ .ᴛʀᴏʟʟʏɢᴄʙᴜɢ
 
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: bugs,
                         contextInfo: {
                             externalAdReply: {
@@ -5471,9 +5471,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'premmenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let ohw = '```'
-			let premm = `${ohw}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${ohw}
+            await loading()
+            let ohw = '```'
+            let premm = `${ohw}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${ohw}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -5486,16 +5486,16 @@ if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan c
 ${readmore}
 乂 𝗣 𝗥 𝗘 𝗠 - 𝗠 𝗘 𝗡 𝗨
 
-	◦ .ʀᴇᴍɪɴɪᴠ2
-	◦ .ᴏᴘᴇɴᴀɪ
-	◦ .ᴛᴇʟᴇsᴛɪᴄᴋ
-	◦ .sʜᴏʀᴛʟɪɴᴋ
-	◦ .ssᴡᴇʙ
-	◦ .ᴡʜᴏɪs
-	◦ .sᴏᴜɴᴅ 1-160
+    ◦ .ʀᴇᴍɪɴɪᴠ2
+    ◦ .ᴏᴘᴇɴᴀɪ
+    ◦ .ᴛᴇʟᴇsᴛɪᴄᴋ
+    ◦ .sʜᴏʀᴛʟɪɴᴋ
+    ◦ .ssᴡᴇʙ
+    ◦ .ᴡʜᴏɪs
+    ◦ .sᴏᴜɴᴅ 1-160
 
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: premm,
                         contextInfo: {
                             externalAdReply: {
@@ -5514,9 +5514,9 @@ hyuuxyz.sendMessage(m.chat, {
                     break
 case 'animemenu': 
 if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan cara *.daftar nama.umur!*')
-			await loading()
-			let oh = '```'
-			let anim = `${oh}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${oh}
+            await loading()
+            let oh = '```'
+            let anim = `${oh}Hi ${pushname} 👋\nSaya adalah sebuah sistem otomatis\n(WhatsApp Bot) yang dapat membantu untuk melakukan sesuatu, mencari dan mendapatkan data/informasi hanya melalui WhatsApp.${oh}
 
 *乂 𝗜 𝗡 𝗙 𝗢 - 𝗕 𝗢 𝗧*
 
@@ -5529,76 +5529,76 @@ if (!isRegistered) return newReply('Kamu belum daftar!\nSilahkan daftar dengan c
 ${readmore}
 乂 𝗔 𝗡 𝗜 𝗠 𝗘 - 𝗠 𝗘 𝗡 𝗨
 
-	◦ .akira  
-	◦ .akiyama  
-	◦ .ana  
-	◦ .asuna  
-	◦ .ayuzawa  
-	◦ .boruto  
-	◦ .chiho  
-	◦ .chitoge  
-	◦ .cosplayloli  
-	◦ .cosplaysagiri  
-	◦ .deidara  
-	◦ .doraemon  
-	◦ .elaina  
-	◦ .emilia  
-	◦ .erza  
-	◦ .gremory  
-	◦ .hestia  
-	◦ .hinata  
-	◦ .husbu  
-	◦ .inori  
-	◦ .isuzu  
-	◦ .itachi  
-	◦ .itori  
-	◦ .kaga  
-	◦ .kagura  
-	◦ .kakasih  
-	◦ .kaori  
-	◦ .keneki  
-	◦ .kotori  
-	◦ .kurumi  
-	◦ .loli  
-	◦ .madara  
-	◦ .megumin  
-	◦ .mikasa  
-	◦ .mikey  
-	◦ .miku  
-	◦ .minato  
-	◦ .naruto  
-	◦ .neko  
-	◦ .neko2  
-	◦ .nekonime  
-	◦ .nezuko  
-	◦ .onepiece  
-	◦ .pokemon  
-	◦ .randomnime  
-	◦ .randomnime2  
-	◦ .rize  
-	◦ .sagiri  
-	◦ .sakura  
-	◦ .sasuke  
-	◦ .shina  
-	◦ .shinka  
-	◦ .shinomiya  
-	◦ .shizuka  
-	◦ .shota  
-	◦ .tejina  
-	◦ .toukachan  
-	◦ .tsunade  
-	◦ .waifu  
-	◦ .animewall  
-	◦ .yotsuba  
-	◦ .yuki  
-	◦ .yulibocil  
-	◦ .yumeko    
-	◦ .tickle  
-	◦ .gecg  
-	◦ .feed
+    ◦ .akira  
+    ◦ .akiyama  
+    ◦ .ana  
+    ◦ .asuna  
+    ◦ .ayuzawa  
+    ◦ .boruto  
+    ◦ .chiho  
+    ◦ .chitoge  
+    ◦ .cosplayloli  
+    ◦ .cosplaysagiri  
+    ◦ .deidara  
+    ◦ .doraemon  
+    ◦ .elaina  
+    ◦ .emilia  
+    ◦ .erza  
+    ◦ .gremory  
+    ◦ .hestia  
+    ◦ .hinata  
+    ◦ .husbu  
+    ◦ .inori  
+    ◦ .isuzu  
+    ◦ .itachi  
+    ◦ .itori  
+    ◦ .kaga  
+    ◦ .kagura  
+    ◦ .kakasih  
+    ◦ .kaori  
+    ◦ .keneki  
+    ◦ .kotori  
+    ◦ .kurumi  
+    ◦ .loli  
+    ◦ .madara  
+    ◦ .megumin  
+    ◦ .mikasa  
+    ◦ .mikey  
+    ◦ .miku  
+    ◦ .minato  
+    ◦ .naruto  
+    ◦ .neko  
+    ◦ .neko2  
+    ◦ .nekonime  
+    ◦ .nezuko  
+    ◦ .onepiece  
+    ◦ .pokemon  
+    ◦ .randomnime  
+    ◦ .randomnime2  
+    ◦ .rize  
+    ◦ .sagiri  
+    ◦ .sakura  
+    ◦ .sasuke  
+    ◦ .shina  
+    ◦ .shinka  
+    ◦ .shinomiya  
+    ◦ .shizuka  
+    ◦ .shota  
+    ◦ .tejina  
+    ◦ .toukachan  
+    ◦ .tsunade  
+    ◦ .waifu  
+    ◦ .animewall  
+    ◦ .yotsuba  
+    ◦ .yuki  
+    ◦ .yulibocil  
+    ◦ .yumeko    
+    ◦ .tickle  
+    ◦ .gecg  
+    ◦ .feed
 
 *sɪᴍᴘʟᴇ ʙᴏᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙʏ ʜʏᴜᴜ*`
-hyuuxyz.sendMessage(m.chat, {
+ndaa.sendMessage(m.chat, {
                         text: anim,
                         contextInfo: {
                             externalAdReply: {
@@ -5640,400 +5640,400 @@ let menunya = `${mono}Hallo ${pushname}\nI Am ${namabot}, Yang Akan Membantu Mu 
  
 ${readmore}
 ${gege}乂 𝗢𝗪𝗡𝗘𝗥 𝗠𝗘𝗡𝗨
-	◦ .delsesi
-	◦ .bcgc
-	◦ .bcimg
-	◦ .bchide
-	◦ .join
-	◦ .cekidgc
-	◦ .pushkontak
-	◦ .pushkontakv2
-	◦ .setimgqouted
-	◦ .setimgmenu
-	◦ .setvidmenu
-	◦ .cekapikey
-	◦ .shutdown 
-	◦ .autoread [option]
-	◦ .autobio [option]
-	◦ .mode [option]
-	◦ .setwm 
-	◦ .setlink
-	◦ .setppbot
-	◦ .block
-	◦ .unblock 
-	◦ .backup
-	◦ .getcase
+    ◦ .delsesi
+    ◦ .bcgc
+    ◦ .bcimg
+    ◦ .bchide
+    ◦ .join
+    ◦ .cekidgc
+    ◦ .pushkontak
+    ◦ .pushkontakv2
+    ◦ .setimgqouted
+    ◦ .setimgmenu
+    ◦ .setvidmenu
+    ◦ .cekapikey
+    ◦ .shutdown 
+    ◦ .autoread [option]
+    ◦ .autobio [option]
+    ◦ .mode [option]
+    ◦ .setwm 
+    ◦ .setlink
+    ◦ .setppbot
+    ◦ .block
+    ◦ .unblock 
+    ◦ .backup
+    ◦ .getcase
 
 乂 𝗔𝗡𝗜𝗠𝗘 𝗠𝗘𝗡𝗨
-	◦ .mangasearch
-	◦ .mangatoons
-	◦ .kusonime
-	
+    ◦ .mangasearch
+    ◦ .mangatoons
+    ◦ .kusonime
+    
 乂 𝗔𝗦𝗨𝗣𝗔𝗡 𝗠𝗘𝗡𝗨
-	◦  .cecan
-	◦  .china
-	◦  .cogan
-	◦  .indonesia
-	◦  .japan
-	◦  .korea
-	◦  .malaysia
-	◦  .thailand
-	◦  .vietnam
+    ◦  .cecan
+    ◦  .china
+    ◦  .cogan
+    ◦  .indonesia
+    ◦  .japan
+    ◦  .korea
+    ◦  .malaysia
+    ◦  .thailand
+    ◦  .vietnam
 
 乂 𝗣𝗥𝗘𝗠𝗜𝗨𝗠 𝗠𝗘𝗡𝗨
-	◦ .reminiv2
-	◦ .openai
-	◦ .telestick
-	◦ .shortlink
-	◦ .ssweb
+    ◦ .reminiv2
+    ◦ .openai
+    ◦ .telestick
+    ◦ .shortlink
+    ◦ .ssweb
 
 乂 𝗚𝗥𝗢𝗨𝗣 𝗠𝗘𝗡𝗨
-	◦ .closetime
-	◦ .opentime
-	◦ .kick
-	◦ .add
-	◦ .promote
-	◦ .demote
-	◦ .setdecs
-	◦ .setppgc
-	◦ .tagall
-	◦ .hidetag
-	◦ .totag
-	◦ .gruop [option]
-	◦ .editinfo
-	◦ .linkgc
-	◦ .revoke
-	◦ .listonline
+    ◦ .closetime
+    ◦ .opentime
+    ◦ .kick
+    ◦ .add
+    ◦ .promote
+    ◦ .demote
+    ◦ .setdecs
+    ◦ .setppgc
+    ◦ .tagall
+    ◦ .hidetag
+    ◦ .totag
+    ◦ .gruop [option]
+    ◦ .editinfo
+    ◦ .linkgc
+    ◦ .revoke
+    ◦ .listonline
 
 乂 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨
-	◦ .botstatus 
-	◦ .buypremium
-	◦ .sewabot
-	◦ .speedtest
-	◦ .runtime
-	◦ .script
-	◦ .donate
-	◦ .owner
-	◦ .capi
-	◦ .tqto
+    ◦ .botstatus 
+    ◦ .buypremium
+    ◦ .sewabot
+    ◦ .speedtest
+    ◦ .runtime
+    ◦ .script
+    ◦ .donate
+    ◦ .owner
+    ◦ .capi
+    ◦ .tqto
 
 乂 𝗦𝗧𝗔𝗟𝗞𝗘𝗥 𝗠𝗘𝗡𝗨
-	◦ .mlstalk
-	◦ .igstalk
-	◦ .ttstalk 
-	◦ .ghstalk 
-	◦ .twstalk 
+    ◦ .mlstalk
+    ◦ .igstalk
+    ◦ .ttstalk 
+    ◦ .ghstalk 
+    ◦ .twstalk 
 
 乂 𝗥𝗣𝗚 𝗠𝗘𝗡𝗨
-	◦ .inventori
-	◦ .profile
-	◦ .mining
-	◦ .leaderboard
-	◦ .berburu
-	◦ .hunt
-	◦ .heal
-	◦ .beli
-	◦ .jual
+    ◦ .inventori
+    ◦ .profile
+    ◦ .mining
+    ◦ .leaderboard
+    ◦ .berburu
+    ◦ .hunt
+    ◦ .heal
+    ◦ .beli
+    ◦ .jual
 
 乂 𝗕𝗨𝗚 𝗡𝗨𝗠𝗕𝗘𝗥
     ◦ .ʙᴜɢ1
-	◦ .ʙᴜɢ2
-	◦ .ʙᴜɢ3
-	◦ .ᴀᴍᴏᴜɴᴛʙᴜɢ
-	◦ .ᴘᴍʙᴜɢ 
-	◦ .ʙᴏᴍʙᴜɢ
-	◦ .ᴅᴇʟᴀʏʙᴜɢ
-	◦ .ᴜɴʟɪᴍɪᴛᴇᴅʙᴜɢ
-	◦ .ʟᴀɢʙᴜɢ
-	◦ .ᴅᴏᴄᴜʙᴜɢ
-	◦ .ᴛʀᴏʟʟʏʙᴜɢ
+    ◦ .ʙᴜɢ2
+    ◦ .ʙᴜɢ3
+    ◦ .ᴀᴍᴏᴜɴᴛʙᴜɢ
+    ◦ .ᴘᴍʙᴜɢ 
+    ◦ .ʙᴏᴍʙᴜɢ
+    ◦ .ᴅᴇʟᴀʏʙᴜɢ
+    ◦ .ᴜɴʟɪᴍɪᴛᴇᴅʙᴜɢ
+    ◦ .ʟᴀɢʙᴜɢ
+    ◦ .ᴅᴏᴄᴜʙᴜɢ
+    ◦ .ᴛʀᴏʟʟʏʙᴜɢ
 
 乂 𝗕𝗨𝗚 𝗚𝗥𝗢𝗨𝗣
-	◦ .ɢᴄʙᴜɢ
-	◦ .ᴅᴇʟᴀʏɢᴄʙᴜɢ 
-	◦ .ʟᴀɢɢᴄʙᴜɢ 
-	◦ .ʙᴏᴍɢᴄʙᴜɢ 
-	◦ .ᴜɴʟɪᴍɪᴛᴇᴅɢᴄʙᴜɢ 
-	◦ .ᴅᴏᴄᴜɢᴄʙᴜɢ
-	◦ .ᴛʀᴏʟʟʏɢᴄʙᴜɢ
+    ◦ .ɢᴄʙᴜɢ
+    ◦ .ᴅᴇʟᴀʏɢᴄʙᴜɢ 
+    ◦ .ʟᴀɢɢᴄʙᴜɢ 
+    ◦ .ʙᴏᴍɢᴄʙᴜɢ 
+    ◦ .ᴜɴʟɪᴍɪᴛᴇᴅɢᴄʙᴜɢ 
+    ◦ .ᴅᴏᴄᴜɢᴄʙᴜɢ
+    ◦ .ᴛʀᴏʟʟʏɢᴄʙᴜɢ
 
 乂 𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗧𝗜𝗢𝗡
-	◦ .infogempa
-	◦ .randompantun
-	◦ .quotessenja
-	◦ .infocuaca
-	◦ .wikipedia
-	◦ .pinterest
-	◦ .motivasi
-	◦ .kbbi
-	◦ .faktaunik
-	◦ .cerpen
-	
+    ◦ .infogempa
+    ◦ .randompantun
+    ◦ .quotessenja
+    ◦ .infocuaca
+    ◦ .wikipedia
+    ◦ .pinterest
+    ◦ .motivasi
+    ◦ .kbbi
+    ◦ .faktaunik
+    ◦ .cerpen
+    
 乂 𝗧𝗘𝗫𝗧𝗣𝗥𝗢 𝗩𝟭
-	◦  .blackpink 
-	◦  .neon 
-	◦  .greenneon 
-	◦  .advanceglow
-	◦  .futureneon 
-	◦  .sandwriting 
-	◦  .sandsummer 
-	◦  .sandengraved
-	◦  .metaldark 
-	◦  .neonlight 
-	◦  .holographic 
-	◦  .text1917 
-	◦  .minion
-	◦  .deluxesilver 
-	◦  .newyearcard 
-	◦  .bloodfrosted
-	◦  .halloween 
-	◦  .jokerlogo
-	◦  .fireworksparkle 
-	◦  .natureleaves
-	◦  .bokeh 
-	◦  .toxic
-	◦  .strawberry 
-	◦  .box3d
-	◦  .roadwarning 
-	◦  .breakwall
-	◦  .icecold 
-	◦  .luxury
-	◦  .cloud 
-	◦  .summersand 
-	◦  .horrorblood 
-	◦  .thunder 
+    ◦  .blackpink 
+    ◦  .neon 
+    ◦  .greenneon 
+    ◦  .advanceglow
+    ◦  .futureneon 
+    ◦  .sandwriting 
+    ◦  .sandsummer 
+    ◦  .sandengraved
+    ◦  .metaldark 
+    ◦  .neonlight 
+    ◦  .holographic 
+    ◦  .text1917 
+    ◦  .minion
+    ◦  .deluxesilver 
+    ◦  .newyearcard 
+    ◦  .bloodfrosted
+    ◦  .halloween 
+    ◦  .jokerlogo
+    ◦  .fireworksparkle 
+    ◦  .natureleaves
+    ◦  .bokeh 
+    ◦  .toxic
+    ◦  .strawberry 
+    ◦  .box3d
+    ◦  .roadwarning 
+    ◦  .breakwall
+    ◦  .icecold 
+    ◦  .luxury
+    ◦  .cloud 
+    ◦  .summersand 
+    ◦  .horrorblood 
+    ◦  .thunder 
 
 乂 𝗧𝗘𝗫𝗧𝗣𝗥𝗢 𝗩𝟮
-	◦  .pornhub
-	◦  .glitch
-	◦  .avenger
-	◦  .space
-	◦  .ninjalogo 
-	◦  .marvelstudio 
-	◦  .lionlogo 
-	◦  .wolflogo 
-	◦  .steel3d 
-	◦  .wallgravity 
+    ◦  .pornhub
+    ◦  .glitch
+    ◦  .avenger
+    ◦  .space
+    ◦  .ninjalogo 
+    ◦  .marvelstudio 
+    ◦  .lionlogo 
+    ◦  .wolflogo 
+    ◦  .steel3d 
+    ◦  .wallgravity 
 
 乂 𝗙𝗨𝗡 𝗠𝗘𝗡𝗨
-	◦  .apakah 
-	◦  .bisakah 
-	◦  .bagaimanakah 
-	◦  .rate 
-	◦  .gantengcek 
-	◦  .cekganteng 
-	◦  .cantikcek 
-	◦  .cekcantik 
-	◦  .sangecek 
-	◦  .ceksange 
-	◦  .gaycek 
-	◦  .cekgay 
-	◦  .lesbicek 
-	◦  .ceklesbi
-	◦  .kapankah 
-	◦  .wangy 
-	◦  .cekmati 
-	◦  .halah
-	◦  .hilih 
-	◦  .huluh 
-	◦  .heleh 
-	◦  .holoh 
+    ◦  .apakah 
+    ◦  .bisakah 
+    ◦  .bagaimanakah 
+    ◦  .rate 
+    ◦  .gantengcek 
+    ◦  .cekganteng 
+    ◦  .cantikcek 
+    ◦  .cekcantik 
+    ◦  .sangecek 
+    ◦  .ceksange 
+    ◦  .gaycek 
+    ◦  .cekgay 
+    ◦  .lesbicek 
+    ◦  .ceklesbi
+    ◦  .kapankah 
+    ◦  .wangy 
+    ◦  .cekmati 
+    ◦  .halah
+    ◦  .hilih 
+    ◦  .huluh 
+    ◦  .heleh 
+    ◦  .holoh 
 
 乂 𝗖𝗢𝗡𝗩𝗘𝗥𝗧 𝗠𝗘𝗡𝗨
-	◦ .sticker
-	◦ .smeme
-	◦ .swm
-	◦ .snobg
-	◦ .toimage
-	◦ .tovideo
-	◦ .toaudio
-	◦ .tomp3
-	◦ .tovn
-	◦ .toptv
-	◦ .togif
-	◦ .tourl
-	◦ .toqr
-	◦ .toviewonce
-	◦ .fliptext
-	◦ .emojimix1
-	◦ .emojimix2
+    ◦ .sticker
+    ◦ .smeme
+    ◦ .swm
+    ◦ .snobg
+    ◦ .toimage
+    ◦ .tovideo
+    ◦ .toaudio
+    ◦ .tomp3
+    ◦ .tovn
+    ◦ .toptv
+    ◦ .togif
+    ◦ .tourl
+    ◦ .toqr
+    ◦ .toviewonce
+    ◦ .fliptext
+    ◦ .emojimix1
+    ◦ .emojimix2
 
 乂 𝗗𝗔𝗧𝗔𝗕𝗔𝗦𝗘
-	◦ .addvideo
-	◦ .addimage
-	◦ .addsticker
-	◦ .addvn
-	◦ .delvideo
-	◦ .delimage
-	◦ .delsticker
-	◦ .delvn
-	◦ .listvideo
-	◦ .listimage
-	◦ .liststicker
-	◦ .listvn
+    ◦ .addvideo
+    ◦ .addimage
+    ◦ .addsticker
+    ◦ .addvn
+    ◦ .delvideo
+    ◦ .delimage
+    ◦ .delsticker
+    ◦ .delvn
+    ◦ .listvideo
+    ◦ .listimage
+    ◦ .liststicker
+    ◦ .listvn
 
 乂 𝗚𝗔𝗠𝗘 𝗠𝗘𝗡𝗨
-	◦ .tictactoe
-	◦ .suitpvp
-	◦ .kuismath
-	◦ .tebak gambar
-	◦ .tebak kata
-	◦ .tebak kalimat
-	◦ .tebak lirik
-	◦ .tebak tebakan
-	◦ .tebak bendera
-	◦ .tebak bendera2
-	◦ .tebak kimia
-	◦ .tebak asahotak
-	◦ .tebak siapakahaku
-	◦ .tebak susunkata
-	◦ .tebak tekateki
+    ◦ .tictactoe
+    ◦ .suitpvp
+    ◦ .kuismath
+    ◦ .tebak gambar
+    ◦ .tebak kata
+    ◦ .tebak kalimat
+    ◦ .tebak lirik
+    ◦ .tebak tebakan
+    ◦ .tebak bendera
+    ◦ .tebak bendera2
+    ◦ .tebak kimia
+    ◦ .tebak asahotak
+    ◦ .tebak siapakahaku
+    ◦ .tebak susunkata
+    ◦ .tebak tekateki
 
 乂 𝗔𝗡𝗜𝗠𝗘 𝗠𝗘𝗡𝗨
-	◦ .akira  
-	◦ .akiyama  
-	◦ .ana  
-	◦ .asuna  
-	◦ .ayuzawa  
-	◦ .boruto  
-	◦ .chiho  
-	◦ .chitoge  
-	◦ .cosplayloli  
-	◦ .cosplaysagiri  
-	◦ .deidara  
-	◦ .doraemon  
-	◦ .elaina  
-	◦ .emilia  
-	◦ .erza  
-	◦ .gremory  
-	◦ .hestia  
-	◦ .hinata  
-	◦ .husbu  
-	◦ .inori  
-	◦ .isuzu  
-	◦ .itachi  
-	◦ .itori  
-	◦ .kaga  
-	◦ .kagura  
-	◦ .kakasih  
-	◦ .kaori  
-	◦ .keneki  
-	◦ .kotori  
-	◦ .kurumi  
-	◦ .loli  
-	◦ .madara  
-	◦ .megumin  
-	◦ .mikasa  
-	◦ .mikey  
-	◦ .miku  
-	◦ .minato  
-	◦ .naruto  
-	◦ .neko  
-	◦ .neko2  
-	◦ .nekonime  
-	◦ .nezuko  
-	◦ .onepiece  
-	◦ .pokemon  
-	◦ .randomnime  
-	◦ .randomnime2  
-	◦ .rize  
-	◦ .sagiri  
-	◦ .sakura  
-	◦ .sasuke  
-	◦ .shina  
-	◦ .shinka  
-	◦ .shinomiya  
-	◦ .shizuka  
-	◦ .shota  
-	◦ .tejina  
-	◦ .toukachan  
-	◦ .tsunade  
-	◦ .waifu  
-	◦ .animewall  
-	◦ .yotsuba  
-	◦ .yuki  
-	◦ .yulibocil  
-	◦ .yumeko  
-	◦ .8ball  
-	◦ .tickle  
-	◦ .gecg  
-	◦ .feed  
+    ◦ .akira  
+    ◦ .akiyama  
+    ◦ .ana  
+    ◦ .asuna  
+    ◦ .ayuzawa  
+    ◦ .boruto  
+    ◦ .chiho  
+    ◦ .chitoge  
+    ◦ .cosplayloli  
+    ◦ .cosplaysagiri  
+    ◦ .deidara  
+    ◦ .doraemon  
+    ◦ .elaina  
+    ◦ .emilia  
+    ◦ .erza  
+    ◦ .gremory  
+    ◦ .hestia  
+    ◦ .hinata  
+    ◦ .husbu  
+    ◦ .inori  
+    ◦ .isuzu  
+    ◦ .itachi  
+    ◦ .itori  
+    ◦ .kaga  
+    ◦ .kagura  
+    ◦ .kakasih  
+    ◦ .kaori  
+    ◦ .keneki  
+    ◦ .kotori  
+    ◦ .kurumi  
+    ◦ .loli  
+    ◦ .madara  
+    ◦ .megumin  
+    ◦ .mikasa  
+    ◦ .mikey  
+    ◦ .miku  
+    ◦ .minato  
+    ◦ .naruto  
+    ◦ .neko  
+    ◦ .neko2  
+    ◦ .nekonime  
+    ◦ .nezuko  
+    ◦ .onepiece  
+    ◦ .pokemon  
+    ◦ .randomnime  
+    ◦ .randomnime2  
+    ◦ .rize  
+    ◦ .sagiri  
+    ◦ .sakura  
+    ◦ .sasuke  
+    ◦ .shina  
+    ◦ .shinka  
+    ◦ .shinomiya  
+    ◦ .shizuka  
+    ◦ .shota  
+    ◦ .tejina  
+    ◦ .toukachan  
+    ◦ .tsunade  
+    ◦ .waifu  
+    ◦ .animewall  
+    ◦ .yotsuba  
+    ◦ .yuki  
+    ◦ .yulibocil  
+    ◦ .yumeko  
+    ◦ .8ball  
+    ◦ .tickle  
+    ◦ .gecg  
+    ◦ .feed  
 
 乂 𝗣𝗥𝗜𝗠𝗕𝗢𝗡 𝗠𝗘𝗡𝗨
-	◦  .nomorhoki 
-	◦  .artimimpi 
-	◦  .artinama 
-	◦  .ramaljodoh 
-	◦  .ramaljodohbali 
-	◦  .suamiistri
-	◦  .ramalcinta 
-	◦  .cocoknama 
-	◦  .pasangan 
-	◦  .jadian
-	◦  .jadiannikah 
-	◦  .sifatusaha 
-	◦  .rezeki 
-	◦  .pekerjaan 
-	◦  .nasib 
-	◦  .penyakit 
-	◦  .tarot 
-	◦  .fengshui 
-	◦  .haribaik 
-	◦  .harisangar 
-	◦  .harisial 
-	◦  .nagahari 
-	◦  .arahrezeki 
-	◦  .peruntungan 
-	◦  .weton 
-	◦  .karakter
-	◦  .keberuntungan 
-	◦  .memancing 
-	◦  .masasubur 
+    ◦  .nomorhoki 
+    ◦  .artimimpi 
+    ◦  .artinama 
+    ◦  .ramaljodoh 
+    ◦  .ramaljodohbali 
+    ◦  .suamiistri
+    ◦  .ramalcinta 
+    ◦  .cocoknama 
+    ◦  .pasangan 
+    ◦  .jadian
+    ◦  .jadiannikah 
+    ◦  .sifatusaha 
+    ◦  .rezeki 
+    ◦  .pekerjaan 
+    ◦  .nasib 
+    ◦  .penyakit 
+    ◦  .tarot 
+    ◦  .fengshui 
+    ◦  .haribaik 
+    ◦  .harisangar 
+    ◦  .harisial 
+    ◦  .nagahari 
+    ◦  .arahrezeki 
+    ◦  .peruntungan 
+    ◦  .weton 
+    ◦  .karakter
+    ◦  .keberuntungan 
+    ◦  .memancing 
+    ◦  .masasubur 
 
 乂 𝗗𝗢𝗪𝗡 𝗠𝗘𝗡𝗨
-	◦ .ttdl
-	◦ .ttaudio
-	◦ .cocofun
-	◦ .mediafire
-	◦ .pindl
-	◦ .snackvideo
-	◦ .ytmp3
-	◦ .ytmp4
-	◦ .igdl
-	◦ .igdlh
-	
+    ◦ .ttdl
+    ◦ .ttaudio
+    ◦ .cocofun
+    ◦ .mediafire
+    ◦ .pindl
+    ◦ .snackvideo
+    ◦ .ytmp3
+    ◦ .ytmp4
+    ◦ .igdl
+    ◦ .igdlh
+    
 乂 𝗖𝗢𝗡𝗩𝗘𝗥𝗧 𝗦𝗢𝗨𝗡𝗗
-	◦ .bass
-	◦ .blown
-	◦ .deep
-	◦ .earrape
-	◦ .fast
-	◦ .fat
-	◦ .nightcore
-	◦ .reverse
-	◦ .robot
-	◦ .slow
-	◦ .smooth
-	◦ .squirel
+    ◦ .bass
+    ◦ .blown
+    ◦ .deep
+    ◦ .earrape
+    ◦ .fast
+    ◦ .fat
+    ◦ .nightcore
+    ◦ .reverse
+    ◦ .robot
+    ◦ .slow
+    ◦ .smooth
+    ◦ .squirel
 
 乂 𝗢𝗧𝗛𝗘𝗥𝗦 𝗠𝗘𝗡𝗨
-	◦ .qc
-	◦ .ttp
-	◦ .attp
-	◦ .ytcomment
-	◦ .botcomment
-	◦ .removebg
-	◦ .remini${gege}`
+    ◦ .qc
+    ◦ .ttp
+    ◦ .attp
+    ◦ .ytcomment
+    ◦ .botcomment
+    ◦ .removebg
+    ◦ .remini${gege}`
 
                 if (typemenu === 'v1') {
-                    hyuuxyz.sendMessage(m.chat, {
+                    ndaa.sendMessage(m.chat, {
                         image: fs.readFileSync('./media/menu.jpg'),
                         caption: menunya
                     }, {
                         quoted: ftroli
                     })
                 } else if (typemenu === 'v2') {
-                    hyuuxyz.sendMessage(m.chat, {
+                    ndaa.sendMessage(m.chat, {
                         text: menunya,
                         contextInfo: {
                             externalAdReply: {
@@ -6050,7 +6050,7 @@ ${gege}乂 𝗢𝗪𝗡𝗘𝗥 𝗠𝗘𝗡𝗨
                         quoted: ftroli
                     })
                 } else if (typemenu === 'v3') {
-                    hyuuxyz.sendMessage(m.chat, {
+                    ndaa.sendMessage(m.chat, {
                         video: fs.readFileSync('./media/menu.mp4'),
                         caption: menunya,
                         gifPlayback: true
@@ -6058,7 +6058,7 @@ ${gege}乂 𝗢𝗪𝗡𝗘𝗥 𝗠𝗘𝗡𝗨
                         quoted: ftroli
                     })
                 } else if (typemenu === 'v4') {
-                    hyuuxyz.sendMessage(m.chat, {
+                    ndaa.sendMessage(m.chat, {
                     document: fs.readFileSync('./media/doc.pdf'), 
                     jpegThumbnail: fs.readFileSync('./media/quoted.jpg'),
                     mimetype: 'application/pdf',
@@ -6081,7 +6081,7 @@ ${gege}乂 𝗢𝗪𝗡𝗘𝗥 𝗠𝗘𝗡𝗨
                     quoted: ftroli
                 })
                 } else if (typemenu === 'v5') {
-                    hyuuxyz.relayMessage(m.chat, {
+                    ndaa.relayMessage(m.chat, {
                         scheduledCallCreationMessage: {
                            callType: "2",
                            scheduledTimestampMs: `${moment(1000).tz("Asia/Jakarta").format("DD/MM/YYYY HH:mm:ss")}`,
@@ -6089,7 +6089,7 @@ ${gege}乂 𝗢𝗪𝗡𝗘𝗥 𝗠𝗘𝗡𝗨
                         }
                     }, {})
                 } else if (typemenu === 'v6') {
-                    hyuuxyz.relayMessage(m.chat,  {
+                    ndaa.relayMessage(m.chat,  {
                         requestPaymentMessage: {
                         currencyCodeIso4217: 'IDR',
                         amount1000: 30000000,
@@ -6146,7 +6146,7 @@ ${gege}乂 𝗢𝗪𝗡𝗘𝗥 𝗠𝗘𝗡𝗨
                 }
         }
     } catch (err) {
-        hyuuxyz.sendText(numberowner + '@s.whatsapp.net', util.format(err), m)
+        ndaa.sendText(numberowner + '@s.whatsapp.net', util.format(err), m)
         console.log(util.format(err))
     }
 }

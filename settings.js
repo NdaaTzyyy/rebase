@@ -12,13 +12,13 @@ global.caliph = 'HyuuXyzz'
 global.beta = 'BRexrqpD'
 global.zenz = 'zenzkey_41b4fe7a5d'
 /* ~~~~~~~~~ SETTINGS OWNER ~~~~~~~~~ */
-global.numberowner = '6285876059135' // Owner Utama
-global.owner = ['6285876059135','6285868769013'] // Owner Lainnya
-global.namaowner = 'Bot Whatsapp' // Nama Owner
-global.premium = ['6285876059135','6285868769013'] // Premium User
+global.numberowner = '6285640575421' // Owner Utama
+global.owner = ['6285640575421','6285640575421'] // Owner Lainnya
+global.namaowner = 'Ndaa' // Nama Owner
+global.premium = ['6285640575421','6285640575421'] // Premium User
 /* ~~~~~~~~~ SETTINGS BOT ~~~~~~~~~ */
-global.namabot = 'Nobita - Emde' // NickBot
-global.fake = 'Created By Hyuu' // Fake Menu
+global.namabot = 'NdaaBotz-Md' // NickBot
+global.fake = 'Created By Ndaa' // Fake Menu
 global.typemenu = 'v4' 
 // 'v1' > 'v2' > 'v3' > 'v4' > 'v5' > 'v6'
 // 'v1' Image ORI!
@@ -31,8 +31,8 @@ global.autoread = true // ReadChat
 global.autobio = true // AutoBio
 global.autoblok212 = true // AutoBlock Nomer +212
 global.onlyindo = false  // AutoBlock Selain Nomer Indo
-global.packname = `Gw` // Watermark Sticker
-global.author = 'Im Fine' // Watermark Sticker
+global.packname = `Ndaa` // Watermark Sticker
+global.author = 'Botz' // Watermark Sticker
 /* ~~~~~~~~~ MESSAGES ~~~~~~~~~ */
 global.mess = {
     done: 'Success Kak!',
@@ -50,7 +50,7 @@ global.mess = {
 global.thumb = fs.readFileSync('./media/quoted.jpg')
 global.menu = fs.readFileSync('./media/menu.jpg')
 /* ~~~~~~~~~ EDITS LINK ~~~~~~~~~ */
-global.link = 'https://youtube.com/@ImHyuu'
+global.link = 'https://github.com/nda22'
 /* ~~~~~~~~~ DATA RPG ~~~~~~~~~ */
 global.limitawal = {
     premium: "Infinity",

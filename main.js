@@ -15,7 +15,7 @@ const PhoneNumber = require('awesome-phonenumber')
 const { uncache, nocache } = require('./lib/loader')
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
 const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetch, await, sleep, reSize } = require('./lib/myfunc')
-const { default: HyuuConnect, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@WhiskeySockets/Baileys")
+const { default: ndaaConnect, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@WhiskeySockets/Baileys")
 const question = (text) => {
 const rl = readline.createInterface({
 input: process.stdin,
@@ -32,12 +32,12 @@ const store = makeInMemoryStore({
     })
 })
 
-require('./Hyuu.js')
-nocache('../Hyuu.js', module => console.log(color(`'${module}'`, 'green'), 'Updated'))
+require('./Ndaa.js')
+nocache('../Ndaa.js', module => console.log(color(`'${module}'`, 'green'), 'Updated'))
 require('./main.js')
 nocache('../main.js', module => console.log(color(`'${module}'`, 'green'), 'Updated'))
 
-console.log(color(figlet.textSync(`HyuuYT5`, {
+console.log(color(figlet.textSync(`NdaaBotz-MD`, {
 font: 'Standard',
 horizontalLayout: 'default',
 vertivalLayout: 'default',
@@ -46,7 +46,7 @@ whitespaceBreak: false
 
 async function startMd() {
 const { state, saveCreds } = await useMultiFileAuthState(`./session`)
-const Hyuu = HyuuConnect({
+const ndaa = ndaaConnect({
 logger: pino({
 level: 'silent'
 }),
@@ -54,33 +54,33 @@ printQRInTerminal: !PairingCode,
 auth: state,
 browser: ['Chrome (Linux)', '', '']
 });
-if(PairingCode && !Hyuu.authState.creds.registered) {
-		const phoneNumber = await question('Masukan Nomer Yang Aktif Awali Dengan 62:\n');
-		const code = await Hyuu.requestPairingCode(phoneNumber.trim())
-		console.log(`Masukin Nih Code Nya: ${code}`)
+if(PairingCode && !ndaa.authState.creds.registered) {
+        const phoneNumber = await question('Masukan Nomer Yang Aktif Awali Dengan 62:\n');
+        const code = await ndaa.requestPairingCode(phoneNumber.trim())
+        console.log(`Masukin Nih Code Nya: ${code}`)
 }
 
-    store.bind(Hyuu.ev)
+    store.bind(ndaa.ev)
 
-    Hyuu.ev.on('messages.upsert', async chatUpdate => {
+    ndaa.ev.on('messages.upsert', async chatUpdate => {
         //console.log(JSON.stringify(chatUpdate, undefined, 2))
         try {
             mek = chatUpdate.messages[0]
             if (!mek.message) return
             mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
             if (mek.key && mek.key.remoteJid === 'status@broadcast') return
-            if (!Hyuu.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
+            if (!ndaa.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
             if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return
             if (mek.key.id.startsWith('FatihArridho_')) return
-            m = smsg(Hyuu, mek, store)
-            require("./Hyuu")(Hyuu, m, chatUpdate, store)
+            m = smsg(ndaa, mek, store)
+            require("./Ndaa.js")(ndaa, m, chatUpdate, store)
         } catch (err) {
             console.log(err)
         }
     })
 
    
-    Hyuu.decodeJid = (jid) => {
+    ndaa.decodeJid = (jid) => {
         if (!jid) return jid
         if (/:\d+@/gi.test(jid)) {
             let decode = jidDecode(jid) || {}
@@ -88,9 +88,9 @@ if(PairingCode && !Hyuu.authState.creds.registered) {
         } else return jid
     }
 
-    Hyuu.ev.on('contacts.update', update => {
+    ndaa.ev.on('contacts.update', update => {
         for (let contact of update) {
-            let id = Hyuu.decodeJid(contact.id)
+            let id = ndaa.decodeJid(contact.id)
             if (store && store.contacts) store.contacts[id] = {
                 id,
                 name: contact.notify
@@ -99,29 +99,29 @@ if(PairingCode && !Hyuu.authState.creds.registered) {
     })
     
     // WELCOME & LEAVE
-Hyuu.ev.on('group-participants.update', async (anu) => {
+ndaa.ev.on('group-participants.update', async (anu) => {
 console.log(anu)
 try {
-let metadata = await Hyuu.groupMetadata(anu.id)
+let metadata = await ndaa.groupMetadata(anu.id)
 let participants = anu.participants
-let nameUser = await Hyuu.getName(anu.id)
+let nameUser = await ndaa.getName(anu.id)
 const groupName = metadata.subject
 const groupDesc = metadata.desc
 let mem = metadata.participants.length
 for (let num of participants) {
 try {
-ppuser = await Hyuu.profilePictureUrl(anu.id, 'image')
+ppuser = await ndaa.profilePictureUrl(anu.id, 'image')
 } catch {
 ppuser = 'https://tinyurl.com/yx93l6da'
 }
 try {
-ppgroup = await Hyuu.profilePictureUrl(anu.id, 'image')
+ppgroup = await ndaa.profilePictureUrl(anu.id, 'image')
 } catch {
 ppgroup = 'https://tinyurl.com/yx93l6da'
 }
 if (anu.action == 'add') {
 let wel = `Hii @${num.split("@")[0]},\nWelcome To ${groupName}`
-Hyuu.sendMessage(anu.id, {
+ndaa.sendMessage(anu.id, {
                     document: fs.readFileSync('./media/doc.pdf'), 
                     jpegThumbnail: fs.readFileSync('./media/quoted.jpg'),
                     mimetype: 'application/pdf',
@@ -141,7 +141,7 @@ Hyuu.sendMessage(anu.id, {
                     }}})
 } else if (anu.action == 'remove') {
 let txtLeft = `GoodBye @${num.split("@")[0]} 👋\nLeaving From ${groupName}`
-Hyuu.sendMessage(anu.id, {
+ndaa.sendMessage(anu.id, {
                     document: fs.readFileSync('./media/doc.pdf'), 
                     jpegThumbnail: fs.readFileSync('./media/quoted.jpg'),
                     mimetype: 'application/pdf',
@@ -161,7 +161,7 @@ Hyuu.sendMessage(anu.id, {
                     }}})
 } else if (anu.action == 'promote') {
 let a = `Congratulations @${num.split("@")[0]}, on being promoted to admin of this group ${metadata.subject} 🎉`
-Hyuu.sendMessage(anu.id, {
+ndaa.sendMessage(anu.id, {
                     document: fs.readFileSync('./media/doc.pdf'), 
                     jpegThumbnail: fs.readFileSync('./media/quoted.jpg'),
                     mimetype: 'application/pdf',
@@ -181,7 +181,7 @@ Hyuu.sendMessage(anu.id, {
                     }}})
 } else if (anu.action == 'demote') {
 let a = `Congratulations @${num.split("@")[0]}, on being promoted to admin of this group ${metadata.subject} 🎉`
-Hyuu.sendMessage(anu.id, {
+ndaa.sendMessage(anu.id, {
                     document: fs.readFileSync('./media/doc.pdf'), 
                     jpegThumbnail: fs.readFileSync('./media/quoted.jpg'),
                     mimetype: 'application/pdf',
@@ -206,29 +206,29 @@ console.log("Eror Di Bagian Welcome Group "+err)
 }
 })
 
-    Hyuu.getName = (jid, withoutContact = false) => {
-        id = Hyuu.decodeJid(jid)
-        withoutContact = Hyuu.withoutContact || withoutContact
+    ndaa.getName = (jid, withoutContact = false) => {
+        id = ndaa.decodeJid(jid)
+        withoutContact = ndaa.withoutContact || withoutContact
         let v
         if (id.endsWith("@g.us")) return new Promise(async (resolve) => {
             v = store.contacts[id] || {}
-            if (!(v.name || v.subject)) v = Hyuu.groupMetadata(id) || {}
+            if (!(v.name || v.subject)) v = ndaa.groupMetadata(id) || {}
             resolve(v.name || v.subject || PhoneNumber('+' + id.replace('@s.whatsapp.net', '')).getNumber('international'))
         })
         else v = id === '0@s.whatsapp.net' ? {
                 id,
                 name: 'WhatsApp'
-            } : id === Hyuu.decodeJid(Hyuu.user.id) ?
-            Hyuu.user :
+            } : id === ndaa.decodeJid(ndaa.user.id) ?
+            ndaa.user :
             (store.contacts[id] || {})
         return (withoutContact ? '' : v.name) || v.subject || v.verifiedName || PhoneNumber('+' + jid.replace('@s.whatsapp.net', '')).getNumber('international')
     }
     
-    Hyuu.public = true
+    ndaa.public = true
 
-    Hyuu.serializeM = (m) => smsg(Hyuu, m, store)
+    ndaa.serializeM = (m) => smsg(ndaa, m, store)
 
-    Hyuu.ev.on('connection.update', async (update) => {
+    ndaa.ev.on('connection.update', async (update) => {
         const {
             connection,
             lastDisconnect
@@ -257,14 +257,14 @@ console.log("Eror Di Bagian Welcome Group "+err)
                 } else if (reason === DisconnectReason.timedOut) {
                     console.log("Connection TimedOut, Reconnecting...");
                     startMd();
-                } else Hyuu.end(`Unknown DisconnectReason: ${reason}|${connection}`)
+                } else ndaa.end(`Unknown DisconnectReason: ${reason}|${connection}`)
             }
             if (update.connection == "connecting" || update.receivedPendingNotifications == "false") {
                 console.log(`[Sedang mengkoneksikan]`)
             }
             if (update.connection == "open" || update.receivedPendingNotifications == "true") {
                 console.log(`[Connecting to] WhatsApp web`)
-                console.log(`[Connected] ` + JSON.stringify(Hyuu.user, null, 2))
+                console.log(`[Connected] ` + JSON.stringify(ndaa.user, null, 2))
             }
 
         } catch (err) {
@@ -274,23 +274,23 @@ console.log("Eror Di Bagian Welcome Group "+err)
 
     })
 
-    Hyuu.ev.on('creds.update', saveCreds)
+    ndaa.ev.on('creds.update', saveCreds)
 
-    Hyuu.sendText = (jid, text, quoted = '', options) => Hyuu.sendMessage(jid, {
+    ndaa.sendText = (jid, text, quoted = '', options) => ndaa.sendMessage(jid, {
         text: text,
         ...options
     }, {
         quoted,
         ...options
     })
-    Hyuu.sendTextWithMentions = async (jid, text, quoted, options = {}) => Hyuu.sendMessage(jid, {
+    ndaa.sendTextWithMentions = async (jid, text, quoted, options = {}) => ndaa.sendMessage(jid, {
         text: text,
         mentions: [...text.matchAll(/@(\d{0,16})/g)].map(v => v[1] + '@s.whatsapp.net'),
         ...options
     }, {
         quoted
     })
-    Hyuu.sendImageAsSticker = async (jid, path, quoted, options = {}) => {
+    ndaa.sendImageAsSticker = async (jid, path, quoted, options = {}) => {
         let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,` [1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
         let buffer
         if (options && (options.packname || options.author)) {
@@ -299,7 +299,7 @@ console.log("Eror Di Bagian Welcome Group "+err)
             buffer = await imageToWebp(buff)
         }
 
-        await Hyuu.sendMessage(jid, {
+        await ndaa.sendMessage(jid, {
             sticker: {
                 url: buffer
             },
@@ -309,7 +309,7 @@ console.log("Eror Di Bagian Welcome Group "+err)
         })
         return buffer
     }
-    Hyuu.sendVideoAsSticker = async (jid, path, quoted, options = {}) => {
+    ndaa.sendVideoAsSticker = async (jid, path, quoted, options = {}) => {
         let buff = Buffer.isBuffer(path) ? path : /^data:.*?\/.*?;base64,/i.test(path) ? Buffer.from(path.split`,` [1], 'base64') : /^https?:\/\//.test(path) ? await (await getBuffer(path)) : fs.existsSync(path) ? fs.readFileSync(path) : Buffer.alloc(0)
         let buffer
         if (options && (options.packname || options.author)) {
@@ -318,7 +318,7 @@ console.log("Eror Di Bagian Welcome Group "+err)
             buffer = await videoToWebp(buff)
         }
 
-        await Hyuu.sendMessage(jid, {
+        await ndaa.sendMessage(jid, {
             sticker: {
                 url: buffer
             },
@@ -328,7 +328,7 @@ console.log("Eror Di Bagian Welcome Group "+err)
         })
         return buffer
     }
-    Hyuu.downloadAndSaveMediaMessage = async (message, filename, attachExtension = true) => {
+    ndaa.downloadAndSaveMediaMessage = async (message, filename, attachExtension = true) => {
         let quoted = message.msg ? message.msg : message
         let mime = (message.msg || message).mimetype || ''
         let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0]
@@ -344,7 +344,7 @@ console.log("Eror Di Bagian Welcome Group "+err)
         return trueFileName
     }
 
-    Hyuu.downloadMediaMessage = async (message) => {
+    ndaa.downloadMediaMessage = async (message) => {
         let mime = (message.msg || message).mimetype || ''
         let messageType = message.mtype ? message.mtype.replace(/Message/gi, '') : mime.split('/')[0]
         const stream = await downloadContentFromMessage(message, messageType)
@@ -355,7 +355,7 @@ console.log("Eror Di Bagian Welcome Group "+err)
 
         return buffer
     }
-    return Hyuu
+    return ndaa
 }
 
 startMd()
