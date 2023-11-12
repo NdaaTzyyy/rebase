@@ -1069,8 +1069,8 @@ break
                 break
             case 'cekapikey':
                 if (!isCreator) return newReply(mess.owner)
-                let q = await fetchJson(`https://api.lolhuman.xyz/api/checkapikey?apikey=${lol}`)
-                newReply(q.result)
+                let urll = await fetchJson(`https://api.lolhuman.xyz/api/checkapikey?apikey=${lol}`)
+                newReply(urll.result)
                 break
             case 'ambilsesi':
             case 'getsesi':
