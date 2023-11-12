@@ -302,6 +302,9 @@ function generateRandomPassword() {
                 quoted: ftroli
             });
         };
+        async function reply(teks) {
+            ndaa.sendMessage(m.chat, { text: teks }, { quoted: m })
+        }
         /* ~~~~~~~~~ ALL SYSTEM BOT ~~~~~~~~~ */
         if (!ndaa.public) {
             if (!isCreator && !m.key.fromMe) return
