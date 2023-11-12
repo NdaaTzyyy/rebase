@@ -249,7 +249,7 @@ var aurelmandaa = [
 let { key } = await ndaa.sendMessage(m.chat, {text: 'ʟᴏᴀᴅɪɴɢ...'})//Pengalih isu
 
 for (let i = 0; i < aurelmandaa.length; i++) {
-await delay(10)
+//await delay(10)
 await ndaa.sendMessage(m.chat, {text: aurelmandaa[i], edit: key });//PESAN LEPAS
 }
 }
