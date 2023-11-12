@@ -3819,7 +3819,7 @@ ndaa.sendMessage(m.chat, { image: { url: x.result.thumbnail }, caption: txt }, {
 }
 break
             case 'ytmp4': {
-                if (!q) return newReply('where is the link')
+                if (!quoted) return newReply('where is the link')
                 let data = await fetchJson(`https://api.lolhuman.xyz/api/ytvideo?apikey=${lol}&url=${q}`)
                 let txt = `\`\`\`YOUTUBE MP4\`\`\`\n\n`
                 txt += `• Title : *${data.result.title}*\n`
@@ -3852,7 +3852,7 @@ break
                 }
                 break
             case 'ytmp3': {
-                if (!q) return newReply('where is the link')
+                if (!quoted) return newReply('where is the link')
                 let data = await fetchJson(`https://api.lolhuman.xyz/api/ytaudio?apikey=${lol}&url=${q}`)
                 let mono = '```'
                 let txtt = `\`\`\`YOUTUBE MP3\`\`\`\n\n`

@@ -2,6 +2,8 @@ const {
    spawn
 } = require('child_process')
 const path = require('path')
+var FfmpegCommand = require('fluent-ffmpeg');
+var command = new FfmpegCommand();
 
 function start() {
    let args = [path.join(__dirname, 'main.js'), ...process.argv.slice(2)]
