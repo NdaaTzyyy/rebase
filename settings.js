@@ -27,7 +27,7 @@ global.typemenu = 'v2'
 // 'v4' Document Pdf!
 // 'v5' CallVideo!
 // 'v6' Store!
-global.autoread = true // ReadChat
+global.autoread = false // ReadChat
 global.autobio = true // AutoBio
 global.autoblok212 = true // AutoBlock Nomer +212
 global.onlyindo = false  // AutoBlock Selain Nomer Indo
