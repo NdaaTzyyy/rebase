@@ -240,11 +240,7 @@ module.exports = ndaa = async (ndaa, m, msg, chatUpdate, store) => {
         //=================================================
 async function loading () {
 var aurelmandaa = [
-"_Loading To Menu Botz_",
-"_Base Script : Adrian_",
-"_Provider Api : Caliph - LolHuman_",
-"_Fix All Fitur : Ndaa_",
-"_Buy Script Chat Owner_",
+"_Buy Script Chat Owner!_",
 ]
 let { key } = await ndaa.sendMessage(m.chat, {text: 'ʟᴏᴀᴅɪɴɢ...'})//Pengalih isu
 
